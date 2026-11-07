@@ -45,5 +45,5 @@ Build settings (set by hand in the Cloudflare dashboard):
 ## Git identity
 
 Commits in this workspace use the identity from `.gitconfig` in the workspace
-root (also inherited automatically from the parent `DS-GitHub/` include rule).
+root, activated by a dedicated `includeIf` rule in `~/.gitconfig`.
 Remote is SSH: `git@github.com:mjddawangph-dotcom/sugs-property-services.git`.
