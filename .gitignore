@@ -1,0 +1,26 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*
+.netrc
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+dist/
+.cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Cloudflare (managed manually in the dashboard, not in-repo)
+.wrangler/
