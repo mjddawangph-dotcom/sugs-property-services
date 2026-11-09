@@ -505,88 +505,24 @@
     updateControls(0, false);
   }
 
-  function initializeQuoteForm() {
+  function initializeFormspree() {
     const form = document.querySelector("#quote-form");
-    const status = document.querySelector("#form-status");
 
-    if (!form || !status) {
+    if (!form || typeof window.formspree !== "function") {
       return;
     }
 
-    const submitButton = form.querySelector('button[type="submit"]');
+    const match = form.action.match(/\/f\/([^/]+)/);
+    const formId = match ? match[1] : "";
 
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
+    if (!formId || formId === "YOUR_FORM_ID") {
+      return;
+    }
 
-      // Never POST to the example endpoint; keep the entered data intact.
-      if (form.action.includes("YOUR_FORM_ID")) {
-        setStatus(
-          status,
-          "The quote form isn't connected yet. Please call us at 909-582-6445 while setup is completed.",
-          "error"
-        );
-        status.focus();
-        return;
-      }
-
-      const payload = new URLSearchParams(new FormData(form));
-
-      if (submitButton) {
-        submitButton.disabled = true;
-      }
-
-      setStatus(status, "Sending your request...");
-
-      try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: payload,
-          headers: { Accept: "application/json" }
-        });
-
-        if (!response.ok) {
-          let detail = "";
-
-          try {
-            const data = await response.json();
-            detail =
-              (data.errors || [])
-                .map((entry) => entry.message)
-                .filter(Boolean)
-                .join(" ") ||
-              data.error ||
-              "";
-          } catch {
-            // A non-JSON error response still falls back to the status code.
-          }
-
-          throw new Error(detail || `Form submission failed (${response.status})`);
-        }
-
-        form.reset();
-        setStatus(
-          status,
-          "Thanks! Your request was sent. We'll follow up with you.",
-          "success"
-        );
-      } catch (error) {
-        console.error("Quote form submission failed:", error);
-        const networkFailure = error instanceof TypeError;
-
-        setStatus(
-          status,
-          networkFailure
-            ? "Sorry, we couldn't reach the form service. Please call us at 909-582-6445 or email sugspropertyservices@gmail.com, or try again in a moment."
-            : "Sorry, your request couldn't be sent. Please call us at 909-582-6445 or email sugspropertyservices@gmail.com.",
-          "error"
-        );
-      } finally {
-        if (submitButton) {
-          submitButton.disabled = false;
-        }
-
-        status.focus();
-      }
+    window.formspree("initForm", {
+      formElement: "#quote-form",
+      formId,
+      useDefaultStyles: false
     });
   }
 
@@ -595,5 +531,5 @@
   initializeMobileMenu();
   initializeAreaModal();
   initializeCarousel();
-  initializeQuoteForm();
+  initializeFormspree();
 })();

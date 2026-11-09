@@ -801,7 +801,9 @@ input[type="file"]::file-selector-button {
   margin: 7px 0 0;
 }
 
-input[aria-invalid="true"] {
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
   border-color: var(--error);
 }
 
@@ -815,7 +817,22 @@ input[aria-invalid="true"] {
   font-size: 0.9rem;
 }
 
-.form-status:empty,
+.form-status {
+  display: none;
+}
+
+.form-status[data-fs-active] {
+  display: block;
+}
+
+.form-status[data-fs-success] {
+  color: var(--forest);
+}
+
+.form-status[data-fs-error] {
+  color: var(--error);
+}
+
 .area-result:empty {
   display: none;
 }

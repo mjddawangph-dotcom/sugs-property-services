@@ -23,6 +23,12 @@
   >
 
   <link rel="stylesheet" href="style.css">
+  <script>
+    window.formspree = window.formspree || function () {
+      (formspree.q = formspree.q || []).push(arguments);
+    };
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   <script src="script.js" defer></script>
 </head>
 
@@ -537,17 +543,17 @@
           <div class="form-grid">
             <div class="field">
               <label for="name">Name *</label>
-              <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required>
+              <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required data-fs-field>
             </div>
 
             <div class="field">
               <label for="phone">Phone *</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" required>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" required data-fs-field>
             </div>
 
             <div class="field field-full">
               <label for="email">Email *</label>
-              <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
+              <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required data-fs-field>
             </div>
 
             <div class="field field-full">
@@ -560,12 +566,13 @@
                 placeholder="Street, city, state, ZIP"
                 maxlength="300"
                 required
+                data-fs-field
               >
             </div>
 
             <div class="field field-full">
               <label for="service">Service needed *</label>
-              <select id="service" name="service" required>
+              <select id="service" name="service" required data-fs-field>
                 <option value="" disabled selected>Choose a service</option>
                 <option>Lawn Care &amp; Maintenance</option>
                 <option>Weed Treatment</option>
@@ -586,6 +593,7 @@
                 rows="4"
                 maxlength="3000"
                 placeholder="Yard size, current condition, access, or preferred timing..."
+                data-fs-field
               ></textarea>
             </div>
           </div>
@@ -595,21 +603,29 @@
             about this request. Your details are processed through Formspree.
           </p>
 
-          <button class="button form-submit" type="submit">Request my quote</button>
+          <button class="button form-submit" type="submit" data-fs-submit-btn>Request my quote</button>
 
           <p
-            id="form-status"
             class="form-status"
+            data-fs-success
             role="status"
             aria-live="polite"
             aria-atomic="true"
-            tabindex="-1"
+          >
+            Thanks! Your request was sent. We'll follow up with you.
+          </p>
+
+          <p
+            class="form-status"
+            data-fs-error
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
           ></p>
 
           <noscript>
             <p class="small-note">
               This form submits directly to Formspree without JavaScript.
-              The owner must configure the endpoint before it can receive requests.
             </p>
           </noscript>
         </form>

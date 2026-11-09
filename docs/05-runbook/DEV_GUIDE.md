@@ -247,16 +247,19 @@ In Formspree:
 
 The HTML endpoint does not itself configure the recipient email.
 
-The form uses:
-- method="POST"
-- URL-encoded form data (URLSearchParams) for AJAX submission
-- Accept: application/json
+The form uses the official `@formspree/ajax` CDN bundle (`@formspree/ajax@1`)
+from unpkg. It is initialized in script.js with the form ID extracted from the
+form action.
 
-Do not manually set the Content-Type header; the browser sends
-application/x-www-form-urlencoded for the URLSearchParams body.
+The integration uses:
+- `data-fs-field` on inputs for field-level invalid state
+- `data-fs-submit-btn` on the submit button
+- `data-fs-success` and `data-fs-error` for form-level messages
+- `useDefaultStyles: false`, with styles in style.css
 
-The frontend deliberately blocks submissions while YOUR_FORM_ID is present.
-An error leaves the entered data intact. Success resets the form.
+The native form action and method remain in place as a no-JavaScript fallback.
+The AJAX initializer is skipped while `YOUR_FORM_ID` remains. Success resets the
+form; field values are left intact on an error.
 
 Without JavaScript, the native HTML POST remains available after endpoint setup.
 
