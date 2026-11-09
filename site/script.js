@@ -1,360 +1,513 @@
 "use strict";
 
-/*
- * Sug's Property Services
- * No dependencies, analytics, cookies, ZIP persistence, or network submissions.
- *
- * DEEPSEEK_EDIT markers identify intended customization points.
- */
 (() => {
-  // DEEPSEEK_EDIT: Service ZIP Allowlist
-  // Preliminary example coverage, NOT a geospatial radius calculation.
-  // Strings preserve ZIP formatting. Excludes PO-box-only/unique ZIPs.
-  // Owner must approve actual travel coverage before launch.
-  const SERVICE_ZIPS = Object.freeze([
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /*
+   * EDIT: Allowed ZIP Codes
+   *
+   * SAMPLE screening list only.
+   * Gustavo must approve actual coverage before launch.
+   * Selected entries do NOT represent complete county coverage.
+   */
+  const ALLOWED_ZIPS = new Set([
     // Victorville
-    "92392", "92394", "92395",
+    "92392",
+    "92394",
+    "92395",
 
     // Hesperia
-    "92344", "92345",
+    "92344",
+    "92345",
 
     // Apple Valley
-    "92307", "92308",
+    "92307",
+    "92308",
 
-    // Rancho Cucamonga
-    "91701", "91730", "91737", "91739",
+    // Rancho Cucamonga — confirm travel/service availability
+    "91701",
+    "91730",
+    "91737",
+    "91739",
 
-    // Riverside: selected residential ZIPs
-    "92501", "92503", "92504", "92505", "92506", "92507", "92508",
+    // Additional sample San Bernardino County locations
+    "92404",
+    "92407",
+    "92376",
 
-    // San Bernardino: selected residential ZIPs
-    "92401", "92404", "92405", "92407", "92408", "92410", "92411"
+    // Sample Riverside County locations
+    "92501",
+    "92503",
+    "92504",
+    "92505",
+    "92509",
+    "92551",
+    "92553",
+    "92880"
   ]);
 
-  const serviceZipSet = new Set(SERVICE_ZIPS);
-  const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  /* EDIT: Upload Limits — synchronize HTML help text if changing */
+  const UPLOAD_LIMITS = {
+    maxFiles: 5,
+    maxBytesPerFile: 5 * 1024 * 1024,
+    allowedTypes: new Set([
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ])
+  };
 
-  /*
-   * DEEPSEEK_EDIT: ZIP Validation Logic
-   * Results:
-   *   malformed = not exactly five ASCII digits
-   *   inside    = well-formed ZIP in the approved allowlist
-   *   outside   = well-formed ZIP absent from the allowlist
-   *
-   * "outside" does not establish distance or actual address eligibility.
-   * Pure function: no storage, DOM writes, or network activity.
-   */
-  function checkServiceZip(rawZip) {
-    const zip = String(rawZip ?? "").trim();
+  function setStatus(element, message, state = "") {
+    element.textContent = message;
 
-    if (!/^\d{5}$/.test(zip)) {
-      return { status: "malformed", zip };
-    }
-
-    return {
-      status: serviceZipSet.has(zip) ? "inside" : "outside",
-      zip
-    };
-  }
-
-  function updateCopyrightYear() {
-    const yearElement = document.getElementById("copyright-year");
-
-    if (yearElement) {
-      yearElement.textContent = String(new Date().getFullYear());
+    if (state) {
+      element.dataset.state = state;
+    } else {
+      delete element.dataset.state;
     }
   }
 
-  /*
-   * DEEPSEEK_EDIT: Scroll Animation Controller
-   * Observe each [data-reveal] element once.
-   * Remove reveal-pending on intersection, then unobserve.
-   * Fail open: unsupported observer or initialization error leaves content visible.
-   * Keyboard navigation also reveals a focused element's containing block.
-   */
-  function initializeScrollReveals() {
-    const elements = Array.from(document.querySelectorAll("[data-reveal]"));
+  function initializeYear() {
+    const year = document.querySelector("#year");
+
+    if (year) {
+      year.textContent = String(new Date().getFullYear());
+    }
+  }
+
+  function initializeReveals() {
+    const elements = [...document.querySelectorAll("[data-reveal]")];
 
     if (
-      !elements.length ||
-      motionPreference.matches ||
+      reducedMotion.matches ||
       !("IntersectionObserver" in window)
     ) {
       return;
     }
 
-    let observer;
-
-    const reveal = (element) => {
-      element.classList.remove("reveal-pending");
-      observer?.unobserve(element);
-    };
-
-    const revealAll = () => {
-      observer?.disconnect();
-      elements.forEach((element) => {
-        element.classList.remove("reveal-pending");
-      });
-    };
-
-    try {
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              reveal(entry.target);
-            }
-          });
-        },
-        {
-          root: null,
-          threshold: 0.08,
-          rootMargin: "0px 0px -24px 0px"
-        }
-      );
-
-      elements.forEach((element) => {
-        observer.observe(element);
-        element.classList.add("reveal-pending");
-      });
-
-      document.addEventListener("focusin", (event) => {
-        if (!(event.target instanceof Element)) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
           return;
         }
 
-        const container = event.target.closest("[data-reveal]");
-
-        if (container) {
-          reveal(container);
-        }
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
       });
+    }, {
+      threshold: 0.08
+    });
 
-      // Respond if the user enables reduced motion during the visit.
-      const handleMotionChange = (event) => {
-        if (event.matches) {
-          revealAll();
-        }
-      };
-
-      if (typeof motionPreference.addEventListener === "function") {
-        motionPreference.addEventListener("change", handleMotionChange);
-      } else if (typeof motionPreference.addListener === "function") {
-        motionPreference.addListener(handleMotionChange);
+    elements.forEach((element) => {
+      // Keep immediately visible content visible, including the hero.
+      if (element.getBoundingClientRect().top < window.innerHeight) {
+        return;
       }
-    } catch (error) {
-      revealAll();
-      console.warn("Scroll reveals disabled; content remains visible.", error);
-    }
+
+      element.classList.add("reveal-ready");
+      observer.observe(element);
+    });
   }
 
-  /*
-   * DEEPSEEK_EDIT: Service-Area Modal Controller
-   *
-   * Native showModal() supplies modal semantics, background inertness,
-   * and focus containment. Escape is routed through the smooth-close path.
-   *
-   * The outside-area popup uses a second view inside the same dialog,
-   * avoiding stacked dialogs and disruptive window.alert() calls.
-   */
-  function initializeAreaDialog() {
-    const dialog = document.getElementById("area-dialog");
-    const form = document.getElementById("zip-form");
-    const zipInput = document.getElementById("zip-code");
-    const errorElement = document.getElementById("zip-error");
-    const checkView = document.getElementById("zip-check-view");
-    const outsideView = document.getElementById("zip-outside-view");
-    const outsideDismiss = document.getElementById("outside-dismiss");
-    const statusBanner = document.getElementById("area-status");
-    const primaryCta = document.getElementById("primary-cta");
-    const reopenButtons = document.querySelectorAll("[data-open-area]");
-    const closeButtons = document.querySelectorAll("[data-close-area]");
+  function initializeAreaModal() {
+    const modal = document.querySelector("#area-modal");
+    const form = document.querySelector("#area-form");
+    const input = document.querySelector("#area-address");
+    const result = document.querySelector("#area-result");
+    const skipButton = document.querySelector("#skip-area");
+    const closeButton = document.querySelector("#close-area");
+    const openButton = document.querySelector("#open-area");
+    const storageKey = "sugs-area-dismissed";
 
-    if (
-      !dialog ||
-      !form ||
-      !zipInput ||
-      !errorElement ||
-      !checkView ||
-      !outsideView ||
-      !outsideDismiss ||
-      !statusBanner ||
-      typeof dialog.showModal !== "function"
-    ) {
-      // Unsupported browsers can browse and call without a blocking overlay.
+    if (!modal || !form || !input || !result) {
       return;
     }
 
-    let closing = false;
-    let closeTimer = null;
-    let closeCompletion = null;
-    let returnFocusTarget = primaryCta;
-
-    // Read the CSS close duration so animation timing has one source of truth.
-    function getCloseDelay() {
-      if (motionPreference.matches) {
-        return 0;
-      }
-
-      const raw = getComputedStyle(dialog)
-        .getPropertyValue("--motion-short")
-        .trim();
-      const amount = Number.parseFloat(raw);
-
-      if (!Number.isFinite(amount)) {
-        return 180;
-      }
-
-      return raw.endsWith("ms") ? amount : amount * 1000;
+    // Keep the rest of the site usable in browsers without native dialog.
+    if (typeof modal.showModal !== "function") {
+      openButton.hidden = true;
+      return;
     }
 
-    function clearError() {
-      errorElement.textContent = "";
-      zipInput.removeAttribute("aria-invalid");
-    }
+    let previousFocus = null;
 
-    function resetCheckView() {
-      checkView.hidden = false;
-      outsideView.hidden = true;
-      dialog.setAttribute("aria-labelledby", "area-dialog-title");
-      dialog.setAttribute("aria-describedby", "area-dialog-description");
-      clearError();
-    }
-
-    function openDialog(trigger = primaryCta) {
-      if (dialog.open || closing) {
-        return;
-      }
-
-      resetCheckView();
-      form.reset();
-      returnFocusTarget = trigger;
-      dialog.classList.remove("is-closing");
-
+    function readDismissalFlag() {
       try {
-        dialog.showModal();
-        document.body.classList.add("modal-open");
-        zipInput.focus({ preventScroll: true });
-      } catch (error) {
-        document.body.classList.remove("modal-open");
-        console.warn("ZIP dialog unavailable; browsing remains enabled.", error);
+        return sessionStorage.getItem(storageKey) === "1";
+      } catch {
+        return false;
       }
     }
 
-    function closeDialog(afterClose = null) {
-      if (!dialog.open || closing) {
+    function saveDismissalFlag() {
+      try {
+        sessionStorage.setItem(storageKey, "1");
+      } catch {
+        // Private/restricted storage must not break browsing.
+      }
+    }
+
+    function openModal() {
+      if (modal.open) {
         return;
       }
 
-      closing = true;
-      closeCompletion = afterClose;
-      dialog.classList.add("is-closing");
+      previousFocus = document.activeElement;
+      form.reset();
+      input.removeAttribute("aria-invalid");
+      setStatus(result, "");
+      skipButton.textContent = "Skip";
 
-      const finish = () => {
-        closeTimer = null;
+      modal.showModal();
+      document.body.classList.add("modal-open");
 
-        if (dialog.open) {
-          dialog.close();
-        }
-      };
+      // Avoid immediately raising a mobile keyboard on first arrival.
+      skipButton.focus();
+    }
 
-      const delay = getCloseDelay();
-
-      if (delay === 0) {
-        finish();
-      } else {
-        // Guaranteed completion even if transitionend does not fire.
-        closeTimer = window.setTimeout(finish, delay + 30);
+    function closeModal() {
+      if (modal.open) {
+        modal.close();
       }
     }
 
-    dialog.addEventListener("close", () => {
-      if (closeTimer !== null) {
-        window.clearTimeout(closeTimer);
-        closeTimer = null;
-      }
+    /*
+     * Require a trailing ZIP to avoid confusing a five-digit street number
+     * with the destination ZIP. Supports ZIP+4 and an optional US suffix.
+     * This is ZIP screening, not geocoding or address validation.
+     */
+    function extractZip(address) {
+      const match = address.trim().match(
+        /(?:^|[\s,])(\d{5})(?:-\d{4})?(?:\s*,?\s*(?:USA|US|United States))?\s*$/i
+      );
 
-      document.body.classList.remove("modal-open");
-      dialog.classList.remove("is-closing");
-      closing = false;
-
-      if (
-        returnFocusTarget instanceof HTMLElement &&
-        returnFocusTarget.isConnected
-      ) {
-        returnFocusTarget.focus({ preventScroll: true });
-      }
-
-      const completion = closeCompletion;
-      closeCompletion = null;
-
-      if (typeof completion === "function") {
-        completion();
-      }
-    });
-
-    dialog.addEventListener("cancel", (event) => {
-      // Escape acts like Skip / Continue Browsing, with the same cleanup.
-      event.preventDefault();
-      closeDialog();
-    });
-
-    closeButtons.forEach((button) => {
-      button.addEventListener("click", () => closeDialog());
-    });
-
-    reopenButtons.forEach((button) => {
-      button.hidden = false;
-      button.addEventListener("click", () => openDialog(button));
-    });
-
-    zipInput.addEventListener("input", clearError);
+      return match ? match[1] : null;
+    }
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      if (closing) {
+      const zip = extractZip(input.value);
+
+      if (!zip) {
+        input.setAttribute("aria-invalid", "true");
+        setStatus(
+          result,
+          "Please include a five-digit ZIP code at the end of your address, or enter just your ZIP.",
+          "error"
+        );
+        input.focus();
         return;
       }
 
-      const result = checkServiceZip(zipInput.value);
+      input.removeAttribute("aria-invalid");
 
-      if (result.status === "malformed") {
-        zipInput.setAttribute("aria-invalid", "true");
-        errorElement.textContent = "Please enter a valid five-digit ZIP code.";
-        zipInput.focus({ preventScroll: true });
-        return;
+      if (ALLOWED_ZIPS.has(zip)) {
+        setStatus(
+          result,
+          "Great news! We service your area.",
+          "success"
+        );
+      } else {
+        setStatus(
+          result,
+          "We currently don't service your area, but feel free to browse.",
+          "error"
+        );
       }
 
-      clearError();
-
-      // Clear stale success information when a new valid-format ZIP is checked.
-      statusBanner.textContent = "";
-
-      if (result.status === "inside") {
-        closeDialog(() => {
-          // textContent prevents inserted markup from becoming executable.
-          statusBanner.textContent =
-            `We service your area! ZIP ${result.zip} is on our service list. ` +
-            "Call Gustavo to confirm scheduling and your exact address.";
-        });
-        return;
-      }
-
-      checkView.hidden = true;
-      outsideView.hidden = false;
-      dialog.setAttribute("aria-labelledby", "outside-title");
-      dialog.setAttribute("aria-describedby", "outside-description");
-      dialog.scrollTop = 0;
-      outsideDismiss.focus({ preventScroll: true });
+      skipButton.textContent = "Continue to site";
     });
 
-    // Show on each full page load, as requested. No persistence is used.
-    openDialog(primaryCta);
+    input.addEventListener("input", () => {
+      input.removeAttribute("aria-invalid");
+      setStatus(result, "");
+      skipButton.textContent = "Skip";
+    });
+
+    skipButton.addEventListener("click", closeModal);
+    closeButton.addEventListener("click", closeModal);
+    openButton.addEventListener("click", openModal);
+
+    // Let Escape trigger the browser's native dialog cancellation.
+    modal.addEventListener("close", () => {
+      document.body.classList.remove("modal-open");
+      saveDismissalFlag();
+
+      if (
+        previousFocus instanceof HTMLElement &&
+        previousFocus !== document.body &&
+        previousFocus.isConnected
+      ) {
+        previousFocus.focus({ preventScroll: true });
+      }
+    });
+
+    if (!readDismissalFlag()) {
+      openModal();
+    }
   }
 
-  // Separate initialization paths prevent a modal issue from hiding page content.
-  updateCopyrightYear();
-  initializeScrollReveals();
-  initializeAreaDialog();
+  function initializeCarousel() {
+    const carousel = document.querySelector("[data-carousel]");
+
+    if (!carousel) {
+      return;
+    }
+
+    const track = carousel.querySelector(".carousel-track");
+    const slides = [...track.querySelectorAll(".slide")];
+    const controls = carousel.querySelector(".carousel-controls");
+    const previousButton = carousel.querySelector("[data-prev]");
+    const nextButton = carousel.querySelector("[data-next]");
+    const dotsContainer = carousel.querySelector(".carousel-dots");
+    const status = carousel.querySelector("[data-slide-status]");
+
+    if (slides.length === 0) {
+      carousel.hidden = true;
+      return;
+    }
+
+    let currentIndex = 0;
+    let scrollFrame = null;
+
+    slides.forEach((slide, index) => {
+      slide.setAttribute("role", "group");
+      slide.setAttribute("aria-roledescription", "slide");
+      slide.setAttribute("aria-label", `${index + 1} of ${slides.length}`);
+    });
+
+    // Dots are generated from HTML slides; no separate image array needed.
+    const dots = slides.map((slide, index) => {
+      const dot = document.createElement("button");
+
+      dot.type = "button";
+      dot.className = "carousel-dot";
+      dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
+      dot.setAttribute("aria-controls", "carousel-track");
+
+      dot.addEventListener("click", () => {
+        goToSlide(index);
+      });
+
+      dotsContainer.append(dot);
+      return dot;
+    });
+
+    function updateControls(index, announce = true) {
+      const changed = currentIndex !== index;
+      currentIndex = index;
+
+      dots.forEach((dot, dotIndex) => {
+        if (dotIndex === index) {
+          dot.setAttribute("aria-current", "true");
+        } else {
+          dot.removeAttribute("aria-current");
+        }
+      });
+
+      previousButton.disabled = index === 0;
+      nextButton.disabled = index === slides.length - 1;
+
+      if (announce && changed) {
+        status.textContent = `Slide ${index + 1} of ${slides.length}`;
+      }
+    }
+
+    function nearestSlideIndex() {
+      const trackLeft = track.getBoundingClientRect().left;
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      slides.forEach((slide, index) => {
+        const distance = Math.abs(
+          slide.getBoundingClientRect().left - trackLeft
+        );
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      return closestIndex;
+    }
+
+    function goToSlide(index) {
+      const targetIndex = Math.max(0, Math.min(index, slides.length - 1));
+      const slide = slides[targetIndex];
+      const left =
+        slide.getBoundingClientRect().left -
+        track.getBoundingClientRect().left +
+        track.scrollLeft;
+
+      track.scrollTo({
+        left,
+        behavior: reducedMotion.matches ? "auto" : "smooth"
+      });
+
+      updateControls(targetIndex);
+    }
+
+    function handleTrackScroll() {
+      if (scrollFrame !== null) {
+        return;
+      }
+
+      scrollFrame = window.requestAnimationFrame(() => {
+        scrollFrame = null;
+        updateControls(nearestSlideIndex(), false);
+      });
+    }
+
+    previousButton.addEventListener("click", () => {
+      goToSlide(currentIndex - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+      goToSlide(currentIndex + 1);
+    });
+
+    track.addEventListener("scroll", handleTrackScroll, { passive: true });
+
+    track.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        goToSlide(currentIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        goToSlide(currentIndex + 1);
+      }
+    });
+
+    // Controls are unnecessary when there is only one slide.
+    controls.hidden = slides.length < 2;
+    updateControls(0, false);
+  }
+
+  function initializeQuoteForm() {
+    const form = document.querySelector("#quote-form");
+    const status = document.querySelector("#form-status");
+    const photos = document.querySelector("#photos");
+    const photoStatus = document.querySelector("#photo-status");
+
+    if (!form || !status || !photos || !photoStatus) {
+      return;
+    }
+
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    function validatePhotos() {
+      const files = [...photos.files];
+
+      if (files.length > UPLOAD_LIMITS.maxFiles) {
+        setStatus(
+          photoStatus,
+          `Please choose no more than ${UPLOAD_LIMITS.maxFiles} photos.`,
+          "error"
+        );
+        return false;
+      }
+
+      const unsupported = files.find(
+        (file) => !UPLOAD_LIMITS.allowedTypes.has(file.type)
+      );
+
+      if (unsupported) {
+        setStatus(
+          photoStatus,
+          "Please use JPEG, PNG, or WebP images.",
+          "error"
+        );
+        return false;
+      }
+
+      const oversized = files.find(
+        (file) => file.size > UPLOAD_LIMITS.maxBytesPerFile
+      );
+
+      if (oversized) {
+        const maxMegabytes = UPLOAD_LIMITS.maxBytesPerFile / (1024 * 1024);
+
+        setStatus(
+          photoStatus,
+          `Each photo must be ${maxMegabytes} MB or smaller.`,
+          "error"
+        );
+        return false;
+      }
+
+      setStatus(photoStatus, "");
+      return true;
+    }
+
+    photos.addEventListener("change", validatePhotos);
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!validatePhotos()) {
+        photos.focus();
+        return;
+      }
+
+      // Never POST to the example endpoint; keep the entered data intact.
+      if (form.action.includes("YOUR_FORM_ID")) {
+        setStatus(
+          status,
+          "The quote form isn't connected yet. Please call Gustavo at 909-582-6445 while setup is completed.",
+          "error"
+        );
+        status.focus();
+        return;
+      }
+
+      const formData = new FormData(form);
+
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+
+      setStatus(status, "Sending your request...");
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+
+        if (!response.ok) {
+          throw new Error(`Form submission failed: ${response.status}`);
+        }
+
+        form.reset();
+        setStatus(photoStatus, "");
+        setStatus(
+          status,
+          "Thanks! Your request was sent. Gustavo will follow up with you.",
+          "success"
+        );
+      } catch (error) {
+        console.error(error);
+        setStatus(
+          status,
+          "Sorry, your request couldn't be sent. Please call or email Gustavo directly.",
+          "error"
+        );
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+
+        status.focus();
+      }
+    });
+  }
+
+  initializeYear();
+  initializeReveals();
+  initializeAreaModal();
+  initializeCarousel();
+  initializeQuoteForm();
 })();

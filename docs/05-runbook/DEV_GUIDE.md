@@ -1,262 +1,331 @@
-# Sug's Property Services — Developer / DeepSeek Harness Guide
-
-## 1. Purpose and ownership
-
-This repository supports the marketing and operations of Sug's Property Services.
-
-Business owner: Gustavo Lopez
-Phone: 909-582-6445
-Email: guslopez370@gmail.com
-Base: Victorville, California
-Hours: 7:00 AM–7:00 PM, seven days per week
+# Sug's Property Services — Website Handoff
 
-The landing page is an owner-operated property-maintenance website:
-professional, direct, neighborly, reliable, and fairly priced.
+A single-page, responsive website built with vanilla HTML, CSS, and JavaScript.
+No build tools, JavaScript frameworks, or animation libraries are required.
 
-Business source of truth:
-`docs/00-business-plan/foundation.md`
-
-Do not rewrite that foundation file as a side effect of website edits.
+## File structure
 
-The business is service-area based. Do not publish the residential street
-address, directions to it, or a walk-in-office claim without explicit owner
-approval. Public contact details currently show Victorville, CA 92392.
-
-## 2. Repository and deployment boundaries
-
-Relevant structure:
-
-    sugs-property-services/
-    ├── README.md
-    ├── docs/
-    │   ├── 00-business-plan/foundation.md
-    │   └── 05-runbook/DEV_GUIDE.md
-    ├── site/
-    │   ├── index.html
-    │   ├── styles.css
-    │   ├── script.js
-    │   └── assets/              # create when adding deployable media
-    │       ├── brand/
-    │       └── media/
-    ├── assets/
-    │   ├── brand/               # source originals; not published
-    │   └── media/               # source originals; not published
-    └── automations/
-
-Only `site/` is deployed.
-
-Do not use `../assets/...` in HTML: the repository-level assets directory
-does not exist in the published website.
-
-Never move private docs, credentials, automation configuration, customer
-information, or source photo metadata into `site/`.
+site/
+├── README_FOR_DEEPSEEK.md
+├── index.html
+├── style.css
+└── script.js
 
-### File responsibilities
-
-- `site/index.html`
-  Semantic structure, marketing copy, service prices, photos, contact links,
-  sample reviews, modal markup, SEO metadata, structured data.
-
-- `site/styles.css`
-  Tokens, mobile-first layout, typography, colors, components, transitions,
-  responsive breakpoints, reduced-motion and print rules.
+Optional after replacing stock images:
 
-- `site/script.js`
-  ZIP allowlist/checking, modal behavior, live status banner, scroll reveals,
-  copyright year. No framework, build step, database, or backend.
+site/
+└── images/
+    ├── gustavo.webp
+    ├── work-truck.webp
+    └── project-01.webp
 
-- `docs/05-runbook/DEV_GUIDE.md`
-  This handoff and launch checklist. Keep current when behavior changes.
-
-## 3. Editing protocol for DeepSeek Harness
+## IMPORTANT: Before publishing
 
-Before editing:
-
-1. Read this guide and the business foundation.
-2. Inspect the affected files.
-3. Preserve existing IDs and data attributes unless updating every reference.
-4. Make the smallest coherent change.
-5. Test the relevant flow and review the diff.
-6. Report changed files, checks performed, and remaining launch blockers.
-7. Never claim a browser test was run if it was only a source-code review.
-
-Search for `DEEPSEEK_EDIT:` to find intended edit points.
-
-Useful markers:
-
-| Marker | Location | Purpose |
-|---|---|---|
-| SEO Title and Description | index.html head | Search metadata |
-| Launch Gate | index.html head | Staging noindex |
-| Business Structured Data | index.html head | Business JSON-LD |
-| Hero Headline and Starting Price | index.html hero | Main local headline |
-| Service List and Prices | index.html services | Priority services |
-| Owner Story | index.html about | Gustavo's introduction |
-| Placeholder Reviews | index.html reviews | Sample social-proof layout |
-| Service Area Names | index.html service-area | Visible communities |
-| Contact Details | index.html contact | Name, phone, email, hours |
-| Design Tokens | styles.css :root | Colors and spacing |
-| Service ZIP Allowlist | script.js | Coverage configuration |
-| ZIP Validation Logic | script.js | Input classification |
-| Scroll Animation Controller | script.js | Reveal behavior |
-| Service-Area Modal Controller | script.js | Modal flow |
+This is a working starter website, not a verified business listing.
 
-Do not add GSAP, AOS, jQuery, React, or another animation/UI dependency
-for this landing page.
+1. Gustavo must approve the example starting prices:
+   - Lawn mowing: \$45 per cut
+   - Property cleanup: \$150
+   - Irrigation repair: \$85
+2. Replace all stock photos with authorized photos of Gustavo, his truck,
+   and actual completed projects.
+3. Replace all three clearly labeled fictional review examples with genuine,
+   permission-approved customer reviews.
+4. Confirm every service-area ZIP code with Gustavo.
+   The current list is a SAMPLE list, not comprehensive county coverage.
+5. Connect and test the Formspree endpoint, including multiple image uploads.
+6. Review the contact/privacy wording and confirm the business information.
+7. Remove the visible placeholder notices ONLY after replacing or verifying
+   their corresponding content.
 
-## 4. CSS tokens and responsive layout
+Do not present fictional testimonials, stock projects, or a stock portrait as
+authentic evidence of this business's work.
 
-All authored colors and layout spacing are defined at the top of
-`site/styles.css` inside `:root`.
+## Running locally
 
-Required brand colors:
+Open index.html in a modern browser for a quick visual preview.
 
-    --primary-green: #2E4F3A;
-    --bg-color: #F4F7F6;
-    --accent-green: #8FA68E;
-    --text-dark: #1A202C;
+For reliable form/integration testing, serve the folder over HTTP using a
+local development server. One option, if Python is installed:
 
-Other tokens cover:
-- Accessible muted text and border colors
-- White and dark-section text
-- Modal backdrop and shadows
-- Spacing scale: --space-0 through --space-24
-- Section padding, gutters, layout gaps
-- Typography sizes and line heights
-- Component dimensions and border radii
-- Motion durations and reveal distance
+    cd site
+    python -m http.server 8000
 
-Use `var(--token-name)` for new colors and spacing.
-Add a reusable token instead of scattering new literal values.
+Then open localhost on port 8000.
 
-Muted sage is an accent, not the normal body-text color.
-Do not reduce text contrast just to achieve a “low-contrast” visual style.
+Deploy the site folder to any static host with HTTPS.
+No server-side application code is included.
 
-Breakpoints:
-- 40rem: two-column service/review cards
-- 48rem: main two-column layouts, three-column reviews/process,
-  mobile call bar hidden
-- 64rem: single-row desktop navigation, four service columns
+## Quick edit markers
 
-Literal media-query breakpoints are intentional.
-CSS variables do not work in ordinary media-query conditions.
+Search the files for "EDIT:".
 
-The sticky mobile call bar includes the device safe-area inset.
-The footer reserves space so the fixed bar does not cover final content.
+Important markers include:
 
-## 5. Updating prices and service content
+- EDIT: SEO
+- EDIT: Business Contact
+- EDIT: Starting Prices
+- EDIT: Hero Image
+- EDIT: Owner Photo
+- EDIT: Truck Photo
+- EDIT: Slideshow Images
+- EDIT: Grid Gallery
+- EDIT: Verified Reviews
+- EDIT: Formspree Endpoint
+- EDIT: Brand Colors
+- EDIT: Allowed ZIP Codes
+- EDIT: Upload Limits
 
-Replace these visible tokens in `index.html`:
+## Business information and SEO
 
-- `[STARTING_PRICE]`
-- `[LAWN_PRICE]`
-- `[WEED_PRICE]`
-- `[CLEANUP_PRICE]`
-- `[IRRIGATION_PRICE]`
+In index.html, update:
 
-The headline token should include its currency:
-example `\$45`, not `45`.
+- The title and meta description
+- Phone links: tel:+19095826445
+- Visible phone number: (909) 582-6445
+- Email links and visible email
+- Service-area copy
+- Gustavo's introduction
+- Footer business details
 
-Service-card placeholders already have `$` before the token:
-replace `[LAWN_PRICE]` with `45`, not `\$45`.
+Keep contact information consistent everywhere.
 
-These are examples of formatting, NOT suggested business prices.
+No fabricated street address, business hours, review aggregate, or credentials
+have been added. Add structured business data only after verifying the facts
+and obtaining the public website URL.
 
-After approval:
-1. Replace all tokens.
-2. Remove the sentence stating prices await owner approval.
-3. Keep the scope-dependent final-quote disclaimer.
-4. Confirm headline and lawn-card pricing agree.
-5. Do not invent offers, warranties, savings, or availability.
+## Pricing
 
-Service order must remain:
-1. Lawn Care & Maintenance
-2. Weed Treatment
-3. Clean Ups
-4. Irrigation Repair
+Search for "EDIT: Starting Prices" and update EVERY visible price.
 
-Additional services are currently mentioned below those cards.
+The hero currently uses the requested exact headline structure:
 
-Before advertising chemical spraying, irrigation installation, or other
-specialized work, have the owner confirm the relevant authorization,
-qualifications, scope, and marketing wording. Do not invent licensing,
-insurance, certification, or treatment-safety claims.
+"Lawn mowing & property maintenance in Victorville, from \$45 per cut."
 
-## 6. Images and media: exact locations
+The \$45 price is an example, not a price supplied by Gustavo.
 
-### Source originals
+The pricing cards explain that final pricing depends on property size,
+condition, scope, and access. Confirm the minimum service and any exclusions.
 
-Keep original files in:
+## Brand colors and typography
 
-    assets/brand/
-    assets/media/
+In style.css, edit the variables under "EDIT: Brand Colors".
 
-Suggested originals:
+The palette uses forest green, muted sage, warm earth tones, and off-white.
+Dark text/buttons provide readable contrast without bright green accents.
 
-    assets/media/gustavo-owner-original.jpg
-    assets/media/gustavo-truck-original.jpg
-    assets/media/victorville-lawn-original.jpg
+The font is Inter, loaded through Google Fonts, with system-font fallbacks.
+For a fully self-hosted site, download appropriately licensed font files,
+add local @font-face rules, and remove the Google Fonts links.
 
-These repository-level files are not deployed.
+## Replacing images
 
-### Public optimized files
+All current images are stock placeholders.
 
-Create these deployable directories:
+In index.html, search for:
 
-    site/assets/brand/
-    site/assets/media/
+- EDIT: Hero Image
+- EDIT: Owner Photo
+- EDIT: Truck Photo
+- EDIT: Slideshow Images
+- EDIT: Grid Gallery
 
-Suggested public exports:
+Replace each src with a local path such as:
 
-    site/assets/brand/logo.svg
-    site/assets/brand/favicon.svg
-    site/assets/media/gustavo-owner.webp
-    site/assets/media/gustavo-truck.webp
-    site/assets/media/victorville-lawn.webp
-    site/assets/media/social-share.jpg
+    images/gustavo.webp
 
-Use lowercase, descriptive, hyphenated filenames.
+Update alt text to accurately describe the replacement image.
+Do not identify a stock model as Gustavo.
 
-HTML paths are relative to `site/index.html`:
+Use compressed WebP/AVIF images where possible.
+Keep width and height attributes so space is reserved while images load.
 
-    src="assets/media/gustavo-owner.webp"
+The hero loads eagerly. Below-the-fold images use loading="lazy".
 
-Never use:
+## Grid gallery: add or remove images
 
-    src="../assets/media/gustavo-owner.webp"
+Find "EDIT: Grid Gallery" in index.html.
 
-### Replacing stock photos
+Each gallery item is a <figure class="gallery-item"> containing:
 
-Current placements:
-- Hero Lawn Image
-- Owner Portrait
-- Truck Photo
+1. An <img>
+2. A <figcaption>
 
-Each current photo is explicitly disclosed as stock.
-The stock portrait does not depict Gustavo.
-The stock truck does not depict his vehicle.
-The stock garden is not a completed business project.
+To add a photo:
+- Duplicate one complete figure.
+- Update src, alt, and the caption.
+- Remove "Stock placeholder" only when the image is actual business work.
 
-For each replacement:
-1. Export an appropriately sized optimized file.
-2. Remove sensitive embedded metadata.
-3. Place the export in `site/assets/media/`.
-4. Change `src`.
-5. Change `alt` to accurately describe the actual image.
-6. Set `width` and `height` to the export's actual intrinsic dimensions.
-7. Update crop/aspect-ratio styles if needed.
-8. Remove stock disclosure only once the authentic photo is installed.
+To remove a photo:
+- Delete its entire figure.
 
-Keep the hero image eager/high-priority.
-Keep below-fold images lazy-loaded.
+No JavaScript changes are necessary. CSS Grid adjusts automatically.
 
-Suggested image sizing targets, not guarantees:
-- Hero: approximately 1200–1600 pixels wide
-- Owner: approximately 800 pixels wide
-- Truck: approximately 1000 pixels wide
-- Optimize for visual quality and transfer size rather than a fixed quota
+## Slideshow: update, add, or remove images
 
-Check each current Unsplash URL in a browser before using the placeholder
-site. Stock URL availability and image suitability have not been guaranteed.
+Find "EDIT: Slideshow Images" in index.html.
 
-Do not use a recognizable stock person as if
+Each slide is a <figure class="slide"> inside #carousel-track.
+
+To update a photo:
+- Change its img src, alt text, and caption.
+
+To add/remove a slide:
+- Duplicate/delete an entire figure.slide.
+- Keep at least one slide.
+
+script.js reads the slide elements and generates the dot buttons automatically.
+There is no separate JavaScript image array to maintain.
+
+The carousel:
+- Uses native CSS scroll-snap.
+- Supports touch/trackpad scrolling.
+- Has previous/next buttons and generated dot indicators.
+- Supports Left/Right arrow keys while its viewport is focused.
+- Does not autoplay.
+- Disables endpoint arrows and hides controls for a single slide.
+
+## Reviews
+
+Find "EDIT: Verified Reviews" in index.html.
+
+The three five-star entries are FICTIONAL DESIGN EXAMPLES with full sample names.
+Their placeholder labeling is intentionally visible.
+
+Before publishing, replace the names, locations, text, and ratings with
+authentic customer feedback. Do not remove the disclosure while retaining
+invented reviews.
+
+## Location modal and allowed ZIP codes
+
+Find "EDIT: Allowed ZIP Codes" in script.js.
+
+Edit the strings inside ALLOWED_ZIPS.
+
+ZIP codes must remain quoted strings, e.g.:
+
+    "92392"
+
+The sample entries include selected ZIPs associated with the requested cities
+and county areas. They do not imply service throughout either county.
+
+The checker:
+- Requests an address ending in a five-digit ZIP or ZIP+4.
+- Checks only the extracted five-digit ZIP.
+- Does not geocode street addresses or verify property-level coverage.
+- Shows a validation message when no trailing ZIP is supplied.
+- Lets visitors skip, close, or browse after either result.
+- Offers a "Check your area" button to reopen the modal.
+
+A ZIP is only a screening tool. Gustavo must confirm actual availability.
+
+The modal appears once per browser tab/session using sessionStorage.
+Only a dismissal flag is stored; the address is not stored.
+If storage is unavailable, the site still works.
+
+To retest the first-load behavior:
+- Open a new browser session/tab without copied session storage, or
+- Remove "sugs-area-dismissed" from sessionStorage in developer tools.
+
+## Formspree setup
+
+Find "EDIT: Formspree Endpoint" in index.html.
+
+Replace:
+
+    https://formspree.io/f/YOUR_FORM_ID
+
+with the real endpoint from Gustavo's Formspree account.
+
+In Formspree:
+1. Create the form.
+2. Configure sugspropertyservices@gmail.com as the notification recipient.
+3. Complete any recipient verification required by the account.
+4. Enable/use a plan that supports file uploads.
+5. Configure spam protection and allowed domains as appropriate.
+6. Test delivery and access to uploaded files.
+
+The HTML endpoint does not itself configure the recipient email.
+
+File uploads currently require a Formspree upload-capable plan; the official
+documentation lists Personal, Professional, and Business plans. Confirm the
+current plan requirements, storage quota, and upload restrictions before launch.
+
+The form uses:
+- method="POST"
+- enctype="multipart/form-data"
+- FormData for AJAX submission
+- Accept: application/json
+- Repeated "photos" fields for multiple selected files
+
+Do not manually set the multipart Content-Type header in JavaScript.
+The browser must generate its boundary.
+
+Formspree manages file storage/access and notifications. Do not promise that
+files will arrive as email attachments; verify the actual notification behavior.
+
+The frontend deliberately blocks submissions while YOUR_FORM_ID is present.
+An error leaves the entered data intact. Success resets the form.
+
+Without JavaScript, the native HTML POST remains available after endpoint setup.
+
+## Upload limits
+
+Find "EDIT: Upload Limits" in script.js.
+
+Current site-level limits:
+- Maximum 5 photos
+- Maximum 5 MB per photo
+- JPEG, PNG, or WebP
+
+Update the HTML help text and accept attribute if changing these values.
+
+These client-side checks are convenience checks, not security enforcement.
+Provider-side validation and quotas still apply.
+
+## Form fields
+
+All eight requested services appear in the dropdown.
+
+Required:
+- Name
+- Phone
+- Email
+- Address
+- Service needed
+
+Optional:
+- Multiple photos
+- Project details
+
+The form collects contact details and property photos through Formspree.
+Review the short disclosure and add a dedicated privacy policy if appropriate.
+Avoid uploading photos containing unnecessary sensitive information.
+
+## Accessibility and motion
+
+- Semantic sections, labels, skip link, and visible focus rings.
+- Native dialog with keyboard dismissal and focus handling.
+- Status messages use live regions.
+- Carousel controls have accessible names.
+- Scroll reveals use IntersectionObserver.
+- Reduced-motion preferences disable animation/smooth scrolling.
+- Content remains visible if JavaScript or IntersectionObserver is unavailable.
+
+## Launch checklist
+
+[ ] Confirm all contact information.
+[ ] Approve all starting prices.
+[ ] Verify ZIP list and service-area wording.
+[ ] Replace portrait, truck, slideshow, and gallery stock images.
+[ ] Replace fictional testimonials with genuine reviews.
+[ ] Remove only the notices whose placeholder content has been replaced.
+[ ] Configure Formspree recipient and upload-capable plan.
+[ ] Test valid/invalid ZIPs, ZIP+4, missing ZIP, Skip, Escape, and reopening.
+[ ] Test multiple photos, oversized files, and unsupported file types.
+[ ] Test submission success and network/server error states.
+[ ] Test phone/email links and all section links.
+[ ] Test keyboard navigation and reduced-motion mode.
+[ ] Test mobile layout and carousel swiping.
+[ ] Check deployed images and font loading.
+[ ] Confirm HTTPS and privacy wording.
