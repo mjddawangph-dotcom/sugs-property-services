@@ -281,6 +281,8 @@ privacy policy if appropriate.
 ## Accessibility and motion
 
 - Semantic sections, labels, skip link, and visible focus rings.
+- Mobile header uses a hamburger menu that closes on Escape, outside click,
+  or link selection and reports its state with aria-expanded.
 - Native dialog with keyboard dismissal and focus handling.
 - Status messages use live regions.
 - Carousel controls have accessible names.

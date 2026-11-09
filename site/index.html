@@ -42,7 +42,22 @@
         >
       </a>
 
-      <nav class="desktop-nav" aria-label="Main navigation">
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span class="menu-toggle-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="desktop-nav" id="site-nav" aria-label="Main navigation">
         <a href="#services">Services</a>
         <a href="#work">Our work</a>
         <a href="#about">Meet the owner</a>
