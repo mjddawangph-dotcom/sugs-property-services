@@ -764,8 +764,7 @@ input[aria-invalid="true"] {
 }
 
 .form-status:empty,
-.area-result:empty,
-#photo-status:empty {
+.area-result:empty {
   display: none;
 }
 

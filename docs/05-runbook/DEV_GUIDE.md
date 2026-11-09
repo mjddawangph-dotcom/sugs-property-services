@@ -33,7 +33,7 @@ This is a working starter website, not a verified business listing.
    permission-approved customer reviews.
 4. Confirm every service-area ZIP code with Gustavo.
    The current list is a SAMPLE list, not comprehensive county coverage.
-5. Connect and test the Formspree endpoint, including multiple image uploads.
+5. Connect and test the Formspree endpoint.
 6. Review the contact/privacy wording and confirm the business information.
 7. Remove the visible placeholder notices ONLY after replacing or verifying
    their corresponding content.
@@ -74,7 +74,6 @@ Important markers include:
 - EDIT: Formspree Endpoint
 - EDIT: Brand Colors
 - EDIT: Allowed ZIP Codes
-- EDIT: Upload Limits
 
 ## Business information and SEO
 
@@ -241,47 +240,23 @@ In Formspree:
 1. Create the form.
 2. Configure sugspropertyservices@gmail.com as the notification recipient.
 3. Complete any recipient verification required by the account.
-4. Enable/use a plan that supports file uploads.
-5. Configure spam protection and allowed domains as appropriate.
-6. Test delivery and access to uploaded files.
+4. Configure spam protection and allowed domains as appropriate.
+5. Test delivery and notification behavior.
 
 The HTML endpoint does not itself configure the recipient email.
 
-File uploads currently require a Formspree upload-capable plan; the official
-documentation lists Personal, Professional, and Business plans. Confirm the
-current plan requirements, storage quota, and upload restrictions before launch.
-
 The form uses:
 - method="POST"
-- enctype="multipart/form-data"
 - FormData for AJAX submission
 - Accept: application/json
-- Repeated "photos" fields for multiple selected files
 
-Do not manually set the multipart Content-Type header in JavaScript.
-The browser must generate its boundary.
-
-Formspree manages file storage/access and notifications. Do not promise that
-files will arrive as email attachments; verify the actual notification behavior.
+Do not manually set the Content-Type header when submitting FormData.
+The browser must generate the multipart boundary.
 
 The frontend deliberately blocks submissions while YOUR_FORM_ID is present.
 An error leaves the entered data intact. Success resets the form.
 
 Without JavaScript, the native HTML POST remains available after endpoint setup.
-
-## Upload limits
-
-Find "EDIT: Upload Limits" in script.js.
-
-Current site-level limits:
-- Maximum 5 photos
-- Maximum 5 MB per photo
-- JPEG, PNG, or WebP
-
-Update the HTML help text and accept attribute if changing these values.
-
-These client-side checks are convenience checks, not security enforcement.
-Provider-side validation and quotas still apply.
 
 ## Form fields
 
@@ -295,12 +270,11 @@ Required:
 - Service needed
 
 Optional:
-- Multiple photos
 - Project details
 
-The form collects contact details and property photos through Formspree.
-Review the short disclosure and add a dedicated privacy policy if appropriate.
-Avoid uploading photos containing unnecessary sensitive information.
+The form collects contact details and project details through Formspree.
+No file uploads are accepted. Review the short disclosure and add a dedicated
+privacy policy if appropriate.
 
 ## Accessibility and motion
 
@@ -320,9 +294,8 @@ Avoid uploading photos containing unnecessary sensitive information.
 [ ] Replace portrait, truck, slideshow, and gallery stock images.
 [ ] Replace fictional testimonials with genuine reviews.
 [ ] Remove only the notices whose placeholder content has been replaced.
-[ ] Configure Formspree recipient and upload-capable plan.
+[ ] Configure the Formspree recipient.
 [ ] Test valid/invalid ZIPs, ZIP+4, missing ZIP, Skip, Escape, and reopening.
-[ ] Test multiple photos, oversized files, and unsupported file types.
 [ ] Test submission success and network/server error states.
 [ ] Test phone/email links and all section links.
 [ ] Test keyboard navigation and reduced-motion mode.

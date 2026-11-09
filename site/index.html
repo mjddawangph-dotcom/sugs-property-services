@@ -198,7 +198,7 @@
         <div class="section-heading" data-reveal>
           <p class="eyebrow">A starting point, not a surprise</p>
           <h2 id="pricing-title">Straightforward pricing.</h2>
-          <p>Send your address and a few photos so we can quote the actual work.</p>
+          <p>Send your address and a few details so we can quote the actual work.</p>
           <p class="placeholder-note">
             Preview only: all starting prices below need owner approval.
           </p>
@@ -491,8 +491,8 @@
           <p class="eyebrow">Let's take a look</p>
           <h2 id="quote-title">Tell us what your property needs.</h2>
           <p class="lead">
-            Share your address, choose a service, and attach a few photos.
-            We'll use the details to discuss the work and your quote.
+            Share your address, choose a service, and add a few details.
+            We'll use them to discuss the work and your quote.
           </p>
 
           <ol class="steps">
@@ -515,7 +515,6 @@
           class="quote-form"
           action="https://formspree.io/f/YOUR_FORM_ID"
           method="POST"
-          enctype="multipart/form-data"
           data-reveal
         >
           <input type="hidden" name="_subject" value="New Sug's Property Services quote request">
@@ -573,23 +572,6 @@
             </div>
 
             <div class="field field-full">
-              <label for="photos">Property photos <span>(optional)</span></label>
-              <!-- EDIT: Upload Limits — keep help text and JS synchronized -->
-              <input
-                id="photos"
-                name="photos"
-                type="file"
-                accept="image/jpeg,image/png,image/webp"
-                multiple
-                aria-describedby="photo-help photo-status"
-              >
-              <p class="small-note" id="photo-help">
-                Up to 5 JPEG, PNG, or WebP photos; maximum 5 MB each.
-              </p>
-              <p class="small-note" id="photo-status" role="status" aria-live="polite"></p>
-            </div>
-
-            <div class="field field-full">
               <label for="details">Anything else we should know? <span>(optional)</span></label>
               <textarea
                 id="details"
@@ -603,8 +585,7 @@
 
           <p class="small-note">
             By submitting, you ask Sug's Property Services to contact you
-            about this request. Your details and photos are processed through
-            Formspree. Please avoid including sensitive information in photos.
+            about this request. Your details are processed through Formspree.
           </p>
 
           <button class="button form-submit" type="submit">Request my quote</button>

@@ -46,17 +46,6 @@
     "92880"
   ]);
 
-  /* EDIT: Upload Limits — synchronize HTML help text if changing */
-  const UPLOAD_LIMITS = {
-    maxFiles: 5,
-    maxBytesPerFile: 5 * 1024 * 1024,
-    allowedTypes: new Set([
-      "image/jpeg",
-      "image/png",
-      "image/webp"
-    ])
-  };
-
   function setStatus(element, message, state = "") {
     element.textContent = message;
 
@@ -388,68 +377,15 @@
   function initializeQuoteForm() {
     const form = document.querySelector("#quote-form");
     const status = document.querySelector("#form-status");
-    const photos = document.querySelector("#photos");
-    const photoStatus = document.querySelector("#photo-status");
 
-    if (!form || !status || !photos || !photoStatus) {
+    if (!form || !status) {
       return;
     }
 
     const submitButton = form.querySelector('button[type="submit"]');
 
-    function validatePhotos() {
-      const files = [...photos.files];
-
-      if (files.length > UPLOAD_LIMITS.maxFiles) {
-        setStatus(
-          photoStatus,
-          `Please choose no more than ${UPLOAD_LIMITS.maxFiles} photos.`,
-          "error"
-        );
-        return false;
-      }
-
-      const unsupported = files.find(
-        (file) => !UPLOAD_LIMITS.allowedTypes.has(file.type)
-      );
-
-      if (unsupported) {
-        setStatus(
-          photoStatus,
-          "Please use JPEG, PNG, or WebP images.",
-          "error"
-        );
-        return false;
-      }
-
-      const oversized = files.find(
-        (file) => file.size > UPLOAD_LIMITS.maxBytesPerFile
-      );
-
-      if (oversized) {
-        const maxMegabytes = UPLOAD_LIMITS.maxBytesPerFile / (1024 * 1024);
-
-        setStatus(
-          photoStatus,
-          `Each photo must be ${maxMegabytes} MB or smaller.`,
-          "error"
-        );
-        return false;
-      }
-
-      setStatus(photoStatus, "");
-      return true;
-    }
-
-    photos.addEventListener("change", validatePhotos);
-
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-
-      if (!validatePhotos()) {
-        photos.focus();
-        return;
-      }
 
       // Never POST to the example endpoint; keep the entered data intact.
       if (form.action.includes("YOUR_FORM_ID")) {
@@ -482,7 +418,6 @@
         }
 
         form.reset();
-        setStatus(photoStatus, "");
         setStatus(
           status,
           "Thanks! Your request was sent. We'll follow up with you.",
