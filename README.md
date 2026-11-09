@@ -1,11 +1,11 @@
 # Sug's Property Services
 
-Private repository for the Sug's Property Services website, documentation, and
+Public repository for the Sug's Property Services website, documentation, and
 automations.
 
 - **Owner:** Gustavo Lopez (GitHub account `mjddawangph-dotcom`)
 - **Business:** Lawn care / property maintenance — Victorville & the High Desert, CA
-- **Repo visibility:** Private
+- **Repo visibility:** Public
 
 ## Layout
 

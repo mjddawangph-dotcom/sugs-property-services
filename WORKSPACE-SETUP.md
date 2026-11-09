@@ -1,7 +1,7 @@
 # Workspace Setup — sugs-property-services-github
 
 Location: `/home/xadmin0/Documents/deepseek-harness/default-workspace/sugs-property-services-github`
-GitHub repo: `git@github.com:mjddawangph-dotcom/sugs-property-services.git` (private)
+GitHub repo: `git@github.com:mjddawangph-dotcom/sugs-property-services.git` (public)
 
 ## 1. How GitHub access works here
 
