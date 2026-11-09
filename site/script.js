@@ -529,7 +529,7 @@
         return;
       }
 
-      const formData = new FormData(form);
+      const payload = new URLSearchParams(new FormData(form));
 
       if (submitButton) {
         submitButton.disabled = true;
@@ -540,12 +540,27 @@
       try {
         const response = await fetch(form.action, {
           method: "POST",
-          body: formData,
+          body: payload,
           headers: { Accept: "application/json" }
         });
 
         if (!response.ok) {
-          throw new Error(`Form submission failed: ${response.status}`);
+          let detail = "";
+
+          try {
+            const data = await response.json();
+            detail =
+              (data.errors || [])
+                .map((entry) => entry.message)
+                .filter(Boolean)
+                .join(" ") ||
+              data.error ||
+              "";
+          } catch {
+            // A non-JSON error response still falls back to the status code.
+          }
+
+          throw new Error(detail || `Form submission failed (${response.status})`);
         }
 
         form.reset();
@@ -555,10 +570,14 @@
           "success"
         );
       } catch (error) {
-        console.error(error);
+        console.error("Quote form submission failed:", error);
+        const networkFailure = error instanceof TypeError;
+
         setStatus(
           status,
-          "Sorry, your request couldn't be sent. Please call or email us directly.",
+          networkFailure
+            ? "Sorry, we couldn't reach the form service. Please call us at 909-582-6445 or email sugspropertyservices@gmail.com, or try again in a moment."
+            : "Sorry, your request couldn't be sent. Please call us at 909-582-6445 or email sugspropertyservices@gmail.com.",
           "error"
         );
       } finally {

@@ -249,11 +249,11 @@ The HTML endpoint does not itself configure the recipient email.
 
 The form uses:
 - method="POST"
-- FormData for AJAX submission
+- URL-encoded form data (URLSearchParams) for AJAX submission
 - Accept: application/json
 
-Do not manually set the Content-Type header when submitting FormData.
-The browser must generate the multipart boundary.
+Do not manually set the Content-Type header; the browser sends
+application/x-www-form-urlencoded for the URLSearchParams body.
 
 The frontend deliberately blocks submissions while YOUR_FORM_ID is present.
 An error leaves the entered data intact. Success resets the form.
