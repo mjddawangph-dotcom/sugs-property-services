@@ -455,7 +455,7 @@
       if (form.action.includes("YOUR_FORM_ID")) {
         setStatus(
           status,
-          "The quote form isn't connected yet. Please call Gustavo at 909-582-6445 while setup is completed.",
+          "The quote form isn't connected yet. Please call us at 909-582-6445 while setup is completed.",
           "error"
         );
         status.focus();
@@ -485,14 +485,14 @@
         setStatus(photoStatus, "");
         setStatus(
           status,
-          "Thanks! Your request was sent. Gustavo will follow up with you.",
+          "Thanks! Your request was sent. We'll follow up with you.",
           "success"
         );
       } catch (error) {
         console.error(error);
         setStatus(
           status,
-          "Sorry, your request couldn't be sent. Please call or email Gustavo directly.",
+          "Sorry, your request couldn't be sent. Please call or email us directly.",
           "error"
         );
       } finally {
