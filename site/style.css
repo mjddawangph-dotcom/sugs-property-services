@@ -14,7 +14,7 @@
   --radius: 18px;
   --shadow: 0 16px 45px rgba(38, 59, 50, 0.09);
   --container: 1160px;
-  --header-height: 82px;
+  --header-height: 90px;
 }
 
 * {
@@ -260,24 +260,10 @@ button:disabled {
   text-decoration: none;
 }
 
-.brand-icon {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border-radius: 14px 4px 14px 4px;
-  background: var(--sage);
-  font-size: 1.5rem;
-  font-weight: 800;
-}
-
-.brand strong {
+.brand-logo {
   display: block;
-  font-size: 1.25rem;
-}
-
-.brand small {
-  font-size: 0.72rem;
+  width: auto;
+  height: 76px;
 }
 
 .desktop-nav {
@@ -970,17 +956,8 @@ dialog::backdrop {
     gap: 10px;
   }
 
-  .brand-icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .brand strong {
-    font-size: 1.1rem;
-  }
-
-  .brand small {
-    font-size: 0.66rem;
+  .brand-logo {
+    height: 60px;
   }
 
   .button-small {
