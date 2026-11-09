@@ -106,6 +106,10 @@
     const skipButton = document.querySelector("#skip-area");
     const closeButton = document.querySelector("#close-area");
     const openButton = document.querySelector("#open-area");
+    const resultDialog = document.querySelector("#area-result-modal");
+    const resultTitle = document.querySelector("#area-result-title");
+    const resultDescription = document.querySelector("#area-result-description");
+    const resultContinue = document.querySelector("#area-result-continue");
     const storageKey = "sugs-area-dismissed";
 
     if (!modal || !form || !input || !result) {
@@ -119,6 +123,14 @@
     }
 
     let previousFocus = null;
+    let resultPending = false;
+    const hasResultDialog = Boolean(
+      resultDialog &&
+        resultTitle &&
+        resultDescription &&
+        resultContinue &&
+        typeof resultDialog.showModal === "function"
+    );
 
     function readDismissalFlag() {
       try {
@@ -145,7 +157,6 @@
       form.reset();
       input.removeAttribute("aria-invalid");
       setStatus(result, "");
-      skipButton.textContent = "Skip";
 
       modal.showModal();
       document.body.classList.add("modal-open");
@@ -158,6 +169,36 @@
       if (modal.open) {
         modal.close();
       }
+    }
+
+    function showResult(status, zip) {
+      const inside = status === "inside";
+      const title = inside
+        ? "Great news — we service your area."
+        : "That ZIP isn't on our current list.";
+      const description = inside
+        ? `ZIP ${zip} is on our sample service list. Call us to confirm scheduling and your exact address.`
+        : `ZIP ${zip} isn't on our current sample list. You can still browse, or call us to check nearby coverage.`;
+
+      setStatus(result, "");
+
+      // Fail open: if the result dialog is unavailable, keep the inline result.
+      if (!hasResultDialog) {
+        setStatus(result, description, inside ? "success" : "error");
+        return;
+      }
+
+      resultTitle.textContent = title;
+      resultDescription.textContent = description;
+      resultDialog.dataset.state = inside ? "success" : "error";
+      resultPending = true;
+      closeModal();
+
+      window.setTimeout(() => {
+        resultDialog.showModal();
+        document.body.classList.add("modal-open");
+        resultContinue.focus({ preventScroll: true });
+      }, 0);
     }
 
     /*
@@ -190,28 +231,12 @@
       }
 
       input.removeAttribute("aria-invalid");
-
-      if (ALLOWED_ZIPS.has(zip)) {
-        setStatus(
-          result,
-          "Great news! We service your area.",
-          "success"
-        );
-      } else {
-        setStatus(
-          result,
-          "We currently don't service your area, but feel free to browse.",
-          "error"
-        );
-      }
-
-      skipButton.textContent = "Continue to site";
+      showResult(ALLOWED_ZIPS.has(zip) ? "inside" : "outside", zip);
     });
 
     input.addEventListener("input", () => {
       input.removeAttribute("aria-invalid");
       setStatus(result, "");
-      skipButton.textContent = "Skip";
     });
 
     skipButton.addEventListener("click", closeModal);
@@ -220,8 +245,15 @@
 
     // Let Escape trigger the browser's native dialog cancellation.
     modal.addEventListener("close", () => {
-      document.body.classList.remove("modal-open");
       saveDismissalFlag();
+
+      // While the result dialog is opening, keep the page locked and let
+      // that dialog manage focus.
+      if (resultPending) {
+        return;
+      }
+
+      document.body.classList.remove("modal-open");
 
       if (
         previousFocus instanceof HTMLElement &&
@@ -231,6 +263,21 @@
         previousFocus.focus({ preventScroll: true });
       }
     });
+
+    if (hasResultDialog) {
+      resultContinue.addEventListener("click", () => {
+        resultDialog.close();
+      });
+
+      resultDialog.addEventListener("close", () => {
+        resultPending = false;
+        document.body.classList.remove("modal-open");
+
+        if (openButton && openButton.isConnected) {
+          openButton.focus({ preventScroll: true });
+        }
+      });
+    }
 
     if (!readDismissalFlag()) {
       openModal();

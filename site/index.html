@@ -48,11 +48,6 @@
         <a href="#about">Meet the owner</a>
         <a href="#quote">Get a quote</a>
       </nav>
-
-      <!-- EDIT: Business Contact -->
-      <a class="button button-small" href="tel:+19095826445">
-        <span class="desktop-label">Call us · </span>909-582-6445
-      </a>
     </div>
   </header>
 
@@ -76,9 +71,6 @@
 
           <div class="button-row">
             <a class="button" href="#quote">Get my property quote</a>
-            <a class="button button-outline" href="tel:+19095826445">
-              Talk to us
-            </a>
           </div>
 
           <ul class="trust-list" aria-label="Our commitments">
@@ -674,6 +666,26 @@
         No address is saved by this checker. Final service availability
         must be confirmed with us.
       </p>
+    </div>
+  </dialog>
+
+  <!-- Result popup for the service-area checker -->
+  <dialog
+    id="area-result-modal"
+    class="area-result-dialog"
+    aria-labelledby="area-result-title"
+    aria-describedby="area-result-description"
+  >
+    <div class="modal-content">
+      <p class="eyebrow">Service-area check</p>
+      <h2 id="area-result-title"></h2>
+      <p id="area-result-description"></p>
+
+      <div class="button-row">
+        <button class="button" type="button" id="area-result-continue">
+          Continue
+        </button>
+      </div>
     </div>
   </dialog>
 </body>

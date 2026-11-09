@@ -212,8 +212,10 @@ The checker:
 - Requests an address ending in a five-digit ZIP or ZIP+4.
 - Checks only the extracted five-digit ZIP.
 - Does not geocode street addresses or verify property-level coverage.
-- Shows a validation message when no trailing ZIP is supplied.
-- Lets visitors skip, close, or browse after either result.
+- Shows a validation message inline when no trailing ZIP is supplied.
+- Shows in-area/out-of-area results in a separate result dialog.
+  The Continue button closes the result and returns to the page.
+- Lets visitors skip or close the checker without a result.
 - Offers a "Check your area" button to reopen the modal.
 
 A ZIP is only a screening tool. Gustavo must confirm actual availability.
