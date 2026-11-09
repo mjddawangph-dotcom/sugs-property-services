@@ -1,15 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     width="1000" height="1100" viewBox="880 220 1000 1100">
-  <title>SUG’S Property Services</title>
-  <desc>Best-effort vector recreation of the supplied logo.</desc>
+     width="960" height="960" viewBox="897 116 960 960">
+  <title>SUG’S emblem</title>
 
   <defs>
-    <radialGradient id="background" cx="50%" cy="35%" r="75%">
-      <stop offset="0" stop-color="#292c2e"/>
-      <stop offset=".55" stop-color="#181c1e"/>
-      <stop offset="1" stop-color="#080e10"/>
-    </radialGradient>
-
     <linearGradient id="green" x1="0" y1="1" x2=".85" y2="0">
       <stop offset="0" stop-color="#285c35"/>
       <stop offset=".45" stop-color="#4d853f"/>
@@ -20,14 +13,6 @@
       <stop offset="0" stop-color="#285d38"/>
       <stop offset=".55" stop-color="#4f8240"/>
       <stop offset="1" stop-color="#67954b"/>
-    </linearGradient>
-
-    <linearGradient id="gold" x1="0" y1=".8" x2="1" y2=".2">
-      <stop offset="0" stop-color="#987038"/>
-      <stop offset=".28" stop-color="#bd914d"/>
-      <stop offset=".6" stop-color="#e0b96b"/>
-      <stop offset=".83" stop-color="#ffe19a"/>
-      <stop offset="1" stop-color="#d1a65b"/>
     </linearGradient>
 
     <linearGradient id="goldRing" x1="0" y1=".7" x2="1" y2=".15">
@@ -41,222 +26,153 @@
       <stop offset=".48" stop-color="#c6cc7a"/>
       <stop offset="1" stop-color="#edc67a"/>
     </linearGradient>
-
-    <linearGradient id="smallGold" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#8b744c"/>
-      <stop offset=".5" stop-color="#b69b62"/>
-      <stop offset="1" stop-color="#d0bf7d"/>
-    </linearGradient>
-
-    <filter id="shadow" x="-20%" y="-20%" width="150%" height="160%">
-      <feDropShadow dx="5" dy="11" stdDeviation="7"
-                    flood-color="#000000" flood-opacity=".75"/>
-    </filter>
-
-    <filter id="fineTexture" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency=".7"
-                    numOctaves="3" stitchTiles="stitch"/>
-      <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope=".055"/>
-      </feComponentTransfer>
-    </filter>
   </defs>
 
-  <!-- Background -->
-  
-
-
   <!-- Circular emblem -->
-  <g filter="url(#shadow)">
-    <circle cx="1377" cy="596" r="345"
-            fill="none" stroke="url(#ringGreen)" stroke-width="10"/>
-    <circle cx="1377" cy="596" r="316"
-            fill="none" stroke="url(#goldRing)" stroke-width="10"/>
+  <circle cx="1377" cy="596" r="345"
+          fill="none" stroke="url(#ringGreen)" stroke-width="10"/>
+  <circle cx="1377" cy="596" r="316"
+          fill="none" stroke="url(#goldRing)" stroke-width="10"/>
 
-    <!-- House outline -->
-    <path fill="url(#green)" d="
-      M1146 597
-      L1211 537
-      L1211 453
-      L1269 453
-      L1269 486
-      L1376 389
-      L1453 459
-      L1443 472
-      L1376 412
-      L1248 528
-      L1252 470
-      L1228 470
-      L1228 546
-      L1189 581
-      L1228 581
-      L1228 670
-      L1211 686
-      L1211 597 Z"/>
+  <!-- House -->
+  <path fill="url(#green)" d="
+    M1146 597 L1211 537 L1211 453 L1269 453
+    L1269 486 L1376 389 L1453 459 L1443 472
+    L1376 412 L1248 528 L1252 470 L1228 470
+    L1228 546 L1189 581 L1228 581 L1228 670
+    L1211 686 L1211 597 Z"/>
 
-    <!-- Gold roof accent -->
-    <path fill="url(#goldRing)" d="
-      M1290 512
-      L1376 432
-      L1436 488
-      L1376 446 Z"/>
+  <path fill="url(#goldRing)" d="
+    M1290 512 L1376 432 L1436 488 L1376 446 Z"/>
 
-    <!-- Windows -->
-    <g fill="url(#goldRing)">
-      <rect x="1351" y="493" width="21" height="20" rx=".7"/>
-      <rect x="1381" y="493" width="20" height="20" rx=".7"/>
-      <rect x="1351" y="521" width="21" height="21" rx=".7"/>
-      <rect x="1381" y="521" width="20" height="21" rx=".7"/>
-    </g>
-
-    <!-- Upright leaf -->
-    <path fill="url(#leafGold)" d="
-      M1456 599
-      C1412 552 1430 503 1466 458
-      C1486 434 1501 411 1501 386
-      C1540 422 1559 471 1549 514
-      L1537 519
-      C1544 477 1534 441 1508 414
-      C1504 435 1486 457 1469 480
-      C1440 519 1436 557 1456 599 Z"/>
-
-    <!-- Upright leaf vein -->
-    <path fill="url(#green)" d="
-      M1465 634
-      C1447 596 1465 558 1483 525
-      C1495 503 1502 487 1507 468
-      C1511 506 1493 535 1480 565
-      C1470 589 1465 612 1465 634 Z"/>
-
-    <!-- Left leaf -->
-    <path fill="url(#green)" d="
-      M1451 654
-      C1439 608 1417 584 1380 575
-      C1344 566 1305 570 1273 534
-      C1281 600 1297 642 1334 662
-      C1360 676 1392 677 1424 670
-      L1415 660
-      C1380 667 1354 660 1332 643
-      C1308 624 1293 596 1287 557
-      C1312 571 1346 573 1376 582
-      C1411 593 1432 619 1451 654 Z"/>
-
-    <!-- Right leaf -->
-    <path fill="url(#green)" d="
-      M1485 604
-      C1497 560 1523 534 1563 524
-      C1598 514 1630 517 1662 528
-      C1642 540 1632 559 1619 581
-      C1596 622 1560 634 1509 630
-      L1519 618
-      C1562 623 1589 608 1609 577
-      C1620 560 1626 544 1634 537
-      C1599 527 1567 532 1540 549
-      C1517 563 1500 584 1485 604 Z"/>
-
-    <!-- Plant stems and veins -->
-    <path fill="url(#green)" d="
-      M1452 721
-      C1450 667 1415 624 1337 598
-      C1426 611 1459 657 1465 719 Z"/>
-
-    <path fill="url(#green)" d="
-      M1478 720
-      C1456 646 1487 589 1585 557
-      C1513 598 1471 648 1490 718 Z"/>
-
-    <!-- Left grasses -->
-    <path fill="url(#green)" d="
-      M1139 770
-      C1132 741 1115 721 1093 705
-      C1128 713 1148 740 1158 770 Z"/>
-
-    <path fill="url(#green)" d="
-      M1157 772
-      C1150 714 1124 674 1091 642
-      C1145 668 1173 718 1181 775 Z"/>
-
-    <path fill="url(#green)" d="
-      M1179 775
-      C1167 694 1139 625 1097 569
-      C1160 618 1195 701 1203 775 Z"/>
-
-    <path fill="url(#green)" d="
-      M1191 776
-      C1198 716 1228 666 1285 642
-      C1243 676 1217 720 1209 778 Z"/>
-
-    <path fill="url(#green)" d="
-      M1224 775
-      C1228 731 1244 695 1273 668
-      C1255 706 1248 741 1247 773 Z"/>
-
-    <path fill="url(#green)" d="
-      M1250 771
-      C1264 724 1286 692 1320 676
-      C1292 704 1277 734 1269 767 Z"/>
-
-    <!-- Right grasses -->
-    <path fill="url(#green)" d="
-      M1555 719
-      C1551 691 1539 670 1525 656
-      C1550 665 1565 686 1572 720 Z"/>
-
-    <path fill="url(#green)" d="
-      M1579 721
-      C1578 688 1570 661 1556 641
-      C1581 656 1594 683 1597 724 Z"/>
-
-    <path fill="url(#green)" d="
-      M1590 725
-      C1594 660 1622 605 1664 572
-      C1634 615 1614 672 1609 730 Z"/>
-
-    <path fill="url(#green)" d="
-      M1607 731
-      C1619 689 1638 662 1667 649
-      C1644 674 1631 703 1626 737 Z"/>
-
-    <!-- Dark separation beneath the sweeping ground -->
-
-
-    <!-- Sweeping ground -->
-    <path fill="url(#green)" d="
-      M1016 724
-      C1123 799 1225 767 1344 735
-      C1488 695 1615 703 1737 782
-      C1602 725 1490 718 1352 759
-      C1222 798 1112 798 1016 724 Z"/>
-
-    <!-- Lower swoosh -->
-    <path fill="url(#green)" d="
-      M1199 821
-      C1291 822 1361 792 1430 772
-      C1503 751 1562 753 1624 772
-      C1550 760 1496 776 1436 795
-      C1351 823 1268 835 1199 821 Z"/>
+  <!-- Windows -->
+  <g fill="url(#goldRing)">
+    <rect x="1351" y="493" width="21" height="20" rx=".7"/>
+    <rect x="1381" y="493" width="20" height="20" rx=".7"/>
+    <rect x="1351" y="521" width="21" height="21" rx=".7"/>
+    <rect x="1381" y="521" width="20" height="21" rx=".7"/>
   </g>
 
-  <!-- Lettering: approximate serif typography -->
-  <g filter="url(#shadow)">
-    <text x="1378" y="1165"
-          text-anchor="middle"
-          font-family="'Times New Roman', Times, 'Liberation Serif', serif"
-          font-size="284"
-          font-weight="400"
-          textLength="850"
-          lengthAdjust="spacingAndGlyphs"
-          fill="url(#gold)">SUG’S</text>
+  <!-- Upright leaf -->
+  <path fill="url(#leafGold)" d="
+    M1456 599
+    C1412 552 1430 503 1466 458
+    C1486 434 1501 411 1501 386
+    C1540 422 1559 471 1549 514
+    L1537 519
+    C1544 477 1534 441 1508 414
+    C1504 435 1486 457 1469 480
+    C1440 519 1436 557 1456 599 Z"/>
 
-    <text x="1378" y="1263"
-          text-anchor="middle"
-          font-family="'Times New Roman', Times, 'Liberation Serif', serif"
-          font-size="74"
-          font-weight="400"
-          letter-spacing="9"
-          textLength="947"
-          lengthAdjust="spacingAndGlyphs"
-          fill="url(#smallGold)">PROPERTY SERVICES</text>
-  </g>
+  <path fill="url(#green)" d="
+    M1465 634
+    C1447 596 1465 558 1483 525
+    C1495 503 1502 487 1507 468
+    C1511 506 1493 535 1480 565
+    C1470 589 1465 612 1465 634 Z"/>
+
+  <!-- Left leaf -->
+  <path fill="url(#green)" d="
+    M1451 654
+    C1439 608 1417 584 1380 575
+    C1344 566 1305 570 1273 534
+    C1281 600 1297 642 1334 662
+    C1360 676 1392 677 1424 670
+    L1415 660
+    C1380 667 1354 660 1332 643
+    C1308 624 1293 596 1287 557
+    C1312 571 1346 573 1376 582
+    C1411 593 1432 619 1451 654 Z"/>
+
+  <!-- Right leaf -->
+  <path fill="url(#green)" d="
+    M1485 604
+    C1497 560 1523 534 1563 524
+    C1598 514 1630 517 1662 528
+    C1642 540 1632 559 1619 581
+    C1596 622 1560 634 1509 630
+    L1519 618
+    C1562 623 1589 608 1609 577
+    C1620 560 1626 544 1634 537
+    C1599 527 1567 532 1540 549
+    C1517 563 1500 584 1485 604 Z"/>
+
+  <!-- Stems -->
+  <path fill="url(#green)" d="
+    M1452 721
+    C1450 667 1415 624 1337 598
+    C1426 611 1459 657 1465 719 Z"/>
+
+  <path fill="url(#green)" d="
+    M1478 720
+    C1456 646 1487 589 1585 557
+    C1513 598 1471 648 1490 718 Z"/>
+
+  <!-- Left grasses -->
+  <path fill="url(#green)" d="
+    M1139 770
+    C1132 741 1115 721 1093 705
+    C1128 713 1148 740 1158 770 Z"/>
+
+  <path fill="url(#green)" d="
+    M1157 772
+    C1150 714 1124 674 1091 642
+    C1145 668 1173 718 1181 775 Z"/>
+
+  <path fill="url(#green)" d="
+    M1179 775
+    C1167 694 1139 625 1097 569
+    C1160 618 1195 701 1203 775 Z"/>
+
+  <path fill="url(#green)" d="
+    M1191 776
+    C1198 716 1228 666 1285 642
+    C1243 676 1217 720 1209 778 Z"/>
+
+  <path fill="url(#green)" d="
+    M1224 775
+    C1228 731 1244 695 1273 668
+    C1255 706 1248 741 1247 773 Z"/>
+
+  <path fill="url(#green)" d="
+    M1250 771
+    C1264 724 1286 692 1320 676
+    C1292 704 1277 734 1269 767 Z"/>
+
+  <!-- Right grasses -->
+  <path fill="url(#green)" d="
+    M1555 719
+    C1551 691 1539 670 1525 656
+    C1550 665 1565 686 1572 720 Z"/>
+
+  <path fill="url(#green)" d="
+    M1579 721
+    C1578 688 1570 661 1556 641
+    C1581 656 1594 683 1597 724 Z"/>
+
+  <path fill="url(#green)" d="
+    M1590 725
+    C1594 660 1622 605 1664 572
+    C1634 615 1614 672 1609 730 Z"/>
+
+  <path fill="url(#green)" d="
+    M1607 731
+    C1619 689 1638 662 1667 649
+    C1644 674 1631 703 1626 737 Z"/>
+
+  <!-- Sweeping ground -->
+  <path fill="url(#green)" d="
+    M1016 724
+    C1123 799 1225 767 1344 735
+    C1488 695 1615 703 1737 782
+    C1602 725 1490 718 1352 759
+    C1222 798 1112 798 1016 724 Z"/>
+
+  <!-- Lower swoosh -->
+  <path fill="url(#green)" d="
+    M1199 821
+    C1291 822 1361 792 1430 772
+    C1503 751 1562 753 1624 772
+    C1550 760 1496 776 1436 795
+    C1351 823 1268 835 1199 821 Z"/>
 </svg>
