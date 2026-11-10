@@ -532,17 +532,6 @@ html[data-theme="dark"] .theme-icon-sun {
   font-size: 0.9rem;
 }
 
-.service-number {
-  display: inline-grid;
-  width: 40px;
-  height: 40px;
-  margin-bottom: 24px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--sage-light);
-  font-size: 0.8rem;
-  font-weight: 700;
-}
 
 .pricing-grid {
   display: grid;
@@ -1163,6 +1152,22 @@ dialog::backdrop {
   .services-grid,
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    gap: 14px;
+  }
+
+  .service-card {
+    padding: 22px 24px;
+  }
+
+  .service-card h3 {
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    line-height: 1.55;
   }
 
   .brand-logo {
