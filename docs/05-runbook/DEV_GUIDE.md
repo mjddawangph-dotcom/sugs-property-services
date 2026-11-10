@@ -286,6 +286,8 @@ privacy policy if appropriate.
 ## Accessibility and motion
 
 - Semantic sections, labels, skip link, and visible focus rings.
+- Header includes a theme toggle with an updated accessible name, so dark mode
+  is available on desktop, tablet, and mobile.
 - Mobile header uses a hamburger menu that closes on Escape, outside click,
   or link selection and reports its state with aria-expanded.
 - Native dialog with keyboard dismissal and focus handling.
@@ -294,6 +296,21 @@ privacy policy if appropriate.
 - Scroll reveals use IntersectionObserver.
 - Reduced-motion preferences disable animation/smooth scrolling.
 - Content remains visible if JavaScript or IntersectionObserver is unavailable.
+
+## Dark mode
+
+The header theme toggle switches the entire page between light and dark.
+
+- The first visit follows the visitor's `prefers-color-scheme` setting.
+- A manual choice is stored in localStorage under `sug-theme` and persists.
+- The `meta[name="theme-color"]` value updates with the selected theme.
+- Dark palette tokens live under `html[data-theme="dark"]` in style.css.
+- The header, mobile menu, cards, forms, carousel controls, modal, sticky
+  mobile CTA, and footer all have dark-theme treatments.
+- The brand logo gets a light circular backing in dark mode for contrast.
+
+When adding a component, use the existing color variables first. If a color is
+hard-coded, add a corresponding `html[data-theme="dark"]` rule.
 
 ## Launch checklist
 
@@ -308,6 +325,7 @@ privacy policy if appropriate.
 [ ] Test submission success and network/server error states.
 [ ] Test phone/email links and all section links.
 [ ] Test keyboard navigation and reduced-motion mode.
-[ ] Test mobile layout and carousel swiping.
+[ ] Test light/dark toggle, reload persistence, and OS dark preference.
+[ ] Test mobile layout, carousel swiping, and the mobile menu in both themes.
 [ ] Check deployed images and font loading.
 [ ] Confirm HTTPS and privacy wording.

@@ -15,6 +15,23 @@
   --shadow: 0 16px 45px rgba(38, 59, 50, 0.09);
   --container: 1160px;
   --header-height: 90px;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --forest: #a9d3b4;
+  --forest-dark: #c4e5cb;
+  --sage: #2d493b;
+  --sage-light: #1b2b23;
+  --earth: #20251f;
+  --paper: #0f1512;
+  --white: #18221c;
+  --ink: #e8efe9;
+  --muted: #a7b6ab;
+  --line: #33473b;
+  --error: #ffb4aa;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
 }
 
 * {
@@ -244,6 +261,12 @@ button:disabled {
   gap: 22px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .brand {
   display: inline-flex;
   flex-shrink: 0;
@@ -267,6 +290,45 @@ button:disabled {
   letter-spacing: -0.035em;
   line-height: 1.1;
   white-space: nowrap;
+}
+
+.theme-toggle {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--forest);
+}
+
+.theme-toggle:hover {
+  background: var(--sage-light);
+}
+
+.theme-icon {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.theme-icon-sun {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-icon-sun {
+  display: block;
 }
 
 .menu-toggle {
@@ -966,7 +1028,7 @@ dialog::backdrop {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 820px) {
   :root {
     --header-height: 84px;
   }
@@ -1004,6 +1066,10 @@ dialog::backdrop {
   }
 
   .header-inner {
+    gap: 8px;
+  }
+
+  .header-actions {
     gap: 8px;
   }
 
@@ -1141,6 +1207,109 @@ dialog::backdrop {
     flex: 1;
     padding-inline: 12px;
   }
+}
+
+@media (max-width: 360px) {
+  .header-inner {
+    gap: 4px;
+  }
+
+  .brand {
+    gap: 6px;
+  }
+
+  .brand-logo {
+    height: 44px;
+  }
+
+  .brand-name {
+    font-size: 0.78rem;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .theme-toggle,
+  .menu-toggle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Dark theme surfaces and accents */
+html[data-theme="dark"] .site-header {
+  background: #0f1512;
+}
+
+html[data-theme="dark"] .brand-logo {
+  border-radius: 50%;
+  background: #f2f0e6;
+}
+
+html[data-theme="dark"] .button:not(.button-outline),
+html[data-theme="dark"] .skip-link,
+html[data-theme="dark"] .mobile-contact a:last-child {
+  border-color: #4b8a63;
+  background: #35704d;
+  color: #f7fbf7;
+}
+
+html[data-theme="dark"] .button:not(.button-outline):hover {
+  background: #2b5c40;
+}
+
+html[data-theme="dark"] .button-outline:hover {
+  background: var(--sage);
+}
+
+html[data-theme="dark"] .photo-badge {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(24, 34, 28, 0.94);
+}
+
+html[data-theme="dark"] .placeholder-note {
+  color: #d8b982;
+}
+
+html[data-theme="dark"] .stars {
+  color: #d8bc7d;
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .carousel-dot::before {
+  background: #5e7567;
+}
+
+html[data-theme="dark"] .carousel-dot[aria-current="true"]::before {
+  background: var(--forest);
+}
+
+html[data-theme="dark"] .site-footer {
+  background: #0a100c;
+  color: #e7efe9;
+}
+
+html[data-theme="dark"] .site-footer a {
+  color: #e7efe9;
+}
+
+html[data-theme="dark"] dialog::backdrop {
+  background: rgba(0, 0, 0, 0.66);
+}
+
+html[data-theme="dark"] :focus-visible {
+  outline-color: #e2c07d;
 }
 
 /* Respect visitor motion preferences everywhere */
