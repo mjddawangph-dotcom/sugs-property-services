@@ -260,6 +260,15 @@ button:disabled {
   height: 76px;
 }
 
+.brand-name {
+  color: var(--forest);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
 .menu-toggle {
   display: none;
   width: 44px;
@@ -522,7 +531,7 @@ button:disabled {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 22px;
+  gap: clamp(10px, 2vw, 22px);
   margin-top: 18px;
 }
 
@@ -561,29 +570,45 @@ button:disabled {
 
 .carousel-dots {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2px;
+  min-width: 0;
+  max-width: min(100%, 420px);
+  flex: 0 1 auto;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 2px;
+}
+
+.carousel-dots::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-dot {
   display: grid;
-  width: 44px;
-  height: 44px;
+  width: clamp(18px, 5.2vw, 24px);
+  height: 40px;
+  flex: 0 0 clamp(18px, 5.2vw, 24px);
+  padding: 0;
   place-items: center;
   border: 0;
   background: transparent;
+  scroll-snap-align: center;
 }
 
 .carousel-dot::before {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
   background: #b1bdb2;
   content: "";
+  transition: width 160ms ease, background 160ms ease;
 }
 
 .carousel-dot[aria-current="true"]::before {
+  width: 18px;
   background: var(--forest);
 }
 
@@ -982,8 +1007,16 @@ dialog::backdrop {
     gap: 8px;
   }
 
+  .brand {
+    gap: 8px;
+  }
+
   .brand-logo {
     height: 60px;
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
   }
 
   .desktop-nav {
@@ -1074,6 +1107,14 @@ dialog::backdrop {
   .services-grid,
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .brand-logo {
+    height: 52px;
+  }
+
+  .brand-name {
+    font-size: 0.86rem;
   }
 
   .hero-copy .button-row .button {

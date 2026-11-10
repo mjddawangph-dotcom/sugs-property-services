@@ -426,6 +426,22 @@
         }
       });
 
+      // Keep the active dot visible when a future set of slides is too wide.
+      const activeDot = dots[index];
+      if (activeDot) {
+        const dotLeft = activeDot.offsetLeft;
+        const dotRight = dotLeft + activeDot.offsetWidth;
+        const visibleLeft = dotsContainer.scrollLeft;
+        const visibleRight = visibleLeft + dotsContainer.clientWidth;
+
+        if (dotLeft < visibleLeft || dotRight > visibleRight) {
+          dotsContainer.scrollTo({
+            left: dotLeft - (dotsContainer.clientWidth - activeDot.offsetWidth) / 2,
+            behavior: reducedMotion.matches ? "auto" : "smooth"
+          });
+        }
+      }
+
       previousButton.disabled = index === 0;
       nextButton.disabled = index === slides.length - 1;
 
