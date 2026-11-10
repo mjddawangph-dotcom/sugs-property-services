@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- EDIT: SEO -->
+  <title>Sug's Property Services | Victorville Lawn Care & Maintenance</title>
+  <meta
+    name="description"
+    content="Owner-operated lawn care, weed treatment, cleanups, and irrigation repair for Victorville, Hesperia, and Apple Valley. Call us for a straightforward quote."
+  >
+  <meta name="theme-color" content="#29483d">
+
+  <!-- EDIT: Launch Gate — remove after prices, photos, reviews, and the form are verified. -->
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.formspree = window.formspree || function () {
+      (formspree.q = formspree.q || []).push(arguments);
+    };
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Sug's Property Services home">
+        <img
+          class="brand-logo"
+          src="assets/brand/logo.svg"
+          alt=""
+          width="960"
+          height="960"
+          fetchpriority="high"
+        >
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span class="menu-toggle-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="desktop-nav" id="site-nav" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#work">Our work</a>
+        <a href="#about">Meet the owner</a>
+        <a href="#quote">Get a quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">Owner-operated · High Desert property care</p>
+
+          <!-- EDIT: Starting Prices — $45 is an unapproved example -->
+          <h1 id="hero-title">
+            Lawn mowing &amp; property maintenance in Victorville,
+            from $45 per cut.
+          </h1>
+
+          <p class="lead">
+            A tidy yard. One less thing on your list.
+            We bring reliable, detail-oriented care to homes
+            and managed properties in Victorville, Hesperia, and Apple Valley.
+          </p>
+
+          <div class="button-row">
+            <a class="button" href="#quote">Get my property quote</a>
+          </div>
+
+          <ul class="trust-list" aria-label="Our commitments">
+            <li>On time</li>
+            <li>Attention to detail</li>
+            <li>Fair, upfront pricing</li>
+          </ul>
+
+          <p class="small-note">
+            Final price depends on yard size and condition.
+            <span class="placeholder-note">
+              Preview: $45 is sample pricing awaiting owner approval.
+            </span>
+          </p>
+        </div>
+
+        <figure class="hero-photo" data-reveal>
+          <!-- EDIT: Hero Image -->
+          <img
+            src="images/front-yard-cactus.webp"
+            alt="Front yard with a cactus feature, gravel landscaping, and a stucco home"
+            width="1600"
+            height="893"
+            fetchpriority="high"
+          >
+          <figcaption class="photo-badge">
+            <strong>Care that shows in the details.</strong>
+            <span>A recent front-yard project.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="promise-strip" aria-label="Our approach">
+      <div class="container promise-grid">
+        <div>
+          <strong>A real person to call</strong>
+          <span>Talk directly with us about your property.</span>
+        </div>
+        <div>
+          <strong>Clear expectations</strong>
+          <span>Agree on the work and price before we begin.</span>
+        </div>
+        <div>
+          <strong>Practical local care</strong>
+          <span>Maintenance for homeowners and property managers.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">From routine visits to a fresh start</p>
+          <h2 id="services-title">Your property, kept in good shape.</h2>
+          <p>
+            Need a regular mow, weeds brought under control, or a yard that
+            needs some attention? Tell us what you need.
+          </p>
+        </div>
+
+        <!-- EDIT: Service Descriptions -->
+        <div class="services-grid">
+          <article class="service-card" data-reveal>
+            <span class="service-number" aria-hidden="true">01</span>
+            <h3>Lawn Care &amp; Maintenance</h3>
+            <p>Routine mowing, edging, and a tidy finish to keep your lawn looking cared for.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-number" aria-hidden="true">02</span>
+            <h3>Weed Treatment</h3>
+            <p>Discuss a practical approach to unwanted growth in your lawn and landscape.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-number" aria-hidden="true">03</span>
+            <h3>Clean Ups</h3>
+            <p>Get overgrown or untidy outdoor spaces back to a manageable starting point.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-number" aria-hidden="true">04</span>
+            <h3>Irrigation Repair</h3>
+            <p>Address sprinkler problems, leaks, and uneven coverage before they become bigger headaches.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-number" aria-hidden="true">05</span>
+            <h3>Shrub &amp; Tree Trimming</h3>
+            <p>Shape shrubs and discuss suitable tree-trimming work for a neater property.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-number" aria-hidden="true">06</span>
+            <h3>Fertilization</h3>
+            <p>Plan lawn and plant nourishment around your property's needs.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-number" aria-hidden="true">07</span>
+            <h3>Seasonal Cleanup</h3>
+            <p>Clear seasonal buildup and prepare your outdoor space for the months ahead.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-number" aria-hidden="true">08</span>
+            <h3>Sod/Turf Installation</h3>
+            <p>Explore a fresh lawn installation with scope, preparation, and pricing explained upfront.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">A starting point, not a surprise</p>
+          <h2 id="pricing-title">Straightforward pricing.</h2>
+          <p>Send your address and a few details so we can quote the actual work.</p>
+          <p class="placeholder-note">
+            Preview only: all starting prices below need owner approval.
+          </p>
+        </div>
+
+        <!-- EDIT: Starting Prices -->
+        <div class="pricing-grid">
+          <article class="price-card" data-reveal>
+            <h3>Lawn mowing</h3>
+            <p class="price"><span>From</span> $45 <small>/ cut</small></p>
+            <p>For qualifying routine lawn visits. Size, condition, and access affect the final quote.</p>
+            <a href="#quote">Quote my lawn <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="price-card" data-reveal>
+            <h3>Property cleanup</h3>
+            <p class="price"><span>From</span> $150</p>
+            <p>Cleanup scope, growth, debris volume, and removal needs are assessed before pricing.</p>
+            <a href="#quote">Quote my cleanup <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="price-card" data-reveal>
+            <h3>Irrigation repair</h3>
+            <p class="price"><span>From</span> $85</p>
+            <p>Final pricing depends on the issue, labor, and replacement parts required.</p>
+            <a href="#quote">Discuss my repair <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">A look at recent High Desert projects</p>
+          <h2 id="work-title">Our Recent Work</h2>
+          <p>
+            Clean edges, tidy spaces, and outdoor areas you can enjoy.
+          </p>
+        </div>
+
+        <div
+          class="carousel"
+          data-carousel
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Recent project photos"
+          data-reveal
+        >
+          <div
+            class="carousel-track"
+            id="carousel-track"
+            tabindex="0"
+            aria-label="Slides; use left and right arrow keys to navigate"
+          >
+            <!-- EDIT: Slideshow Images — duplicate/remove complete figures -->
+            <figure class="slide">
+              <img
+                src="images/front-yard-cactus.webp"
+                alt="Front yard with a cactus feature and gravel landscaping"
+                width="1600"
+                height="893"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="slide">
+              <img
+                src="images/backyard-gravel-tree.webp"
+                alt="Backyard with gravel ground cover, a shade tree, and wooden fencing"
+                width="1600"
+                height="893"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="slide">
+              <img
+                src="images/front-lawn-palms.webp"
+                alt="Front yard with palms, lawn, and a white garage door"
+                width="1600"
+                height="893"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="slide">
+              <img
+                src="images/lawn-palm-maintenance.webp"
+                alt="Green lawn with palm trees beside a stucco home"
+                width="1600"
+                height="893"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="slide">
+              <img
+                src="images/palm-gravel-landscaping.webp"
+                alt="Cluster of palms and gravel landscaping beside a driveway"
+                width="1600"
+                height="893"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="slide">
+              <img
+                src="images/side-yard-cactus.webp"
+                alt="Side yard with cactus, gravel, and a block border"
+                width="1600"
+                height="893"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="slide">
+              <img
+                src="images/side-walkway-planters.webp"
+                alt="Side walkway with potted plants, palms, and a wooden fence"
+                width="1600"
+                height="893"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="slide">
+              <img
+                src="images/palm-lined-side-yard.webp"
+                alt="Palm trees and gravel along a side yard"
+                width="1600"
+                height="893"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="slide">
+              <img
+                src="images/palm-bed-fence.webp"
+                alt="Young palms and a shade tree in a gravel bed"
+                width="1600"
+                height="893"
+                loading="lazy"
+              >
+            </figure>
+            <figure class="slide">
+              <img
+                src="images/tall-palms-driveway.webp"
+                alt="Tall palm trees above a driveway and garage"
+                width="1600"
+                height="893"
+                loading="lazy"
+              >
+            </figure>
+          </div>
+
+          <div class="carousel-controls" hidden>
+            <button
+              class="icon-button"
+              type="button"
+              data-prev
+              aria-label="Previous slide"
+              aria-controls="carousel-track"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M15 5l-7 7 7 7" />
+              </svg>
+            </button>
+
+            <div class="carousel-dots" aria-label="Choose a slide"></div>
+
+            <button
+              class="icon-button"
+              type="button"
+              data-next
+              aria-label="Next slide"
+              aria-controls="carousel-track"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          <p class="sr-only" data-slide-status role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="owner-images" data-reveal>
+          <figure class="owner-photo">
+            <img
+              src="images/owner-portrait.webp"
+              alt="Gustavo Lopez, owner of Sug's Property Services"
+              width="1200"
+              height="800"
+              loading="lazy"
+            >
+            <figcaption>Gustavo Lopez, owner</figcaption>
+          </figure>
+
+        </div>
+
+        <div data-reveal>
+          <p class="eyebrow">Your property has a person behind it</p>
+          <h2 id="about-title">Hi, I'm Gustavo.</h2>
+          <p class="lead">
+            I run Sug's Property Services with a simple goal:
+            show up on time, pay attention, and leave the property better
+            than I found it.
+          </p>
+          <p>
+            Whether you need a dependable maintenance routine or help getting
+            a yard back under control, I'll start with a conversation about
+            what matters to you.
+          </p>
+          <p>
+            My approach is hands-on, with experienced crew leadership,
+            clear communication, and fair pricing for the work involved.
+            No complicated sales pitch.
+          </p>
+
+          <a class="button" href="tel:+19095826445">
+            Call me: (909) 582-6445
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">A place for genuine customer feedback</p>
+          <h2 id="reviews-title">Good work. Real relationships.</h2>
+          <p class="placeholder-note">
+            The three reviews below are fictional design examples.
+            Replace them with verified customer feedback before publishing.
+          </p>
+        </div>
+
+        <!-- EDIT: Verified Reviews — never publish fictional reviews as real -->
+        <div class="reviews-grid">
+          <article class="review-card" data-reveal>
+            <p class="stars" aria-label="Example rating: 5 out of 5 stars">★★★★★</p>
+            <blockquote>
+              “The yard looked tidy, the edges were clean, and everything
+              was explained before the work started.”
+            </blockquote>
+            <p class="review-author">Sarah Mitchell <span>Victorville</span></p>
+            <p class="placeholder-note">Fictional review example</p>
+          </article>
+
+          <article class="review-card" data-reveal>
+            <p class="stars" aria-label="Example rating: 5 out of 5 stars">★★★★★</p>
+            <blockquote>
+              “Exactly the kind of straightforward help I wanted.
+              Clear communication and attention to the little details.”
+            </blockquote>
+            <p class="review-author">Daniel Ramirez <span>Hesperia</span></p>
+            <p class="placeholder-note">Fictional review example</p>
+          </article>
+
+          <article class="review-card" data-reveal>
+            <p class="stars" aria-label="Example rating: 5 out of 5 stars">★★★★★</p>
+            <blockquote>
+              “It makes managing a property easier when the maintenance
+              is organized and the outdoor spaces are kept presentable.”
+            </blockquote>
+            <p class="review-author">Angela Brooks <span>Apple Valley</span></p>
+            <p class="placeholder-note">Fictional review example</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" aria-labelledby="area-title">
+      <div class="container area-layout" data-reveal>
+        <div>
+          <p class="eyebrow">Local routes. Personal service.</p>
+          <h2 id="area-title">High Desert property care.</h2>
+          <!-- EDIT: Verified Service Areas -->
+          <p>
+            Focused on Victorville, Hesperia, and Apple Valley.
+            For Rancho Cucamonga and other locations in San Bernardino
+            or Riverside County, check your ZIP and call to confirm availability.
+          </p>
+          <p class="small-note">
+            ZIP screening is preliminary; address and scheduling need confirmation.
+          </p>
+        </div>
+        <button class="button button-outline" type="button" id="open-area">
+          Check your area
+        </button>
+      </div>
+    </section>
+
+    <section class="section" id="quote" aria-labelledby="quote-title">
+      <div class="container quote-grid">
+        <div data-reveal>
+          <p class="eyebrow">Let's take a look</p>
+          <h2 id="quote-title">Tell us what your property needs.</h2>
+          <p class="lead">
+            Share your address, choose a service, and add a few details.
+            We'll use them to discuss the work and your quote.
+          </p>
+
+          <ol class="steps">
+            <li><strong>Tell us about the property.</strong> A few details help us understand the job.</li>
+            <li><strong>Discuss scope and pricing.</strong> Know what is included before committing.</li>
+            <li><strong>Arrange the visit.</strong> Choose a time based on confirmed availability.</li>
+          </ol>
+
+          <!-- EDIT: Business Contact -->
+          <div class="contact-box">
+            <strong>Prefer a quick conversation?</strong>
+            <a href="tel:+19095826445">(909) 582-6445</a>
+            <a href="mailto:sugspropertyservices@gmail.com">sugspropertyservices@gmail.com</a>
+          </div>
+        </div>
+
+        <!-- EDIT: Formspree Endpoint -->
+        <form
+          id="quote-form"
+          class="quote-form"
+          action="https://formspree.io/f/xzeenprg"
+          method="POST"
+          data-reveal
+        >
+          <input type="hidden" name="_subject" value="New Sug's Property Services quote request">
+
+          <!-- Honeypot: leave empty -->
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="small-note">Fields marked * are required.</p>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Name *</label>
+              <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required data-fs-field>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone *</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" required data-fs-field>
+            </div>
+
+            <div class="field field-full">
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required data-fs-field>
+            </div>
+
+            <div class="field field-full">
+              <label for="address">Property address *</label>
+              <input
+                id="address"
+                name="address"
+                type="text"
+                autocomplete="street-address"
+                placeholder="Street, city, state, ZIP"
+                maxlength="300"
+                required
+                data-fs-field
+              >
+            </div>
+
+            <div class="field field-full">
+              <label for="service">Service needed *</label>
+              <select id="service" name="service" required data-fs-field>
+                <option value="" disabled selected>Choose a service</option>
+                <option>Lawn Care &amp; Maintenance</option>
+                <option>Weed Treatment</option>
+                <option>Clean Ups</option>
+                <option>Irrigation Repair</option>
+                <option>Shrub &amp; Tree Trimming</option>
+                <option>Fertilization</option>
+                <option>Seasonal Cleanup</option>
+                <option>Sod/Turf Installation</option>
+              </select>
+            </div>
+
+            <div class="field field-full">
+              <label for="details">Anything else we should know? <span>(optional)</span></label>
+              <textarea
+                id="details"
+                name="details"
+                rows="4"
+                maxlength="3000"
+                placeholder="Yard size, current condition, access, or preferred timing..."
+                data-fs-field
+              ></textarea>
+            </div>
+          </div>
+
+          <p class="small-note">
+            By submitting, you ask Sug's Property Services to contact you
+            about this request. Your details are processed through Formspree.
+          </p>
+
+          <button class="button form-submit" type="submit" data-fs-submit-btn>Request my quote</button>
+
+          <p
+            class="form-status"
+            data-fs-success
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            Thanks! Your request was sent. We'll follow up with you.
+          </p>
+
+          <p
+            class="form-status"
+            data-fs-error
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+          ></p>
+
+          <noscript>
+            <p class="small-note">
+              This form submits directly to Formspree without JavaScript.
+            </p>
+          </noscript>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Sug's Property Services</strong>
+        <p>Owner-operated in the High Desert, California</p>
+        <small>© <span id="year">2026</span> Sug's Property Services.</small>
+      </div>
+      <div class="footer-links">
+        <a href="tel:+19095826445">(909) 582-6445</a>
+        <a href="mailto:sugspropertyservices@gmail.com">sugspropertyservices@gmail.com</a>
+        <a href="#quote">Request a quote</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-contact" aria-label="Quick contact">
+    <a href="tel:+19095826445">Call us</a>
+    <a href="#quote">Get a quote</a>
+  </div>
+
+  <!-- First-load service-area modal; hidden natively until JavaScript opens it -->
+  <dialog id="area-modal" aria-labelledby="modal-title" aria-describedby="modal-description">
+    <div class="modal-content">
+      <div class="modal-top">
+        <span class="eyebrow">A quick local check</span>
+        <button class="icon-button" type="button" id="close-area" aria-label="Close service-area checker">
+          ×
+        </button>
+      </div>
+
+      <h2 id="modal-title">Enter your address to check if we service your area.</h2>
+      <p id="modal-description">
+        Include your ZIP code at the end. This checks our sample ZIP list,
+        not exact street-level availability.
+      </p>
+
+      <form id="area-form">
+        <div class="field">
+          <label for="area-address">Property address or ZIP code</label>
+          <input
+            id="area-address"
+            type="text"
+            autocomplete="street-address"
+            placeholder="123 Main St, Victorville, CA 92392"
+            maxlength="300"
+            aria-describedby="area-result"
+            required
+          >
+        </div>
+
+        <p id="area-result" class="area-result" role="status" aria-live="polite" aria-atomic="true"></p>
+
+        <div class="button-row">
+          <button class="button" type="submit">Check availability</button>
+          <button class="button button-outline" type="button" id="skip-area" autofocus>
+            Skip
+          </button>
+        </div>
+      </form>
+
+      <p class="small-note">
+        No address is saved by this checker. Final service availability
+        must be confirmed with us.
+      </p>
+    </div>
+  </dialog>
+
+  <!-- Result popup for the service-area checker -->
+  <dialog
+    id="area-result-modal"
+    class="area-result-dialog"
+    aria-labelledby="area-result-title"
+    aria-describedby="area-result-description"
+  >
+    <div class="modal-content">
+      <p class="eyebrow">Service-area check</p>
+      <h2 id="area-result-title"></h2>
+      <p id="area-result-description"></p>
+
+      <div class="button-row">
+        <button class="button" type="button" id="area-result-continue">
+          Continue
+        </button>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>
