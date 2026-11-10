@@ -330,9 +330,9 @@ opaque so content does not show through while scrolling.
 A fixed brand watermark sits behind the page content:
 
 - It uses `assets/brand/logo.svg` through `body::before`.
-- The size is `min(1200px, 115vw, 115vh)` and it is fixed to the viewport.
-- It is centered vertically and shifted right with `left: 55%`.
-- Light mode uses 6% opacity; dark mode inverts the logo and uses 3%.
+- The size is `min(1320px, 120vw, 125vh)` and it is fixed to the viewport.
+- It is centered in the viewport with `left: 50%` and `top: 50%`.
+- Light mode uses 7% opacity; dark mode inverts the logo and uses 3.5%.
 - `main` and `.site-footer` sit above it with `z-index: 1`.
 - `.section-tinted` and `.promise-strip` use translucent backgrounds so the
   watermark remains faintly visible through those bands.
