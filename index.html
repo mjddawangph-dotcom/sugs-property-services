@@ -12,6 +12,38 @@
   >
   <meta name="theme-color" content="#29483d">
 
+  <script>
+    (() => {
+      let theme = "light";
+      let hasSavedTheme = false;
+
+      try {
+        const saved = localStorage.getItem("sug-theme");
+
+        if (saved === "dark" || saved === "light") {
+          theme = saved;
+          hasSavedTheme = true;
+        }
+      } catch (error) {
+        // Storage can be unavailable in privacy modes; fall back to the OS.
+      }
+
+      if (
+        !hasSavedTheme &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        theme = "dark";
+      }
+
+      document.documentElement.dataset.theme = theme;
+
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) {
+        themeColor.content = theme === "dark" ? "#0f1512" : "#29483d";
+      }
+    })();
+  </script>
+
   <!-- EDIT: Launch Gate — remove after prices, photos, reviews, and the form are verified. -->
   <meta name="robots" content="noindex, follow">
 
@@ -49,27 +81,57 @@
         <span class="brand-name">Sug's Property Services</span>
       </a>
 
-      <button
-        class="menu-toggle"
-        id="menu-toggle"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="site-nav"
-      >
-        <span class="menu-toggle-icon" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </button>
+      <div class="header-actions">
+        <nav class="desktop-nav" id="site-nav" aria-label="Main navigation">
+          <a href="#services">Services</a>
+          <a href="#work">Our work</a>
+          <a href="#about">Meet the owner</a>
+          <a href="#quote">Get a quote</a>
+        </nav>
 
-      <nav class="desktop-nav" id="site-nav" aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#work">Our work</a>
-        <a href="#about">Meet the owner</a>
-        <a href="#quote">Get a quote</a>
-      </nav>
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          title="Switch to dark mode"
+        >
+          <svg
+            class="theme-icon theme-icon-moon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M20.5 14.2A8.2 8.2 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" />
+          </svg>
+          <svg
+            class="theme-icon theme-icon-sun"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+            />
+          </svg>
+        </button>
+
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
     </div>
   </header>
 

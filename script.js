@@ -284,6 +284,66 @@
     }
   }
 
+  function initializeTheme() {
+    const root = document.documentElement;
+    const toggle = document.querySelector("#theme-toggle");
+
+    if (!toggle) {
+      return;
+    }
+
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function readSavedTheme() {
+      try {
+        const saved = localStorage.getItem("sug-theme");
+        return saved === "dark" || saved === "light" ? saved : null;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function applyTheme(theme, persist) {
+      const dark = theme === "dark";
+      const label = dark ? "Switch to light mode" : "Switch to dark mode";
+
+      root.dataset.theme = theme;
+      toggle.setAttribute("aria-label", label);
+      toggle.setAttribute("title", label);
+
+      if (themeColor) {
+        themeColor.content = dark ? "#0f1512" : "#29483d";
+      }
+
+      if (persist) {
+        try {
+          localStorage.setItem("sug-theme", theme);
+        } catch (error) {
+          // The visual theme still changes when storage is unavailable.
+        }
+      }
+    }
+
+    applyTheme(root.dataset.theme === "dark" ? "dark" : "light", false);
+
+    toggle.addEventListener("click", () => {
+      applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
+    });
+
+    const handleSchemeChange = (event) => {
+      if (!readSavedTheme()) {
+        applyTheme(event.matches ? "dark" : "light", false);
+      }
+    };
+
+    if (typeof colorScheme.addEventListener === "function") {
+      colorScheme.addEventListener("change", handleSchemeChange);
+    } else if (typeof colorScheme.addListener === "function") {
+      colorScheme.addListener(handleSchemeChange);
+    }
+  }
+
   function initializeMobileMenu() {
     const header = document.querySelector(".site-header");
     const toggle = document.querySelector("#menu-toggle");
@@ -293,7 +353,7 @@
       return;
     }
 
-    const mobileQuery = window.matchMedia("(max-width: 760px)");
+    const mobileQuery = window.matchMedia("(max-width: 820px)");
 
     function setMenuOpen(open) {
       header.classList.toggle("menu-open", open);
@@ -544,6 +604,7 @@
 
   initializeYear();
   initializeReveals();
+  initializeTheme();
   initializeMobileMenu();
   initializeAreaModal();
   initializeCarousel();
