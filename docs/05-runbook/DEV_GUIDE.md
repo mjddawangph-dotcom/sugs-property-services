@@ -167,7 +167,7 @@ Find "EDIT: Slideshow Images" in index.html.
 Each slide is a <figure class="slide"> inside #carousel-track.
 
 To update a photo:
-- Change its img src, alt text, and caption.
+- Change its img src and alt text.
 
 To add/remove a slide:
 - Duplicate/delete an entire figure.slide.
@@ -180,6 +180,8 @@ The carousel:
 - Uses native CSS scroll-snap.
 - Supports touch/trackpad scrolling.
 - Has previous/next buttons and generated dot indicators.
+- Keeps dot indicators on one compact row; adding many slides makes the row
+  scroll, and the active dot is kept in view.
 - Supports Left/Right arrow keys while its viewport is focused.
 - Does not autoplay.
 - Disables endpoint arrows and hides controls for a single slide.
