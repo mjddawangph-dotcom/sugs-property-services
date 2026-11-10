@@ -623,7 +623,7 @@ button:disabled {
 
 .owner-images {
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
+  grid-template-columns: 1fr;
   align-items: end;
   gap: 16px;
 }
@@ -637,12 +637,6 @@ button:disabled {
 .owner-photo img {
   width: 100%;
   height: 350px;
-  object-fit: cover;
-}
-
-.truck-photo img {
-  width: 100%;
-  height: 225px;
   object-fit: cover;
 }
 
@@ -1121,10 +1115,6 @@ dialog::backdrop {
 
   .owner-photo img {
     height: 280px;
-  }
-
-  .truck-photo img {
-    height: 180px;
   }
 
   .modal-content {
