@@ -1,15 +1,16 @@
 # Sug's Property Services — Business Plan Foundation
 Version: 1.0 (Final for launch)
-Last Updated: [Date]
+Last Updated: 2026-11-11
 
 ## 1. Business Identity
 
 **Official Name:** Sug's Property Services
 **Owner:** Gustavo Lopez
 **Phone:** 909-582-6445 (mobile — kept for GBP stability; Google Voice later, not on profile)
-**Email:** guslopez370@gmail.com (business email pending)
+**Email:** sugspropertyservices@gmail.com (public site and Formspree recipient; confirm mailbox ownership)
 **Address:** 13243 Brant Rd, Victorville, CA 92392 (home-based; hide on GBP as Service-Area Business)
 **Hours:** 7:00 AM – 7:00 PM, 7 days/week
+**Website:** https://mjddawangph-dotcom.github.io/sugs-property-services/ (live preview, currently noindex)
 
 ## 2. Mission
 
@@ -90,11 +91,16 @@ Reliable, detail-oriented property maintenance for High Desert homeowners and pr
 - **Phone:** Mobile number (909-582-6445) kept on profile for stability. Do **not** change after verification. Google Voice to be used for other comms only.
 - **Service areas:** Victorville, Hesperia, Apple Valley, Rancho Cucamonga (+ secondary cities TBD; max 20 areas, within ~2 hours driving).
 - **Risk:** Any post-verification edit to name/address/phone can trigger re-verification. Freeze core fields once approved.
+- **Reviews:** Use Google Business Profile reviews once the profile is active.
+  The website's placeholder review section has been removed and should remain
+  out until real Google reviews can be embedded or linked. Never fabricate
+  testimonials, ratings, or review counts.
 
 ## 11. Open Items
 
 - [ ] GBP video verification result (pending)
 - [ ] Business email domain + Google Workspace setup
 - [ ] Social media handles reserved (all new)
-- [ ] Logo vector conversion (currently non-vector)
+- [x] Logo vector conversion (`site/assets/brand/logo.svg`)
+- [ ] Add Google Reviews to the website after the Google Business Profile is active
 - [ ] Competitor research (deferred with SEO)

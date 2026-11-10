@@ -518,8 +518,7 @@ html[data-theme="dark"] .theme-icon-sun {
 }
 
 .service-card,
-.price-card,
-.review-card {
+.price-card {
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -545,8 +544,7 @@ html[data-theme="dark"] .theme-icon-sun {
   font-weight: 700;
 }
 
-.pricing-grid,
-.reviews-grid {
+.pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
@@ -725,34 +723,6 @@ html[data-theme="dark"] .theme-icon-sun {
   padding: 12px;
   color: var(--muted);
   font-size: 0.72rem;
-}
-
-.stars {
-  margin-bottom: 20px;
-  color: #806d48;
-  font-size: 1.2rem;
-  letter-spacing: 0.12em;
-}
-
-.review-card blockquote {
-  margin-bottom: 24px;
-  font-size: 0.98rem;
-}
-
-.review-author {
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.review-author span {
-  display: block;
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 400;
-}
-
-.review-card .placeholder-note {
-  margin-bottom: 0;
 }
 
 .area-layout {
@@ -1077,8 +1047,7 @@ dialog::backdrop {
   }
 
   .promise-grid,
-  .pricing-grid,
-  .reviews-grid {
+  .pricing-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1302,9 +1271,6 @@ html[data-theme="dark"] .placeholder-note {
   color: #d8b982;
 }
 
-html[data-theme="dark"] .stars {
-  color: #d8bc7d;
-}
 
 html[data-theme="dark"] input,
 html[data-theme="dark"] select,

@@ -63,11 +63,25 @@ the existing path rather than duplicating it.
 
 ```bash
 ssh -T git@github.com        # -> Hi mjddawangph-dotcom! You've successfully authenticated...
-git ls-remote origin         # empty repo: no output, exit 0
+git ls-remote --heads origin # main (source) and gh-pages (published site)
 git push -u origin main
 ```
 
-## 5. Cloudflare Pages — manual only
+## 5. Hosting
+
+### GitHub Pages (current)
+
+The site is live at:
+https://mjddawangph-dotcom.github.io/sugs-property-services/
+
+`gh-pages` contains the contents of `site/` at its root. `main` is the source
+of truth. Publishing is a manual copy from `site/` to `gh-pages` followed by a
+push. Do not edit the generated branch by hand except during that publish step.
+
+The live page still has a `noindex` launch gate until prices, photos, contact
+details, and the form are approved.
+
+### Cloudflare Pages (planned)
 
 Intentionally not automated: no `wrangler.toml`, no DNS or build-setting
 automation. In the Cloudflare dashboard: Pages → connect repo → build command

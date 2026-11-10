@@ -6,29 +6,50 @@ automations.
 - **Owner:** Gustavo Lopez (GitHub account `mjddawangph-dotcom`)
 - **Business:** Lawn care / property maintenance — Victorville & the High Desert, CA
 - **Repo visibility:** Public
+- **Live site:** https://mjddawangph-dotcom.github.io/sugs-property-services/
+- **Current hosting:** GitHub Pages, published from the `gh-pages` branch
+- **Planned hosting:** Cloudflare Pages, configured manually by the owner
 
 ## Layout
 
 ```
 docs/         business plan, SEO, content, outreach, automation specs, runbooks
-site/         static landing page — Cloudflare Pages build root
+site/         static landing page; source for the published `gh-pages` branch
+site/assets/  brand files, including the SVG logo
+site/images/  real owner portrait and project photos
 automations/  bookings, outreach, social automation code
-assets/       brand and media files
+assets/       workspace-level brand/media staging area
 ```
 
 ## Local development
 
-No build step. The landing page is a single static file:
+No build step. Serve the `site` folder over HTTP:
 
 ```bash
-open site/index.html        # macOS
-xdg-open site/index.html    # Linux
+cd site
+python3 -m http.server 8000
 ```
 
-## Deploy
+Then open http://localhost:8000.
+
+Opening `site/index.html` directly works for a quick visual check, but use HTTP
+for Formspree, storage, and the service-area checker.
+
+## Hosting
+
+### GitHub Pages (current)
+
+The live site is published from the `gh-pages` branch. That branch contains the
+contents of `site/` at its root (`index.html`, `style.css`, `script.js`,
+`assets/`, `images/`, `.nojekyll`). `main` remains the source of truth.
+
+The site currently carries a `noindex` launch gate. Remove it only after the
+prices, photos, contact details, and form have been approved.
+
+### Cloudflare Pages (planned)
 
 Cloudflare Pages is configured **manually** in the Cloudflare dashboard.
-A GitHub Actions workflow for pages will be set up manually by the owner.
+A GitHub Actions workflow for Pages has not been added.
 
 Build settings (set by hand in the Cloudflare dashboard):
 
@@ -41,6 +62,14 @@ Build settings (set by hand in the Cloudflare dashboard):
 
 > Do not add automated Cloudflare configuration here. Deployment setup is a
 > manual, human-owned step.
+
+## Content status
+
+- The former placeholder review cards have been removed. Real Google Reviews
+  will be used after the Google Business Profile is active.
+- Do not publish invented testimonials, ratings, or review counts.
+- Dark mode, the fixed background logo watermark, and the compact carousel
+  indicators are current.
 
 ## Git identity
 

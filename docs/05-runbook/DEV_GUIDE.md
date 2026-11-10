@@ -3,43 +3,57 @@
 A single-page, responsive website built with vanilla HTML, CSS, and JavaScript.
 No build tools, JavaScript frameworks, or animation libraries are required.
 
+Current live site:
+https://mjddawangph-dotcom.github.io/sugs-property-services/
+
+Source lives on `main`; the published copy is on `gh-pages`.
+
 ## File structure
 
 site/
-├── README_FOR_DEEPSEEK.md
+├── .nojekyll
 ├── index.html
 ├── style.css
-└── script.js
-
-Optional after replacing stock images:
-
-site/
+├── script.js
+├── assets/
+│   └── brand/
+│       └── logo.svg
 └── images/
-    ├── gustavo.webp
-    ├── work-truck.webp
-    └── project-01.webp
+    ├── owner-portrait.webp
+    ├── front-yard-cactus.webp
+    ├── backyard-gravel-tree.webp
+    ├── front-lawn-palms.webp
+    ├── lawn-palm-maintenance.webp
+    ├── palm-gravel-landscaping.webp
+    ├── side-yard-cactus.webp
+    ├── side-walkway-planters.webp
+    ├── palm-lined-side-yard.webp
+    ├── palm-bed-fence.webp
+    └── tall-palms-driveway.webp
 
 ## IMPORTANT: Before publishing
 
-This is a working starter website, not a verified business listing.
+This is a working preview, not a fully verified business listing. The live page
+still has a `noindex` launch gate.
 
 1. Gustavo must approve the example starting prices:
    - Lawn mowing: \$45 per cut
    - Property cleanup: \$150
    - Irrigation repair: \$85
-2. Replace all stock photos with authorized photos of Gustavo, his truck,
-   and actual completed projects.
-3. Replace all three clearly labeled fictional review examples with genuine,
-   permission-approved customer reviews.
+2. Confirm permission to publish the current owner portrait and project photos.
+   They are real business photos, not stock placeholders.
+3. Leave the reviews section out. Google Reviews will be used after the Google
+   Business Profile is active. Do not add invented testimonials or ratings.
 4. Confirm every service-area ZIP code with Gustavo.
    The current list is a SAMPLE list, not comprehensive county coverage.
-5. Connect and test the Formspree endpoint.
+5. Verify the Formspree recipient and test delivery. The endpoint is already
+   configured in the HTML.
 6. Review the contact/privacy wording and confirm the business information.
-7. Remove the visible placeholder notices ONLY after replacing or verifying
-   their corresponding content.
+7. Remove the visible placeholder notices and the `noindex` launch gate ONLY
+   after the corresponding content is approved.
 
-Do not present fictional testimonials, stock projects, or a stock portrait as
-authentic evidence of this business's work.
+Do not present fictional testimonials or unauthorized photos as authentic
+evidence of this business's work.
 
 ## Running locally
 
@@ -51,10 +65,24 @@ local development server. One option, if Python is installed:
     cd site
     python -m http.server 8000
 
-Then open localhost on port 8000.
+Then open http://localhost:8000.
 
-Deploy the site folder to any static host with HTTPS.
-No server-side application code is included.
+Opening index.html directly works for a quick visual check, but serve over HTTP
+for Formspree, storage, and service-area testing.
+
+## Hosting and publishing
+
+Current production is GitHub Pages from the `gh-pages` branch. That branch
+contains the contents of `site/` at its root. `main` remains the source of truth.
+
+Live URL:
+https://mjddawangph-dotcom.github.io/sugs-property-services/
+
+Cloudflare Pages is the planned future host; it is configured manually in the
+Cloudflare dashboard (build command empty, output directory `site`, production
+branch `main`). Do not add automated Cloudflare configuration to the repo.
+
+The live page is intentionally `noindex` until launch approvals are complete.
 
 ## Quick edit markers
 
@@ -63,14 +91,13 @@ Search the files for "EDIT:".
 Important markers include:
 
 - EDIT: SEO
-- EDIT: Business Contact
+- EDIT: Launch Gate
 - EDIT: Starting Prices
 - EDIT: Hero Image
-- EDIT: Owner Photo
-- EDIT: Truck Photo
+- EDIT: Service Descriptions
 - EDIT: Slideshow Images
-- EDIT: Grid Gallery
-- EDIT: Verified Reviews
+- EDIT: Verified Service Areas
+- EDIT: Business Contact
 - EDIT: Formspree Endpoint
 - EDIT: Brand Colors
 - EDIT: Allowed ZIP Codes
@@ -117,54 +144,34 @@ The font is Inter, loaded through Google Fonts, with system-font fallbacks.
 For a fully self-hosted site, download appropriately licensed font files,
 add local @font-face rules, and remove the Google Fonts links.
 
-## Replacing images
+## Images
 
-All current images are stock placeholders.
+All current photos are real business or owner images; there are no stock
+project photos or truck photos left on the page.
 
 In index.html, search for:
 
 - EDIT: Hero Image
-- EDIT: Owner Photo
-- EDIT: Truck Photo
 - EDIT: Slideshow Images
-- EDIT: Grid Gallery
 
-Replace each src with a local path such as:
+The hero and first carousel slide both use `front-yard-cactus.webp`. The owner
+section uses `owner-portrait.webp`. The other nine project photos appear in the
+carousel only.
 
-    images/gustavo.webp
-
-Update alt text to accurately describe the replacement image.
-Do not identify a stock model as Gustavo.
-
-Use compressed WebP/AVIF images where possible.
-Keep width and height attributes so space is reserved while images load.
+Use compressed WebP images where possible. Keep width and height attributes so
+space is reserved while images load.
 
 The hero loads eagerly. Below-the-fold images use loading="lazy".
 
-## Grid gallery: add or remove images
-
-Find "EDIT: Grid Gallery" in index.html.
-
-Each gallery item is a <figure class="gallery-item"> containing:
-
-1. An <img>
-2. A <figcaption>
-
-To add a photo:
-- Duplicate one complete figure.
-- Update src, alt, and the caption.
-- Remove "Stock placeholder" only when the image is actual business work.
-
-To remove a photo:
-- Delete its entire figure.
-
-No JavaScript changes are necessary. CSS Grid adjusts automatically.
+Do not identify a stock model as Gustavo. Confirm usage permission before
+replacing or adding a photo.
 
 ## Slideshow: update, add, or remove images
 
 Find "EDIT: Slideshow Images" in index.html.
 
-Each slide is a <figure class="slide"> inside #carousel-track.
+Each slide is a <figure class="slide"> inside #carousel-track. The current
+carousel holds ten project photos.
 
 To update a photo:
 - Change its img src and alt text.
@@ -186,16 +193,18 @@ The carousel:
 - Does not autoplay.
 - Disables endpoint arrows and hides controls for a single slide.
 
-## Reviews
+## Reviews (intentionally omitted)
 
-Find "EDIT: Verified Reviews" in index.html.
+The former placeholder review section and its fictional cards have been
+removed. The site does not render a reviews section at this time.
 
-The three five-star entries are FICTIONAL DESIGN EXAMPLES with full sample names.
-Their placeholder labeling is intentionally visible.
+Google Reviews will be used once the Google Business Profile is active. At that
+point, either embed an approved Google Reviews widget or add a clear link to the
+profile. Revisit the privacy wording and any third-party script/CSP requirements
+before embedding.
 
-Before publishing, replace the names, locations, text, and ratings with
-authentic customer feedback. Do not remove the disclosure while retaining
-invented reviews.
+Do not add invented testimonials, star ratings, review counts, or review
+structured data. Leave the section out until real Google reviews are available.
 
 ## Location modal and allowed ZIP codes
 
@@ -230,18 +239,18 @@ To retest the first-load behavior:
 - Open a new browser session/tab without copied session storage, or
 - Remove "sugs-area-dismissed" from sessionStorage in developer tools.
 
-## Formspree setup
+## Formspree configuration
 
-Find "EDIT: Formspree Endpoint" in index.html.
+Find "EDIT: Formspree Endpoint" in index.html. The form is already configured
+with:
 
-Replace:
+    https://formspree.io/f/xzeenprg
 
-    https://formspree.io/f/YOUR_FORM_ID
-
-with the real endpoint from Gustavo's Formspree account.
+If the Formspree form changes, update the action and keep the same `f/<id>`
+format. The form ID is public by design; no secret belongs in the HTML.
 
 In Formspree:
-1. Create the form.
+1. Confirm the form exists and is active.
 2. Configure sugspropertyservices@gmail.com as the notification recipient.
 3. Complete any recipient verification required by the account.
 4. Configure spam protection and allowed domains as appropriate.
@@ -288,8 +297,8 @@ privacy policy if appropriate.
 - Semantic sections, labels, skip link, and visible focus rings.
 - Header includes a theme toggle with an updated accessible name, so dark mode
   is available on desktop, tablet, and mobile.
-- Mobile header uses a hamburger menu that closes on Escape, outside click,
-  or link selection and reports its state with aria-expanded.
+- Mobile header uses a hamburger menu at 820px and below. It closes on Escape,
+  outside click, or link selection and reports its state with aria-expanded.
 - Native dialog with keyboard dismissal and focus handling.
 - Status messages use live regions.
 - Carousel controls have accessible names.
@@ -312,20 +321,42 @@ The header theme toggle switches the entire page between light and dark.
 When adding a component, use the existing color variables first. If a color is
 hard-coded, add a corresponding `html[data-theme="dark"]` rule.
 
+## Header and fixed watermark
+
+The header shows the SVG emblem plus the bold business name. It also contains
+the light/dark toggle and the mobile menu control. The header is intentionally
+opaque so content does not show through while scrolling.
+
+A fixed brand watermark sits behind the page content:
+
+- It uses `assets/brand/logo.svg` through `body::before`.
+- The size is `min(1200px, 115vw, 115vh)` and it is fixed to the viewport.
+- It is centered vertically and shifted right with `left: 55%`.
+- Light mode uses 6% opacity; dark mode inverts the logo and uses 3%.
+- `main` and `.site-footer` sit above it with `z-index: 1`.
+- `.section-tinted` and `.promise-strip` use translucent backgrounds so the
+  watermark remains faintly visible through those bands.
+- Opaque cards, forms, header, and footer sit above the watermark.
+
+To tune it, edit the `body::before` rule in style.css:
+`width`, `left`, `top`, and `opacity`. Keep `pointer-events: none`.
+
 ## Launch checklist
 
 [ ] Confirm all contact information.
-[ ] Approve all starting prices.
+[ ] Approve all starting prices and remove the price preview notices.
+[ ] Confirm permission for the owner portrait and project photos.
 [ ] Verify ZIP list and service-area wording.
-[ ] Replace portrait, truck, slideshow, and gallery stock images.
-[ ] Replace fictional testimonials with genuine reviews.
-[ ] Remove only the notices whose placeholder content has been replaced.
-[ ] Configure the Formspree recipient.
+[ ] Confirm the Google Business Profile is active before adding Google Reviews.
+[ ] Keep the reviews section out until real Google reviews are available.
+[ ] Verify the Formspree recipient and test delivery.
+[ ] Remove the `noindex` launch gate and placeholder notices only after approval.
 [ ] Test valid/invalid ZIPs, ZIP+4, missing ZIP, Skip, Escape, and reopening.
 [ ] Test submission success and network/server error states.
 [ ] Test phone/email links and all section links.
 [ ] Test keyboard navigation and reduced-motion mode.
 [ ] Test light/dark toggle, reload persistence, and OS dark preference.
 [ ] Test mobile layout, carousel swiping, and the mobile menu in both themes.
+[ ] Check the fixed watermark at 320, 390, 820, 821, and 1440 widths.
 [ ] Check deployed images and font loading.
 [ ] Confirm HTTPS and privacy wording.
