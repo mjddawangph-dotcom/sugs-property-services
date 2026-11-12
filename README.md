@@ -47,6 +47,10 @@ The site is public and indexable. Prices, photos, contact details, the
 service-area list, Formspree delivery, and the privacy policy have been
 approved. `privacy.html` is included in the published branch.
 
+Canonical, Open Graph, structured-data, robots, and sitemap URLs currently use
+the GitHub Pages address. Update all of them together when a custom domain is
+connected.
+
 ### Cloudflare Pages (planned)
 
 Cloudflare Pages is configured **manually** in the Cloudflare dashboard.
@@ -66,12 +70,16 @@ Build settings (set by hand in the Cloudflare dashboard):
 
 ## Content status
 
-- Approved starting prices: $45 lawn mowing, $150 property cleanup, $85
+- Approved starting prices: $50 lawn mowing, $150 property cleanup, $85
   irrigation repair.
 - The former placeholder review cards have been removed. Real Google Reviews
   will be used after the Google Business Profile is active.
 - Do not publish invented testimonials, ratings, or review counts.
 - A basic privacy policy is published at `site/privacy.html`.
+- The site includes a favicon, Open Graph/Twitter metadata, LocalBusiness
+  structured data, `robots.txt`, and `sitemap.xml`.
+- `robots.txt` allows Google and Bing search crawlers, disallows known AI
+  crawlers, and blocks all other crawlers. It is advisory, not access control.
 - Dark mode, the fixed background logo watermark, and the compact carousel
   indicators are current.
 

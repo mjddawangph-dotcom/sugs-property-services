@@ -70,7 +70,7 @@ Reliable, detail-oriented property maintenance for High Desert homeowners and pr
 - **One-time services:** Quote-based after site assessment.
 - **Weed treatment:** Per-visit or bundled with maintenance.
 - **Clean ups:** Quote-based (highly variable scope).
-- **Published starting prices:** $45 lawn mowing, $150 property cleanup,
+- **Published starting prices:** $50 lawn mowing, $150 property cleanup,
   $85 irrigation repair. Final pricing still depends on property size, scope,
   condition, and access.
 

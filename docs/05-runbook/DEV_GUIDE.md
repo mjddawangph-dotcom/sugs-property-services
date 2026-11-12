@@ -14,6 +14,8 @@ site/
 ├── .nojekyll
 ├── index.html
 ├── privacy.html
+├── robots.txt
+├── sitemap.xml
 ├── style.css
 ├── script.js
 ├── assets/
@@ -22,6 +24,7 @@ site/
 └── images/
     ├── owner-portrait.webp
     ├── front-yard-cactus.webp
+    ├── social-share.jpg
     ├── backyard-gravel-tree.webp
     ├── front-lawn-palms.webp
     ├── lawn-palm-maintenance.webp
@@ -38,7 +41,7 @@ The live site is public and indexable. The `noindex` launch gate and the price
 preview notices have been removed.
 
 - Prices are approved:
-  - Lawn mowing: \$45 per cut
+  - Lawn mowing: \$50 per cut
   - Property cleanup: \$150
   - Irrigation repair: \$85
 - The owner portrait and project photos are approved for publication.
@@ -81,6 +84,10 @@ https://mjddawangph-dotcom.github.io/sugs-property-services/
 Cloudflare Pages is the planned future host; it is configured manually in the
 Cloudflare dashboard (build command empty, output directory `site`, production
 branch `main`). Do not add automated Cloudflare configuration to the repo.
+
+The canonical URL, Open Graph URLs, structured data URL, sitemap URLs, and
+`Sitemap:` line in robots.txt currently use the GitHub Pages address. Update all
+of them together when a custom domain is connected.
 
 `privacy.html` is part of the published site and should be included in every
 deployment of the `site/` folder.
@@ -126,9 +133,9 @@ Search for "EDIT: Starting Prices" and update EVERY visible price.
 
 The hero currently uses the requested exact headline structure:
 
-"Lawn mowing & property maintenance in Victorville, from \$45 per cut."
+"Lawn mowing & property maintenance in Victorville, from \$50 per cut."
 
-The \$45 price is an example, not a price supplied by Gustavo.
+The \$50 price is approved for the hero and pricing card.
 
 The pricing cards explain that final pricing depends on property size,
 condition, scope, and access. Confirm the minimum service and any exclusions.
@@ -342,6 +349,23 @@ A fixed brand watermark sits behind the page content:
 To tune it, edit the `body::before` rule in style.css:
 `width`, `height`, `margin`, and `opacity`. Keep `pointer-events: none`.
 
+## SEO, sharing, and crawler files
+
+- The favicon uses `assets/brand/logo.svg`.
+- `index.html` includes canonical, Open Graph, and Twitter metadata.
+- `images/social-share.jpg` is the 1200x630 social preview image.
+- `index.html` includes `HomeAndConstructionBusiness` JSON-LD with the approved
+  name, phone, email, services, and service cities. It intentionally omits
+  street address, hours, ratings, and review counts.
+- `sitemap.xml` lists the home page and the privacy policy.
+- `robots.txt` allows Googlebot, Googlebot-Image, Google-InspectionTool, Bingbot,
+  and BingPreview. It disallows known AI crawlers and blocks all other crawlers
+  with `User-agent: * / Disallow: /`.
+
+`robots.txt` is advisory, not access control. It cannot identify or stop a
+person using a browser or a script that ignores the file. For stronger blocking,
+use a host with bot management or a WAF, such as Cloudflare.
+
 ## Launch checklist
 
 [x] Confirm all contact information.
@@ -357,8 +381,14 @@ To tune it, edit the `body::before` rule in style.css:
 [ ] Test submission success and network/server error states.
 [ ] Test phone/email links and all section links.
 [ ] Test keyboard navigation and reduced-motion mode.
+[x] Add favicon, Open Graph/Twitter metadata, and a social-sharing image.
+[x] Add LocalBusiness structured data without unverified claims.
+[x] Add robots.txt and sitemap.xml.
+[x] Use the current GitHub Pages URL for canonical, Open Graph, and sitemap URLs.
+[ ] Update metadata, schema, robots, and sitemap when a custom domain is used.
+[ ] Submit the sitemap in Google Search Console.
 [ ] Test light/dark toggle, reload persistence, and OS dark preference.
 [ ] Test mobile layout, carousel swiping, and the mobile menu in both themes.
 [ ] Check the fixed watermark at 320, 390, 820, 821, and 1440 widths.
 [ ] Check deployed images and font loading.
-[ ] Confirm HTTPS and privacy wording.
+[x] Confirm HTTPS and privacy wording.
