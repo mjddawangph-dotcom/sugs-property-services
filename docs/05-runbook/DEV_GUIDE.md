@@ -278,8 +278,9 @@ Formspree is verified working. If the form or recipient changes, re-test:
 The HTML endpoint does not itself configure the recipient email.
 
 The form uses the official `@formspree/ajax` CDN bundle (`@formspree/ajax@1`)
-from unpkg. It is initialized in script.js with the form ID extracted from the
-form action.
+from unpkg. The SDK is lazy-loaded when the quote form approaches the viewport
+or receives focus, so it does not block the initial page load. The form ID is
+extracted from the form action.
 
 The integration uses:
 - `data-fs-field` on inputs for field-level invalid state

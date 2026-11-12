@@ -594,6 +594,47 @@
       return;
     }
 
+    let sdkRequested = false;
+
+    function loadFormspreeSdk() {
+      if (sdkRequested) {
+        return;
+      }
+
+      sdkRequested = true;
+
+      const script = document.createElement("script");
+      script.src = "https://unpkg.com/@formspree/ajax@1";
+      script.async = true;
+      script.addEventListener("error", () => {
+        // Leave the native form action available if the CDN is unavailable.
+        sdkRequested = false;
+      });
+      document.head.append(script);
+    }
+
+    // The quote form is below the fold. Load Formspree only when the form is
+    // approaching the viewport or the visitor starts interacting with it.
+    if (typeof window.IntersectionObserver === "function") {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            loadFormspreeSdk();
+            observer.disconnect();
+          }
+        },
+        { rootMargin: "600px 0px" }
+      );
+
+      observer.observe(form);
+    } else {
+      loadFormspreeSdk();
+    }
+
+    form.addEventListener("focusin", loadFormspreeSdk, { once: true });
+    form.addEventListener("pointerdown", loadFormspreeSdk, { once: true });
+
+    // The queue above is processed when the SDK loads.
     window.formspree("initForm", {
       formElement: "#quote-form",
       formId,
