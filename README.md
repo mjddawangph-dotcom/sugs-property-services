@@ -78,8 +78,9 @@ Build settings (set by hand in the Cloudflare dashboard):
 - A basic privacy policy is published at `site/privacy.html`.
 - The site includes a favicon, Open Graph/Twitter metadata, LocalBusiness
   structured data, `robots.txt`, and `sitemap.xml`.
-- `robots.txt` allows Google and Bing search crawlers, disallows known AI
-  crawlers, and blocks all other crawlers. It is advisory, not access control.
+- `robots.txt` allows Google and Bing search crawlers plus official social
+  link-preview crawlers, disallows known AI crawlers, and blocks all other
+  crawlers. It is advisory, not access control.
 - Dark mode, the fixed background logo watermark, and the compact carousel
   indicators are current.
 

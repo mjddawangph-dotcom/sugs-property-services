@@ -359,8 +359,9 @@ To tune it, edit the `body::before` rule in style.css:
   street address, hours, ratings, and review counts.
 - `sitemap.xml` lists the home page and the privacy policy.
 - `robots.txt` allows Googlebot, Googlebot-Image, Google-InspectionTool, Bingbot,
-  and BingPreview. It disallows known AI crawlers and blocks all other crawlers
-  with `User-agent: * / Disallow: /`.
+  BingPreview, and official social link-preview crawlers (Facebook, Twitter,
+  LinkedIn, Slack, Discord). It disallows known AI crawlers and blocks all other
+  crawlers with `User-agent: * / Disallow: /`.
 
 `robots.txt` is advisory, not access control. It cannot identify or stop a
 person using a browser or a script that ignores the file. For stronger blocking,
