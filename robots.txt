@@ -14,6 +14,23 @@ Allow: /
 User-agent: BingPreview
 Allow: /
 
+# Official social link-preview crawlers. These are needed for shared link
+# previews and are not AI training crawlers.
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
 # AI crawlers and training agents are not permitted.
 User-agent: GPTBot
 Disallow: /
