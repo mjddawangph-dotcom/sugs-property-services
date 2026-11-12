@@ -63,26 +63,25 @@ the existing path rather than duplicating it.
 
 ```bash
 ssh -T git@github.com        # -> Hi mjddawangph-dotcom! You've successfully authenticated...
-git ls-remote --heads origin # main (source) and gh-pages (published site)
+git ls-remote --heads origin # main (source) and gh-pages (legacy preview)
 git push -u origin main
 ```
 
 ## 5. Hosting
 
-### GitHub Pages (current)
+### Cloudflare Pages (production target)
 
-The site is live at:
-https://mjddawangph-dotcom.github.io/sugs-property-services/
+The production URL is https://sugspropertyservices.com/.
 
-`gh-pages` contains the contents of `site/` at its root. `main` is the source
-of truth. Publishing is a manual copy from `site/` to `gh-pages` followed by a
-push. Do not edit the generated branch by hand except during that publish step.
+Cloudflare Pages should be connected manually to the GitHub repository from
+`main`, with `site` as the build output directory. The custom domain is
+`sugspropertyservices.com` (bare domain primary) and `www` should redirect to it
+with a 301.
 
-The site is public and indexable. Prices, photos, contact details, the
-service-area list, Formspree delivery, and the privacy policy are approved.
+Cutover is pending until the Pages deployment, DNS records, SSL certificate,
+custom domains, and redirect rule are verified.
 
-### Cloudflare Pages (planned)
+### GitHub Pages (legacy)
 
-Intentionally not automated: no `wrangler.toml`, no DNS or build-setting
-automation. In the Cloudflare dashboard: Pages → connect repo → build command
-empty, output directory `site`, production branch `main`. Gustavo owns this step.
+`gh-pages` is the previous published copy. Do not update it for new changes.
+Disable GitHub Pages after the Cloudflare custom domain is verified.

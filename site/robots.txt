@@ -85,4 +85,4 @@ Disallow: /
 User-agent: *
 Disallow: /
 
-Sitemap: https://mjddawangph-dotcom.github.io/sugs-property-services/sitemap.xml
+Sitemap: https://sugspropertyservices.com/sitemap.xml

@@ -6,15 +6,15 @@ automations.
 - **Owner:** Gustavo Lopez (GitHub account `mjddawangph-dotcom`)
 - **Business:** Lawn care / property maintenance — Victorville & the High Desert, CA
 - **Repo visibility:** Public
-- **Live site:** https://mjddawangph-dotcom.github.io/sugs-property-services/
-- **Current hosting:** GitHub Pages, published from the `gh-pages` branch
-- **Planned hosting:** Cloudflare Pages, configured manually by the owner
+- **Production URL:** https://sugspropertyservices.com/
+- **Hosting target:** Cloudflare Pages, deployed from `main` (cutover pending)
+- **Legacy hosting:** GitHub Pages (`gh-pages`); disable after Cloudflare is verified
 
 ## Layout
 
 ```
 docs/         business plan, SEO, content, outreach, automation specs, runbooks
-site/         static landing page; source for the published `gh-pages` branch
+site/         static landing page; Cloudflare Pages build root
 site/assets/  brand files, including the SVG logo
 site/images/  real owner portrait and project photos
 automations/  bookings, outreach, social automation code
@@ -37,26 +37,13 @@ for Formspree, storage, and the service-area checker.
 
 ## Hosting
 
-### GitHub Pages (current)
+### Cloudflare Pages (production target)
 
-The live site is published from the `gh-pages` branch. That branch contains the
-contents of `site/` at its root (`index.html`, `privacy.html`, `style.css`,
-`script.js`, `assets/`, `images/`, `.nojekyll`). `main` remains the source of truth.
+The production target is Cloudflare Pages, deploying from `main` with `site` as
+the build output directory. The custom domain is `sugspropertyservices.com`; the bare
+domain is primary and `www` redirects to it with a 301.
 
-The site is public and indexable. Prices, photos, contact details, the
-service-area list, Formspree delivery, and the privacy policy have been
-approved. `privacy.html` is included in the published branch.
-
-Canonical, Open Graph, structured-data, robots, and sitemap URLs currently use
-the GitHub Pages address. Update all of them together when a custom domain is
-connected.
-
-### Cloudflare Pages (planned)
-
-Cloudflare Pages is configured **manually** in the Cloudflare dashboard.
-A GitHub Actions workflow for Pages has not been added.
-
-Build settings (set by hand in the Cloudflare dashboard):
+Build settings:
 
 | Setting            | Value        |
 |--------------------|--------------|
@@ -65,8 +52,20 @@ Build settings (set by hand in the Cloudflare dashboard):
 | Build output dir   | `site`       |
 | Production branch  | `main`       |
 
-> Do not add automated Cloudflare configuration here. Deployment setup is a
-> manual, human-owned step.
+Canonical, Open Graph, structured-data, robots, and sitemap URLs use
+`https://sugspropertyservices.com/`.
+
+Cutover is pending until the Pages project, DNS records, custom domains, SSL,
+and the `www` redirect are verified.
+
+### GitHub Pages (legacy)
+
+`gh-pages` contains the previous published copy. Do not update it for new
+changes. Disable GitHub Pages after the Cloudflare custom domain is verified.
+
+The site is public and indexable. Prices, photos, contact details, the
+service-area list, Formspree delivery, and the privacy policy have been
+approved.
 
 ## Content status
 

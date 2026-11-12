@@ -4,9 +4,10 @@ A single-page, responsive website built with vanilla HTML, CSS, and JavaScript.
 No build tools, JavaScript frameworks, or animation libraries are required.
 
 Current live site:
-https://mjddawangph-dotcom.github.io/sugs-property-services/
+https://sugspropertyservices.com/
 
-Source lives on `main`; the published copy is on `gh-pages`.
+Source lives on `main`; Cloudflare Pages deploys it. The `gh-pages` branch is a
+legacy preview and should be disabled after the Cloudflare cutover.
 
 ## File structure
 
@@ -77,19 +78,18 @@ for Formspree, storage, and service-area testing.
 
 ## Hosting and publishing
 
-Current production is GitHub Pages from the `gh-pages` branch. That branch
-contains the contents of `site/` at its root. `main` remains the source of truth.
+Production target: Cloudflare Pages at https://sugspropertyservices.com/.
 
-Live URL:
-https://mjddawangph-dotcom.github.io/sugs-property-services/
-
-Cloudflare Pages is the planned future host; it is configured manually in the
-Cloudflare dashboard (build command empty, output directory `site`, production
-branch `main`). Do not add automated Cloudflare configuration to the repo.
+Cloudflare Pages should deploy from `main` with build command empty, output
+directory `site`, and production branch `main`. The bare domain is primary; `www` must
+301-redirect to it.
 
 The canonical URL, Open Graph URLs, structured data URL, sitemap URLs, and
-`Sitemap:` line in robots.txt currently use the GitHub Pages address. Update all
-of them together when a custom domain is connected.
+`Sitemap:` line in robots.txt use the apex custom domain.
+
+Cutover is pending until the Pages project, DNS records, SSL, both custom
+domains, and the `www` redirect are verified. The old `gh-pages` GitHub Pages
+deployment is legacy and should be disabled after verification.
 
 `privacy.html` is part of the published site and should be included in every
 deployment of the `site/` folder.
@@ -394,8 +394,10 @@ exceptions; do not add temporary dates to the schema.
 [x] Add favicon, Open Graph/Twitter metadata, and a social-sharing image.
 [x] Add LocalBusiness structured data without unverified claims.
 [x] Add robots.txt and sitemap.xml.
-[x] Use the current GitHub Pages URL for canonical, Open Graph, and sitemap URLs.
-[ ] Update metadata, schema, robots, and sitemap when a custom domain is used.
+[x] Use the apex custom domain for canonical, Open Graph, schema, robots, and sitemap.
+[ ] Verify Cloudflare Pages custom domain and SSL.
+[ ] Add and verify the www-to-apex 301 redirect.
+[ ] Disable the legacy GitHub Pages deployment.
 [ ] Submit the sitemap in Google Search Console.
 [ ] Test light/dark toggle, reload persistence, and OS dark preference.
 [ ] Test mobile layout, carousel swiping, and the mobile menu in both themes.
