@@ -67,10 +67,11 @@ body {
 body::before {
   position: fixed;
   z-index: 0;
-  inset: 0;
+  top: 50%;
+  left: 50%;
   width: min(1320px, 120vw, 125vh);
   height: min(1320px, 120vw, 125vh);
-  margin: auto;
+  transform: translate(-50%, -50%);
   background: url("assets/brand/logo.svg") center / contain no-repeat;
   content: "";
   opacity: 0.10;

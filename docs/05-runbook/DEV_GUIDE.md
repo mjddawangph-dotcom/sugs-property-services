@@ -361,7 +361,8 @@ A fixed brand watermark sits behind the page content:
 
 - It uses `assets/brand/logo.svg` through `body::before`.
 - The size is `min(1320px, 120vw, 125vh)` and it is fixed to the viewport.
-- It is centered with `inset: 0`, a matched width/height, and `margin: auto`.
+- It is centered with `top: 50%`, `left: 50%`, and
+  `transform: translate(-50%, -50%)`.
 - Light mode uses 10% opacity; dark mode inverts the logo and uses 6.5%.
 - `main` and `.site-footer` sit above it with `z-index: 1`.
 - `.section-tinted` and `.promise-strip` use translucent backgrounds so the
@@ -369,7 +370,8 @@ A fixed brand watermark sits behind the page content:
 - Opaque cards, forms, header, and footer sit above the watermark.
 
 To tune it, edit the `body::before` rule in style.css:
-`width`, `height`, `margin`, and `opacity`. Keep `pointer-events: none`.
+`width`, `height`, `top`, `left`, `transform`, and `opacity`. Keep
+`pointer-events: none`.
 
 ## SEO, sharing, and crawler files
 
