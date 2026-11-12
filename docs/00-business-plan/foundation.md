@@ -8,7 +8,7 @@ Last Updated: 2026-11-12
 **Owner:** Gustavo Lopez
 **Phone:** 909-582-6445 (mobile — kept for GBP stability; Google Voice later, not on profile)
 **Email:** sugspropertyservices@gmail.com (approved public site and Formspree recipient)
-**Address:** 13243 Brant Rd, Victorville, CA 92392 (home-based; hide on GBP as Service-Area Business)
+**Address:** Victorville, CA (exact address withheld from this public repository; service-area business on GBP)
 **Hours:** 7:00 AM – 7:00 PM, 7 days/week (published on the website; keep the Google Business Profile in sync)
 **Website:** https://sugspropertyservices.com/ (live public site)
 

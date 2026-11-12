@@ -76,6 +76,8 @@ approved.
   will be used after the Google Business Profile is active.
 - Do not publish invented testimonials, ratings, or review counts.
 - A basic privacy policy is published at `site/privacy.html`.
+- Apple touch icon, branded `404.html`, responsive image variants, and basic
+  Cloudflare security headers are in place.
 - Operating hours are published in the quote contact box, both page footers,
   and the LocalBusiness structured data.
 - The site includes a favicon, Open Graph/Twitter metadata, LocalBusiness
@@ -85,6 +87,18 @@ approved.
   crawlers. It is advisory, not access control.
 - Dark mode, the fixed background logo watermark, and the compact carousel
   indicators are current.
+
+## Security notes
+
+This repository is public. Do not commit home addresses, identification
+documents, API keys, passwords, private keys, or `.env` files. The owner's exact
+home address was redacted from the current business-plan file because it is a
+service-area business; earlier Git history still contains it. If that history
+must be removed, rewrite history or make the repository private.
+
+`site/_headers` adds basic Cloudflare Pages security headers. It does not add a
+Content-Security-Policy because the site uses inline theme/bootstrap scripts and
+the Formspree CDN; add and test a CSP separately if desired.
 
 ## Git identity
 

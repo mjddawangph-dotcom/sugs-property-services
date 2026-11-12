@@ -13,6 +13,8 @@ legacy preview and should be disabled after the Cloudflare cutover.
 
 site/
 ├── .nojekyll
+├── _headers
+├── 404.html
 ├── index.html
 ├── privacy.html
 ├── robots.txt
@@ -21,6 +23,7 @@ site/
 ├── script.js
 ├── assets/
 │   └── brand/
+│       ├── apple-touch-icon.png
 │       └── logo.svg
 └── images/
     ├── owner-portrait.webp
@@ -168,10 +171,13 @@ The hero and first carousel slide both use `front-yard-cactus.webp`. The owner
 section uses `owner-portrait.webp`. The other nine project photos appear in the
 carousel only.
 
-Use compressed WebP images where possible. Keep width and height attributes so
-space is reserved while images load.
+Responsive WebP variants are provided at 480px and 960px for project photos,
+and at 480px and 800px for the owner portrait. The original 1600px/1200px files
+remain the largest `srcset` candidates. Keep the `srcset` and `sizes`
+attributes aligned when replacing a photo.
 
-The hero loads eagerly. Below-the-fold images use loading="lazy".
+The hero loads eagerly. Below-the-fold images use loading="lazy" and
+`decoding="async"`.
 
 Do not identify a stock model as Gustavo. Confirm usage permission before
 replacing or adding a photo.
@@ -331,6 +337,14 @@ The header theme toggle switches the entire page between light and dark.
 
 When adding a component, use the existing color variables first. If a color is
 hard-coded, add a corresponding `html[data-theme="dark"]` rule.
+
+## 404 page
+
+`site/404.html` is a branded Not Found page with links back to the homepage,
+quote form, phone, and privacy policy. It is `noindex, follow`.
+
+Cloudflare Pages serves the top-level `404.html` automatically for unknown
+paths. Do not add it to the sitemap.
 
 ## Header and fixed watermark
 

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Page Not Found | Sug's Property Services</title>
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#29483d">
+
+  <script>
+    (() => {
+      let theme = "light";
+      let hasSavedTheme = false;
+
+      try {
+        const saved = localStorage.getItem("sug-theme");
+
+        if (saved === "dark" || saved === "light") {
+          theme = saved;
+          hasSavedTheme = true;
+        }
+      } catch (error) {
+        // Storage can be unavailable in privacy modes; fall back to the OS.
+      }
+
+      if (
+        !hasSavedTheme &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        theme = "dark";
+      }
+
+      document.documentElement.dataset.theme = theme;
+
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) {
+        themeColor.content = theme === "dark" ? "#0f1512" : "#29483d";
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="icon" type="image/svg+xml" href="assets/brand/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Sug's Property Services home">
+        <img
+          class="brand-logo"
+          src="assets/brand/logo.svg"
+          alt=""
+          width="960"
+          height="960"
+          fetchpriority="high"
+        >
+        <span class="brand-name">Sug's Property Services</span>
+      </a>
+
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          title="Switch to dark mode"
+        >
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20.5 14.2A8.2 8.2 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container legal-content error-content">
+        <p class="eyebrow">Page not found</p>
+        <p class="error-code" aria-hidden="true">404</p>
+        <h1>That page isn't here.</h1>
+        <p class="lead">
+          The link may be old or mistyped. You can return to the homepage or
+          request a quote for your property.
+        </p>
+
+        <div class="error-actions">
+          <a class="button" href="index.html">Go to the homepage</a>
+          <a class="button button-outline" href="index.html#quote">Get a quote</a>
+        </div>
+
+        <p class="small-note">
+          You can also call <a href="tel:+19095826445">(909) 582-6445</a>.
+          Read our <a href="privacy.html">Privacy Policy</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Sug's Property Services</strong>
+        <p>Owner-operated in the High Desert, California</p>
+        <p class="footer-hours">Open daily, 7:00 AM–7:00 PM</p>
+        <small>© <span id="year">2026</span> Sug's Property Services.</small>
+      </div>
+      <div class="footer-links">
+        <a href="tel:+19095826445">(909) 582-6445</a>
+        <a href="mailto:sugspropertyservices@gmail.com">sugspropertyservices@gmail.com</a>
+        <a href="index.html">Back to the website</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
