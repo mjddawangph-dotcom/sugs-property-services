@@ -76,8 +76,9 @@ approved.
   will be used after the Google Business Profile is active.
 - Do not publish invented testimonials, ratings, or review counts.
 - A basic privacy policy is published at `site/privacy.html`.
-- Apple touch icon, branded `404.html`, responsive image variants, and basic
-  Cloudflare security headers are in place.
+- Apple touch icon, a branded `404.html` at `/404`, responsive image variants,
+  and basic Cloudflare security headers are in place. The custom-domain 404
+  fallback still needs platform verification.
 - Operating hours are published in the quote contact box, both page footers,
   and the LocalBusiness structured data.
 - The site includes a favicon, Open Graph/Twitter metadata, LocalBusiness
