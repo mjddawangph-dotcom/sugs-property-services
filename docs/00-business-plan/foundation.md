@@ -1,16 +1,16 @@
 # Sug's Property Services — Business Plan Foundation
 Version: 1.0 (Final for launch)
-Last Updated: 2026-11-11
+Last Updated: 2026-11-12
 
 ## 1. Business Identity
 
 **Official Name:** Sug's Property Services
 **Owner:** Gustavo Lopez
 **Phone:** 909-582-6445 (mobile — kept for GBP stability; Google Voice later, not on profile)
-**Email:** sugspropertyservices@gmail.com (public site and Formspree recipient; confirm mailbox ownership)
+**Email:** sugspropertyservices@gmail.com (approved public site and Formspree recipient)
 **Address:** 13243 Brant Rd, Victorville, CA 92392 (home-based; hide on GBP as Service-Area Business)
 **Hours:** 7:00 AM – 7:00 PM, 7 days/week
-**Website:** https://mjddawangph-dotcom.github.io/sugs-property-services/ (live preview, currently noindex)
+**Website:** https://mjddawangph-dotcom.github.io/sugs-property-services/ (live public site)
 
 ## 2. Mission
 
@@ -70,7 +70,9 @@ Reliable, detail-oriented property maintenance for High Desert homeowners and pr
 - **One-time services:** Quote-based after site assessment.
 - **Weed treatment:** Per-visit or bundled with maintenance.
 - **Clean ups:** Quote-based (highly variable scope).
-- **No published pricing on landing page initially** — "Get a Quote" CTA.
+- **Published starting prices:** $45 lawn mowing, $150 property cleanup,
+  $85 irrigation repair. Final pricing still depends on property size, scope,
+  condition, and access.
 
 ## 8. Brand Voice
 
@@ -99,7 +101,7 @@ Reliable, detail-oriented property maintenance for High Desert homeowners and pr
 ## 11. Open Items
 
 - [ ] GBP video verification result (pending)
-- [ ] Business email domain + Google Workspace setup
+- [ ] Business email domain + Google Workspace setup (optional; Gmail is approved for launch)
 - [ ] Social media handles reserved (all new)
 - [x] Logo vector conversion (`site/assets/brand/logo.svg`)
 - [ ] Add Google Reviews to the website after the Google Business Profile is active

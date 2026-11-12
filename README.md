@@ -40,11 +40,12 @@ for Formspree, storage, and the service-area checker.
 ### GitHub Pages (current)
 
 The live site is published from the `gh-pages` branch. That branch contains the
-contents of `site/` at its root (`index.html`, `style.css`, `script.js`,
-`assets/`, `images/`, `.nojekyll`). `main` remains the source of truth.
+contents of `site/` at its root (`index.html`, `privacy.html`, `style.css`,
+`script.js`, `assets/`, `images/`, `.nojekyll`). `main` remains the source of truth.
 
-The site currently carries a `noindex` launch gate. Remove it only after the
-prices, photos, contact details, and form have been approved.
+The site is public and indexable. Prices, photos, contact details, the
+service-area list, Formspree delivery, and the privacy policy have been
+approved. `privacy.html` is included in the published branch.
 
 ### Cloudflare Pages (planned)
 
@@ -65,9 +66,12 @@ Build settings (set by hand in the Cloudflare dashboard):
 
 ## Content status
 
+- Approved starting prices: $45 lawn mowing, $150 property cleanup, $85
+  irrigation repair.
 - The former placeholder review cards have been removed. Real Google Reviews
   will be used after the Google Business Profile is active.
 - Do not publish invented testimonials, ratings, or review counts.
+- A basic privacy policy is published at `site/privacy.html`.
 - Dark mode, the fixed background logo watermark, and the compact carousel
   indicators are current.
 

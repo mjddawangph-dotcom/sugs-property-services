@@ -78,8 +78,8 @@ https://mjddawangph-dotcom.github.io/sugs-property-services/
 of truth. Publishing is a manual copy from `site/` to `gh-pages` followed by a
 push. Do not edit the generated branch by hand except during that publish step.
 
-The live page still has a `noindex` launch gate until prices, photos, contact
-details, and the form are approved.
+The site is public and indexable. Prices, photos, contact details, the
+service-area list, Formspree delivery, and the privacy policy are approved.
 
 ### Cloudflare Pages (planned)
 

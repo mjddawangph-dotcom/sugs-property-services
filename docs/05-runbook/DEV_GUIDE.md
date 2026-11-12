@@ -13,6 +13,7 @@ Source lives on `main`; the published copy is on `gh-pages`.
 site/
 ├── .nojekyll
 ├── index.html
+├── privacy.html
 ├── style.css
 ├── script.js
 ├── assets/
@@ -31,26 +32,25 @@ site/
     ├── palm-bed-fence.webp
     └── tall-palms-driveway.webp
 
-## IMPORTANT: Before publishing
+## Current content status
 
-This is a working preview, not a fully verified business listing. The live page
-still has a `noindex` launch gate.
+The live site is public and indexable. The `noindex` launch gate and the price
+preview notices have been removed.
 
-1. Gustavo must approve the example starting prices:
-   - Lawn mowing: \$45 per cut
-   - Property cleanup: \$150
-   - Irrigation repair: \$85
-2. Confirm permission to publish the current owner portrait and project photos.
-   They are real business photos, not stock placeholders.
-3. Leave the reviews section out. Google Reviews will be used after the Google
-   Business Profile is active. Do not add invented testimonials or ratings.
-4. Confirm every service-area ZIP code with Gustavo.
-   The current list is a SAMPLE list, not comprehensive county coverage.
-5. Verify the Formspree recipient and test delivery. The endpoint is already
-   configured in the HTML.
-6. Review the contact/privacy wording and confirm the business information.
-7. Remove the visible placeholder notices and the `noindex` launch gate ONLY
-   after the corresponding content is approved.
+- Prices are approved:
+  - Lawn mowing: \$45 per cut
+  - Property cleanup: \$150
+  - Irrigation repair: \$85
+- The owner portrait and project photos are approved for publication.
+- The current ZIP and city list is approved for service-area screening.
+  Final availability still needs confirmation for the exact address.
+- The public phone number and email are approved.
+- Formspree is verified working.
+- A basic privacy policy is published at privacy.html and linked from the quote
+  form, footer, and service-area checker.
+- The reviews section remains intentionally omitted. Google Reviews will be
+  used after the Google Business Profile is active. Do not add invented
+  testimonials or ratings.
 
 Do not present fictional testimonials or unauthorized photos as authentic
 evidence of this business's work.
@@ -82,7 +82,8 @@ Cloudflare Pages is the planned future host; it is configured manually in the
 Cloudflare dashboard (build command empty, output directory `site`, production
 branch `main`). Do not add automated Cloudflare configuration to the repo.
 
-The live page is intentionally `noindex` until launch approvals are complete.
+`privacy.html` is part of the published site and should be included in every
+deployment of the `site/` folder.
 
 ## Quick edit markers
 
@@ -91,7 +92,6 @@ Search the files for "EDIT:".
 Important markers include:
 
 - EDIT: SEO
-- EDIT: Launch Gate
 - EDIT: Starting Prices
 - EDIT: Hero Image
 - EDIT: Service Descriptions
@@ -216,8 +216,9 @@ ZIP codes must remain quoted strings, e.g.:
 
     "92392"
 
-The sample entries include selected ZIPs associated with the requested cities
-and county areas. They do not imply service throughout either county.
+The current entries have been approved for screening. They still do not imply
+service throughout either county; confirm the exact address and scheduling
+before committing to a job.
 
 The checker:
 - Requests an address ending in a five-digit ZIP or ZIP+4.
@@ -249,9 +250,9 @@ with:
 If the Formspree form changes, update the action and keep the same `f/<id>`
 format. The form ID is public by design; no secret belongs in the HTML.
 
-In Formspree:
+Formspree is verified working. If the form or recipient changes, re-test:
 1. Confirm the form exists and is active.
-2. Configure sugspropertyservices@gmail.com as the notification recipient.
+2. Confirm sugspropertyservices@gmail.com as the notification recipient.
 3. Complete any recipient verification required by the account.
 4. Configure spam protection and allowed domains as appropriate.
 5. Test delivery and notification behavior.
@@ -289,8 +290,8 @@ Optional:
 - Project details
 
 The form collects contact details and project details through Formspree.
-No file uploads are accepted. Review the short disclosure and add a dedicated
-privacy policy if appropriate.
+No file uploads are accepted. The form disclosure and footer link to
+`privacy.html`; keep the policy aligned with actual data practices.
 
 ## Accessibility and motion
 
@@ -343,14 +344,15 @@ To tune it, edit the `body::before` rule in style.css:
 
 ## Launch checklist
 
-[ ] Confirm all contact information.
-[ ] Approve all starting prices and remove the price preview notices.
-[ ] Confirm permission for the owner portrait and project photos.
-[ ] Verify ZIP list and service-area wording.
+[x] Confirm all contact information.
+[x] Approve all starting prices and remove the price preview notices.
+[x] Confirm permission for the owner portrait and project photos.
+[x] Verify ZIP list and service-area wording.
 [ ] Confirm the Google Business Profile is active before adding Google Reviews.
-[ ] Keep the reviews section out until real Google reviews are available.
-[ ] Verify the Formspree recipient and test delivery.
-[ ] Remove the `noindex` launch gate and placeholder notices only after approval.
+[x] Keep the reviews section out until real Google reviews are available.
+[x] Verify the Formspree recipient and test delivery.
+[x] Remove the `noindex` launch gate and placeholder notices.
+[x] Add and link the privacy policy.
 [ ] Test valid/invalid ZIPs, ZIP+4, missing ZIP, Skip, Escape, and reopening.
 [ ] Test submission success and network/server error states.
 [ ] Test phone/email links and all section links.

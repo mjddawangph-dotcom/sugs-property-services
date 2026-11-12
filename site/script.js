@@ -6,9 +6,8 @@
   /*
    * EDIT: Allowed ZIP Codes
    *
-   * SAMPLE screening list only.
-   * Gustavo must approve actual coverage before launch.
-   * Selected entries do NOT represent complete county coverage.
+   * Current approved service-area screening list.
+   * Final availability still needs confirmation for the exact address.
    */
   const ALLOWED_ZIPS = new Set([
     // Victorville
@@ -24,18 +23,18 @@
     "92307",
     "92308",
 
-    // Rancho Cucamonga — confirm travel/service availability
+    // Rancho Cucamonga
     "91701",
     "91730",
     "91737",
     "91739",
 
-    // Additional sample San Bernardino County locations
+    // Additional San Bernardino County locations
     "92404",
     "92407",
     "92376",
 
-    // Sample Riverside County locations
+    // Riverside County locations
     "92501",
     "92503",
     "92504",
@@ -177,8 +176,8 @@
         ? "Great news — we service your area."
         : "That ZIP isn't on our current list.";
       const description = inside
-        ? `ZIP ${zip} is on our sample service list. Call us to confirm scheduling and your exact address.`
-        : `ZIP ${zip} isn't on our current sample list. You can still browse, or call us to check nearby coverage.`;
+        ? `ZIP ${zip} is on our service list. Call us to confirm scheduling and your exact address.`
+        : `ZIP ${zip} isn't on our current list. You can still browse, or call us to check nearby coverage.`;
 
       setStatus(result, "");
 
