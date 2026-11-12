@@ -100,6 +100,8 @@ must be removed, rewrite history or make the repository private.
 Content-Security-Policy because the site uses inline theme/bootstrap scripts and
 the Formspree CDN; add and test a CSP separately if desired.
 
+The Inter font is self-hosted under `site/assets/fonts/` with its OFL license.
+
 ## Git identity
 
 Commits in this workspace use the identity from `.gitconfig` in the workspace

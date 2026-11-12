@@ -22,9 +22,12 @@ site/
 ├── style.css
 ├── script.js
 ├── assets/
-│   └── brand/
-│       ├── apple-touch-icon.png
-│       └── logo.svg
+│   ├── brand/
+│   │   ├── apple-touch-icon.png
+│   │   └── logo.svg
+│   └── fonts/
+│       ├── inter-latin.woff2
+│       └── OFL.txt
 └── images/
     ├── owner-portrait.webp
     ├── front-yard-cactus.webp
@@ -153,9 +156,8 @@ In style.css, edit the variables under "EDIT: Brand Colors".
 The palette uses forest green, muted sage, warm earth tones, and off-white.
 Dark text/buttons provide readable contrast without bright green accents.
 
-The font is Inter, loaded through Google Fonts, with system-font fallbacks.
-For a fully self-hosted site, download appropriately licensed font files,
-add local @font-face rules, and remove the Google Fonts links.
+The font is Inter, self-hosted at `assets/fonts/inter-latin.woff2` with its
+OFL license in `assets/fonts/OFL.txt`. System-font fallbacks remain.
 
 ## Images
 
@@ -343,8 +345,10 @@ hard-coded, add a corresponding `html[data-theme="dark"]` rule.
 `site/404.html` is a branded Not Found page with links back to the homepage,
 quote form, phone, and privacy policy. It is `noindex, follow`.
 
-Cloudflare Pages serves the top-level `404.html` automatically for unknown
-paths. Do not add it to the sitemap.
+Cloudflare Pages should serve the top-level `404.html` automatically for
+unknown paths. Do not add it to the sitemap. Verify this on the custom domain:
+the page is reachable at `/404`, but unknown paths must also return it with a
+404 status.
 
 ## Header and fixed watermark
 
