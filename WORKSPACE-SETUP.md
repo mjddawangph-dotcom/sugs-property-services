@@ -69,17 +69,17 @@ git push -u origin main
 
 ## 5. Hosting
 
-### Cloudflare Pages (production target)
+### Cloudflare Pages (live)
 
-The production URL is https://sugspropertyservices.com/.
+The live site is https://sugspropertyservices.com/.
 
-Cloudflare Pages should be connected manually to the GitHub repository from
-`main`, with `site` as the build output directory. The custom domain is
-`sugspropertyservices.com` (bare domain primary) and `www` should redirect to it
-with a 301.
+Cloudflare Pages is connected to the GitHub repository from `main`, with `site`
+as the build output directory. The custom domain is `sugspropertyservices.com`
+(bare domain primary) and `www` redirects to it with a 301.
 
-Cutover is pending until the Pages deployment, DNS records, SSL certificate,
-custom domains, and redirect rule are verified.
+Cloudflare Pages, both custom domains, SSL, and the HTTPS `www` redirect are
+live. Always Use HTTPS still needs to be enabled, and GitHub Pages is still
+enabled as the legacy copy.
 
 ### GitHub Pages (legacy)
 

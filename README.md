@@ -7,7 +7,7 @@ automations.
 - **Business:** Lawn care / property maintenance — Victorville & the High Desert, CA
 - **Repo visibility:** Public
 - **Production URL:** https://sugspropertyservices.com/
-- **Hosting target:** Cloudflare Pages, deployed from `main` (cutover pending)
+- **Hosting:** Cloudflare Pages, deployed from `main`
 - **Legacy hosting:** GitHub Pages (`gh-pages`); disable after Cloudflare is verified
 
 ## Layout
@@ -37,10 +37,10 @@ for Formspree, storage, and the service-area checker.
 
 ## Hosting
 
-### Cloudflare Pages (production target)
+### Cloudflare Pages (live)
 
-The production target is Cloudflare Pages, deploying from `main` with `site` as
-the build output directory. The custom domain is `sugspropertyservices.com`; the bare
+The live site is Cloudflare Pages, deploying from `main` with `site` as the build
+output directory. The custom domain is `sugspropertyservices.com`; the bare
 domain is primary and `www` redirects to it with a 301.
 
 Build settings:
@@ -55,8 +55,9 @@ Build settings:
 Canonical, Open Graph, structured-data, robots, and sitemap URLs use
 `https://sugspropertyservices.com/`.
 
-Cutover is pending until the Pages project, DNS records, custom domains, SSL,
-and the `www` redirect are verified.
+Cloudflare Pages, both custom domains, SSL, and the HTTPS `www` redirect are
+live. Always Use HTTPS still needs to be enabled, and GitHub Pages is still
+enabled as the legacy copy.
 
 ### GitHub Pages (legacy)
 

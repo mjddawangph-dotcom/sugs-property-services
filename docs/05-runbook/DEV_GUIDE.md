@@ -78,18 +78,19 @@ for Formspree, storage, and service-area testing.
 
 ## Hosting and publishing
 
-Production target: Cloudflare Pages at https://sugspropertyservices.com/.
+Live site: Cloudflare Pages at https://sugspropertyservices.com/.
 
-Cloudflare Pages should deploy from `main` with build command empty, output
-directory `site`, and production branch `main`. The bare domain is primary; `www` must
+Cloudflare Pages deploys from `main` with build command empty, output directory
+`site`, and production branch `main`. The bare domain is primary; `www` must
 301-redirect to it.
 
 The canonical URL, Open Graph URLs, structured data URL, sitemap URLs, and
 `Sitemap:` line in robots.txt use the apex custom domain.
 
-Cutover is pending until the Pages project, DNS records, SSL, both custom
-domains, and the `www` redirect are verified. The old `gh-pages` GitHub Pages
-deployment is legacy and should be disabled after verification.
+Cloudflare Pages, both custom domains, SSL, and the HTTPS `www` redirect are
+live. Always Use HTTPS must still be enabled at Cloudflare. The old `gh-pages`
+GitHub Pages deployment is still enabled and should be disabled after final
+verification.
 
 `privacy.html` is part of the published site and should be included in every
 deployment of the `site/` folder.
@@ -395,8 +396,9 @@ exceptions; do not add temporary dates to the schema.
 [x] Add LocalBusiness structured data without unverified claims.
 [x] Add robots.txt and sitemap.xml.
 [x] Use the apex custom domain for canonical, Open Graph, schema, robots, and sitemap.
-[ ] Verify Cloudflare Pages custom domain and SSL.
-[ ] Add and verify the www-to-apex 301 redirect.
+[x] Verify Cloudflare Pages custom domain and SSL.
+[x] Add and verify the HTTPS www-to-apex 301 redirect.
+[ ] Enable Always Use HTTPS (HTTP-to-HTTPS redirect).
 [ ] Disable the legacy GitHub Pages deployment.
 [ ] Submit the sitemap in Google Search Console.
 [ ] Test light/dark toggle, reload persistence, and OS dark preference.
