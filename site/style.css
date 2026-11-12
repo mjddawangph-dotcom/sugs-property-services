@@ -747,6 +747,11 @@ html[data-theme="dark"] .theme-icon-sun {
   overflow-wrap: anywhere;
 }
 
+.contact-box .contact-hours {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
 .quote-form {
   padding: 32px;
   border: 1px solid var(--line);
@@ -933,6 +938,13 @@ textarea[aria-invalid="true"] {
 .site-footer a {
   color: var(--paper);
   font-size: 0.87rem;
+}
+
+.site-footer .footer-hours {
+  margin-top: 0;
+  color: var(--paper);
+  font-size: 0.82rem;
+  opacity: 0.82;
 }
 
 .mobile-contact {

@@ -48,6 +48,8 @@ preview notices have been removed.
 - The current ZIP and city list is approved for service-area screening.
   Final availability still needs confirmation for the exact address.
 - The public phone number and email are approved.
+- Operating hours are 7:00 AM–7:00 PM daily. They appear in the quote contact
+  box, the footer on both pages, and the LocalBusiness structured data.
 - Formspree is verified working.
 - A basic privacy policy is published at privacy.html and linked from the quote
   form, footer, and service-area checker.
@@ -123,9 +125,9 @@ In index.html, update:
 
 Keep contact information consistent everywhere.
 
-No fabricated street address, business hours, review aggregate, or credentials
-have been added. Add structured business data only after verifying the facts
-and obtaining the public website URL.
+No street address, review aggregate, ratings, or credentials have been added.
+The phone, email, hours, services, and service areas are approved. Keep the
+visible content and structured data in sync with the source business facts.
 
 ## Pricing
 
@@ -355,8 +357,8 @@ To tune it, edit the `body::before` rule in style.css:
 - `index.html` includes canonical, Open Graph, and Twitter metadata.
 - `images/social-share.jpg` is the 1200x630 social preview image.
 - `index.html` includes `HomeAndConstructionBusiness` JSON-LD with the approved
-  name, phone, email, services, and service cities. It intentionally omits
-  street address, hours, ratings, and review counts.
+  name, phone, email, opening hours, services, and service cities. It
+  intentionally omits a street address, ratings, and review counts.
 - `sitemap.xml` lists the home page and the privacy policy.
 - `robots.txt` allows Googlebot, Googlebot-Image, Google-InspectionTool, Bingbot,
   BingPreview, and official social link-preview crawlers (Facebook, Twitter,
@@ -366,6 +368,11 @@ To tune it, edit the `body::before` rule in style.css:
 `robots.txt` is advisory, not access control. It cannot identify or stop a
 person using a browser or a script that ignores the file. For stronger blocking,
 use a host with bot management or a WAF, such as Cloudflare.
+
+Operating hours are duplicated intentionally: contact box, footer on both
+pages, and JSON-LD. If the schedule changes, update all three website locations
+and the Google Business Profile together. Use GBP special hours for holiday
+exceptions; do not add temporary dates to the schema.
 
 ## Launch checklist
 
@@ -378,6 +385,8 @@ use a host with bot management or a WAF, such as Cloudflare.
 [x] Verify the Formspree recipient and test delivery.
 [x] Remove the `noindex` launch gate and placeholder notices.
 [x] Add and link the privacy policy.
+[x] Publish operating hours in the contact box, both footers, and JSON-LD.
+[ ] Match the published hours to the Google Business Profile.
 [ ] Test valid/invalid ZIPs, ZIP+4, missing ZIP, Skip, Escape, and reopening.
 [ ] Test submission success and network/server error states.
 [ ] Test phone/email links and all section links.

@@ -9,7 +9,7 @@ Last Updated: 2026-11-12
 **Phone:** 909-582-6445 (mobile — kept for GBP stability; Google Voice later, not on profile)
 **Email:** sugspropertyservices@gmail.com (approved public site and Formspree recipient)
 **Address:** 13243 Brant Rd, Victorville, CA 92392 (home-based; hide on GBP as Service-Area Business)
-**Hours:** 7:00 AM – 7:00 PM, 7 days/week
+**Hours:** 7:00 AM – 7:00 PM, 7 days/week (published on the website; keep the Google Business Profile in sync)
 **Website:** https://mjddawangph-dotcom.github.io/sugs-property-services/ (live public site)
 
 ## 2. Mission

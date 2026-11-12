@@ -76,6 +76,8 @@ Build settings (set by hand in the Cloudflare dashboard):
   will be used after the Google Business Profile is active.
 - Do not publish invented testimonials, ratings, or review counts.
 - A basic privacy policy is published at `site/privacy.html`.
+- Operating hours are published in the quote contact box, both page footers,
+  and the LocalBusiness structured data.
 - The site includes a favicon, Open Graph/Twitter metadata, LocalBusiness
   structured data, `robots.txt`, and `sitemap.xml`.
 - `robots.txt` allows Google and Bing search crawlers plus official social
