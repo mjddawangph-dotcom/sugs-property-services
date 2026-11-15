@@ -342,5 +342,6 @@ Site work completed and verified locally:
   two-column footer, responsive grids.
 - Homepage now 855 visible words (was 760) with 27 crawlable internal links (was 1).
 
-**Not deployed yet.** Changes are committed locally; pushing to `main` triggers the
-Cloudflare Pages deploy.
+**Deployed.** Commit `25c9ae8` was pushed to `main` and the Cloudflare Pages build
+completed on 2026-11-15. All 13 URLs return 200, the sitemap lists 13 URLs, and
+`robots.txt` serves the new allow rule. Verified live, not just locally.

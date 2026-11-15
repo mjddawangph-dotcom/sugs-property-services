@@ -330,4 +330,4 @@ that need owner action. Full details and ready-to-paste snippets are in
 | Review system, citations, local links | **Owner — §3** |
 | Spanish `/es/` pages | **Needs translation — §4.3** |
 | Content hub (2 posts/month) | **Not started — §4.2** |
-| Deploy to production | **Pending — commit is local** |
+| Deploy to production | Done — commit `25c9ae8`, all 13 URLs return 200 |
