@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Project Gallery | Victorville Lawn & Landscape Work</title>
+  <meta name="description" content="Recent lawn, cleanup, gravel, and landscape work by Sug's Property Services in Victorville, Hesperia, and the High Desert. Real properties, no stock photos.">
+  <link rel="canonical" href="https://sugspropertyservices.com/gallery/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sug's Property Services">
+  <meta property="og:title" content="Project Gallery | Victorville Lawn & Landscape Work">
+  <meta property="og:description" content="Recent lawn, cleanup, gravel, and landscape work by Sug's Property Services in Victorville, Hesperia, and the High Desert. Real properties, no stock photos.">
+  <meta property="og:url" content="https://sugspropertyservices.com/gallery/">
+  <meta property="og:image" content="https://sugspropertyservices.com/images/social-share.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Front yard with cactus and gravel landscaping maintained by Sug's Property Services">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Project Gallery | Victorville Lawn & Landscape Work">
+  <meta name="twitter:description" content="Recent lawn, cleanup, gravel, and landscape work by Sug's Property Services in Victorville, Hesperia, and the High Desert. Real properties, no stock photos.">
+  <meta name="twitter:image" content="https://sugspropertyservices.com/images/social-share.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/brand/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
+  <meta name="theme-color" content="#29483d">
+
+  <script>
+    (() => {
+      let theme = "light";
+      let hasSavedTheme = false;
+
+      try {
+        const saved = localStorage.getItem("sug-theme");
+
+        if (saved === "dark" || saved === "light") {
+          theme = saved;
+          hasSavedTheme = true;
+        }
+      } catch (error) {
+        // Storage can be unavailable in privacy modes; fall back to the OS.
+      }
+
+      if (
+        !hasSavedTheme &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        theme = "dark";
+      }
+
+      document.documentElement.dataset.theme = theme;
+
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) {
+        themeColor.content = theme === "dark" ? "#0f1512" : "#29483d";
+      }
+    })();
+  </script>
+
+  <link
+    rel="preload"
+    href="/assets/fonts/inter-latin.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+
+  <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HomeAndConstructionBusiness",
+          "@id": "https://sugspropertyservices.com/#business",
+          "name": "Sug's Property Services",
+          "url": "https://sugspropertyservices.com/",
+          "logo": "https://sugspropertyservices.com/assets/brand/logo.svg",
+          "image": "https://sugspropertyservices.com/images/social-share.jpg",
+          "description": "Owner-operated lawn care, landscaping, weed treatment, cleanups, and irrigation repair in Victorville, Hesperia, and Apple Valley, California.",
+          "telephone": "+1-909-582-6445",
+          "email": "sugspropertyservices@gmail.com",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Victorville",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Victorville"
+            },
+            {
+              "@type": "City",
+              "name": "Hesperia"
+            },
+            {
+              "@type": "City",
+              "name": "Apple Valley"
+            },
+            {
+              "@type": "City",
+              "name": "Rancho Cucamonga"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "San Bernardino County"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Riverside County"
+            }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "07:00",
+              "closes": "19:00"
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://sugspropertyservices.com/gallery/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://sugspropertyservices.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Gallery"
+            }
+          ]
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://sugspropertyservices.com/gallery/#page",
+          "name": "Project gallery",
+          "url": "https://sugspropertyservices.com/gallery/",
+          "isPartOf": {
+            "@id": "https://sugspropertyservices.com/#business"
+          }
+        }
+      ]
+    }
+  </script>
+
+  <script src="/script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Sug's Property Services home">
+        <img
+          class="brand-logo"
+          src="/assets/brand/logo.svg"
+          alt=""
+          width="960"
+          height="960"
+          fetchpriority="high"
+        >
+        <span class="brand-name">Sug's Property Services</span>
+      </a>
+
+      <div class="header-actions">
+        <nav class="desktop-nav" id="site-nav" aria-label="Main navigation">
+          <a href="/landscaping/">Landscaping</a>
+          <a href="/services/">Services</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/about/">About</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          title="Switch to dark mode"
+        >
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20.5 14.2A8.2 8.2 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </button>
+
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="container breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Gallery</li>
+      </ol>
+    </nav>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Project gallery</p>
+        <h1>Recent work in the High Desert</h1>
+        <p class="lead">Lawns, gravel yards, planted beds, and cleanups around Victorville. Real properties, photographed as we finished them.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container prose">
+        <p>
+          A selection of lawns, gravel yards, beds, and cleanups we have worked
+          on around Victorville and the High Desert. Everything here is a real
+          property &mdash; no stock photography.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="photo-grid">
+          <figure>
+            <img
+              src="/images/front-yard-cactus-960.webp"
+              srcset="/images/front-yard-cactus-480.webp 480w, /images/front-yard-cactus-960.webp 960w, /images/front-yard-cactus.webp 1600w"
+              sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 820px) 45vw, 360px"
+              alt="Front yard with a cactus feature, gravel landscaping, and a stucco home"
+              width="1600"
+              height="893"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>Front yard with cactus feature and gravel landscaping</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="/images/backyard-gravel-tree-960.webp"
+              srcset="/images/backyard-gravel-tree-480.webp 480w, /images/backyard-gravel-tree-960.webp 960w, /images/backyard-gravel-tree.webp 1600w"
+              sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 820px) 45vw, 360px"
+              alt="Backyard with gravel ground cover, a shade tree, and wooden fencing"
+              width="1600"
+              height="893"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>Backyard gravel and shade tree</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="/images/front-lawn-palms-960.webp"
+              srcset="/images/front-lawn-palms-480.webp 480w, /images/front-lawn-palms-960.webp 960w, /images/front-lawn-palms.webp 1600w"
+              sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 820px) 45vw, 360px"
+              alt="Front yard with palms, lawn, and a white garage door"
+              width="1600"
+              height="893"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>Front lawn with palms</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="/images/lawn-palm-maintenance-960.webp"
+              srcset="/images/lawn-palm-maintenance-480.webp 480w, /images/lawn-palm-maintenance-960.webp 960w, /images/lawn-palm-maintenance.webp 1600w"
+              sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 820px) 45vw, 360px"
+              alt="Green lawn with palm trees beside a stucco home"
+              width="1600"
+              height="893"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>Maintained lawn with palms</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="/images/palm-gravel-landscaping-960.webp"
+              srcset="/images/palm-gravel-landscaping-480.webp 480w, /images/palm-gravel-landscaping-960.webp 960w, /images/palm-gravel-landscaping.webp 1600w"
+              sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 820px) 45vw, 360px"
+              alt="Cluster of palms and gravel landscaping beside a driveway"
+              width="1600"
+              height="893"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>Palms and gravel beside a driveway</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="/images/side-yard-cactus-960.webp"
+              srcset="/images/side-yard-cactus-480.webp 480w, /images/side-yard-cactus-960.webp 960w, /images/side-yard-cactus.webp 1600w"
+              sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 820px) 45vw, 360px"
+              alt="Side yard with cactus, gravel, and a block border"
+              width="1600"
+              height="893"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>Side yard with cactus and gravel</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="/images/side-walkway-planters-960.webp"
+              srcset="/images/side-walkway-planters-480.webp 480w, /images/side-walkway-planters-960.webp 960w, /images/side-walkway-planters.webp 1600w"
+              sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 820px) 45vw, 360px"
+              alt="Side walkway with potted plants, palms, and a wooden fence"
+              width="1600"
+              height="893"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>Side walkway with planters</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="/images/palm-lined-side-yard-960.webp"
+              srcset="/images/palm-lined-side-yard-480.webp 480w, /images/palm-lined-side-yard-960.webp 960w, /images/palm-lined-side-yard.webp 1600w"
+              sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 820px) 45vw, 360px"
+              alt="Palm trees and gravel along a side yard"
+              width="1600"
+              height="893"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>Palm-lined side yard</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="/images/palm-bed-fence-960.webp"
+              srcset="/images/palm-bed-fence-480.webp 480w, /images/palm-bed-fence-960.webp 960w, /images/palm-bed-fence.webp 1600w"
+              sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 820px) 45vw, 360px"
+              alt="Young palms and a shade tree in a gravel bed"
+              width="1600"
+              height="893"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>Palm bed against a fence</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="/images/tall-palms-driveway-960.webp"
+              srcset="/images/tall-palms-driveway-480.webp 480w, /images/tall-palms-driveway-960.webp 960w, /images/tall-palms-driveway.webp 1600w"
+              sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 820px) 45vw, 360px"
+              alt="Tall palm trees above a driveway and garage"
+              width="1600"
+              height="893"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>Tall palms above a driveway</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted">
+      <div class="container prose">
+        <h2>What you are looking at</h2>
+        <p>
+          Most High Desert yards come down to the same few decisions: how much
+          of the ground stays planted, how much goes to gravel or rock, and
+          whether the irrigation actually covers what is planted. The yards
+          above are different answers to those questions, not a single
+          template.
+        </p>
+        <p>
+          If one of them looks like what you want for your property, send us
+          the photo and the address. It is a much faster conversation than
+          starting from scratch.
+        </p>
+        <p>
+          We do this work as part of <a href="/landscaping/">landscaping
+          resets</a>, <a href="/services/yard-cleanup/">cleanups</a>, and
+          ongoing <a href="/services/lawn-mowing/">maintenance</a>.
+        </p>
+      </div>
+    </section>
+
+  <section class="section section-tinted">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Next step</p>
+        <h2>Get a straightforward quote.</h2>
+        <p>
+          Tell us the address and what the property needs. We will follow up to
+          confirm scope and price before any work starts.
+        </p>
+      </div>
+      <div class="button-row">
+        <a class="button" href="/contact/">Request a quote</a>
+        <a class="button button-outline" href="tel:+19095826445">Call (909) 582-6445</a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Sug's Property Services</strong>
+        <p>
+          Lawn care, landscaping, and property maintenance in Victorville,
+          Hesperia, and Apple Valley.
+        </p>
+        <p class="footer-hours">Open daily, 7:00 AM&ndash;7:00 PM</p>
+        <p>
+          <a href="tel:+19095826445">(909) 582-6445</a><br>
+          <a href="mailto:sugspropertyservices@gmail.com">sugspropertyservices@gmail.com</a>
+        </p>
+        <small>&copy; <span id="year">2026</span> Sug's Property Services.</small>
+      </div>
+
+      <nav class="footer-cols" aria-label="Footer">
+        <div class="footer-col">
+          <strong>Services</strong>
+          <a href="/services/lawn-mowing/">Lawn mowing</a>
+          <a href="/services/yard-cleanup/">Yard cleanup</a>
+          <a href="/services/irrigation-repair/">Irrigation repair</a>
+          <a href="/services/weed-control/">Weed control</a>
+          <a href="/services/sod-turf/">Sod installation</a>
+          <a href="/landscaping/">Landscaping</a>
+        </div>
+        <div class="footer-col">
+          <strong>Company</strong>
+          <a href="/about/">About</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/contact/">Contact and quotes</a>
+          <a href="/privacy">Privacy policy</a>
+        </div>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="mobile-contact" aria-label="Quick contact">
+    <a href="tel:+19095826445">Call us</a>
+    <a href="/contact/">Get a quote</a>
+  </div>
+</body>
+</html>

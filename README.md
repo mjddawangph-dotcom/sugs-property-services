@@ -14,7 +14,7 @@ automations.
 
 ```
 docs/         business plan, SEO, content, outreach, automation specs, runbooks
-site/         static landing page; Cloudflare Pages build root
+site/         static multi-page site; Cloudflare Pages build root
 site/assets/  brand files, including the SVG logo
 site/images/  real owner portrait and project photos
 automations/  bookings, outreach, social automation code
@@ -75,7 +75,14 @@ approved.
 - The former placeholder review cards have been removed. Real Google Reviews
   will be used after the Google Business Profile is active.
 - Do not publish invented testimonials, ratings, or review counts.
-- A basic privacy policy is published at `site/privacy.html`.
+- A basic privacy policy is published at `site/privacy.html` (served at
+  `/privacy`).
+- The site is a multi-page structure: home, `/landscaping/`, `/services/` plus
+  five service pages, `/faq/`, `/about/`, `/gallery/`, `/contact/`, and
+  `/privacy`. The sitemap lists 13 URLs.
+- No licence, insurance, founding year, address, or review claims are published
+  yet. See `docs/01-seo-strategy/owner-actions-required.md` for the facts needed
+  before adding them.
 - Apple touch icon, a branded `404.html` at `/404`, responsive image variants,
   and basic Cloudflare security headers are in place. The custom-domain 404
   fallback still needs platform verification.

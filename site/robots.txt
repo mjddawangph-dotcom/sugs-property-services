@@ -80,9 +80,10 @@ Disallow: /
 User-agent: Omgilibot
 Disallow: /
 
-# Block all other crawlers. This does not prevent a person from opening the
-# site in a browser or a program that ignores robots.txt.
+# Every other crawler is welcome. Blocking the catch-all also blocked
+# legitimate search, aggregator, and AI-answer crawlers that were never
+# explicitly listed below, which costs visibility for no security benefit.
 User-agent: *
-Disallow: /
+Allow: /
 
 Sitemap: https://sugspropertyservices.com/sitemap.xml
