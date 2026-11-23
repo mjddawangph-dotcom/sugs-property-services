@@ -88,7 +88,7 @@ Reliable, detail-oriented property maintenance for High Desert homeowners and pr
 
 ## 10. Google Business Profile Notes
 
-- **Status:** Video verification pending approval.
+- **Status:** Verified 2026-11-24 (video verification approved).
 - **Type:** Service-Area Business (SAB) — hide street address, show service areas only.
 - **Phone:** Mobile number (909-582-6445) kept on profile for stability. Do **not** change after verification. Google Voice to be used for other comms only.
 - **Service areas:** Victorville, Hesperia, Apple Valley, Rancho Cucamonga (+ secondary cities TBD; max 20 areas, within ~2 hours driving).
@@ -100,9 +100,9 @@ Reliable, detail-oriented property maintenance for High Desert homeowners and pr
 
 ## 11. Open Items
 
-- [ ] GBP video verification result (pending)
+- [x] GBP video verification (approved 2026-11-24)
 - [ ] Business email domain + Google Workspace setup (optional; Gmail is approved for launch)
 - [ ] Social media handles reserved (all new)
 - [x] Logo vector conversion (`site/assets/brand/logo.svg`)
-- [ ] Add Google Reviews to the website after the Google Business Profile is active
+- [x] Google review link page live at `/leave-a-review/` (2026-11-24); add the on-site reviews section only after 10+ real reviews
 - [ ] Competitor research (deferred with SEO)

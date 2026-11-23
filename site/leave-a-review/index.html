@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Leave a Google Review | Sug's Property Services</title>
+  <meta name="description" content="Leave a quick Google review for Sug's Property Services in Victorville, Hesperia, or Apple Valley.">
+  <meta name="robots" content="noindex, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sug's Property Services">
+  <meta property="og:title" content="Leave a Google Review | Sug's Property Services">
+  <meta property="og:description" content="A 30-second Google review helps other High Desert homeowners find us.">
+  <meta property="og:image" content="https://sugspropertyservices.com/images/social-share.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Leave a Google Review | Sug's Property Services">
+  <meta name="twitter:description" content="A 30-second Google review helps other High Desert homeowners find us.">
+  <meta name="twitter:image" content="https://sugspropertyservices.com/images/social-share.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/brand/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
+  <meta name="theme-color" content="#29483d">
+
+  <script>
+    (() => {
+      let theme = "light";
+      let hasSavedTheme = false;
+
+      try {
+        const saved = localStorage.getItem("sug-theme");
+
+        if (saved === "dark" || saved === "light") {
+          theme = saved;
+          hasSavedTheme = true;
+        }
+      } catch (error) {
+        // Storage can be unavailable in privacy modes; fall back to the OS.
+      }
+
+      if (
+        !hasSavedTheme &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        theme = "dark";
+      }
+
+      document.documentElement.dataset.theme = theme;
+
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) {
+        themeColor.content = theme === "dark" ? "#0f1512" : "#29483d";
+      }
+    })();
+  </script>
+
+  <link
+    rel="preload"
+    href="/assets/fonts/inter-latin.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  >
+
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Sug's Property Services home">
+        <img
+          class="brand-logo"
+          src="/assets/brand/logo.svg"
+          alt=""
+          width="960"
+          height="960"
+          fetchpriority="high"
+        >
+        <span class="brand-name">Sug's Property Services</span>
+      </a>
+
+      <div class="header-actions">
+        <nav class="desktop-nav" id="site-nav" aria-label="Main navigation">
+          <a href="/landscaping/">Landscaping</a>
+          <a href="/services/">Services</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/about/">About</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          title="Switch to dark mode"
+        >
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20.5 14.2A8.2 8.2 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z" />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </button>
+
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="menu-toggle-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Thank you</p>
+        <h1>Leave a Google review</h1>
+        <p class="lead">
+          It takes about 30 seconds, and it helps other High Desert homeowners
+          find a crew that shows up on time.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="prose">
+          <p>
+            If we did a good job, a short review goes a long way for a small
+            local business. A sentence about the work and the city is plenty.
+          </p>
+          <p>
+            If something was missed, call or text
+            <a href="tel:+19095826445">(909) 582-6445</a> first and we will come
+            back and fix it.
+          </p>
+        </div>
+        <div class="button-row">
+          <a
+            class="button"
+            href="https://g.page/r/CSljLN6P6hHIEAI/review"
+            target="_blank"
+            rel="noopener"
+          >Leave a review on Google</a>
+          <a class="button button-outline" href="/">Back to the website</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Sug's Property Services</strong>
+        <p>
+          Lawn care, landscaping, and property maintenance in Victorville,
+          Hesperia, and Apple Valley.
+        </p>
+        <p class="footer-hours">Open daily, 7:00 AM&ndash;7:00 PM</p>
+        <p>
+          <a href="tel:+19095826445">(909) 582-6445</a><br>
+          <a href="mailto:sugspropertyservices@gmail.com">sugspropertyservices@gmail.com</a>
+        </p>
+        <small>&copy; <span id="year">2026</span> Sug's Property Services.</small>
+      </div>
+
+      <nav class="footer-cols" aria-label="Footer">
+        <div class="footer-col">
+          <strong>Services</strong>
+          <a href="/services/lawn-mowing/">Lawn mowing</a>
+          <a href="/services/yard-cleanup/">Yard cleanup</a>
+          <a href="/services/irrigation-repair/">Irrigation repair</a>
+          <a href="/services/weed-control/">Weed control</a>
+          <a href="/services/sod-turf/">Sod installation</a>
+          <a href="/landscaping/">Landscaping</a>
+        </div>
+        <div class="footer-col">
+          <strong>Company</strong>
+          <a href="/about/">About</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/contact/">Contact and quotes</a>
+          <a href="/privacy">Privacy policy</a>
+        </div>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="mobile-contact" aria-label="Quick contact">
+    <a href="tel:+19095826445">Call us</a>
+    <a href="/contact/">Get a quote</a>
+  </div>
+</body>
+</html>

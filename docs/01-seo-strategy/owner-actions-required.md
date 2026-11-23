@@ -125,7 +125,7 @@ The system:
 
 > Hi [name], thanks for letting us take care of the yard today. If we did a good job,
 > a quick Google review helps other Victorville neighbors find us — takes about 30
-> seconds: [LINK]. If something wasn't right, reply here first and I'll come back and
+> seconds: https://g.page/r/CSljLN6P6hHIEAI/review. If something wasn't right, reply here first and I'll come back and
 > fix it. — Gustavo
 
 **Email template:**
@@ -136,7 +136,7 @@ The system:
 >
 > Thanks for having us out to [service] at [street or neighborhood]. If you were happy
 > with the work, a short Google review genuinely helps a small local business get found
-> — here's the direct link: [LINK]
+> — here's the direct link: https://g.page/r/CSljLN6P6hHIEAI/review
 >
 > And if anything was missed, reply to this email and I'll come back out. I'd rather
 > fix it than have you quietly disappointed.
@@ -152,7 +152,7 @@ common reason a business fails to match its own listing.
 
 | Platform | Status | Notes |
 |---|---|---|
-| Google Business Profile | pending verification | priority 1 |
+| Google Business Profile | verified 2026-11-24; complete profile next | priority 1 |
 | Bing Places | not started | imports from GBP |
 | Apple Business Connect | not started | powers Apple Maps |
 | Yelp | not started | |
@@ -281,22 +281,24 @@ And add to the `HomeAndConstructionBusiness` node in every JSON-LD block:
 }
 ```
 
-### 7.2 Once Google Business Profile is live
+### 7.2 Google Business Profile — live (2026-11-24)
 
-Add to every `HomeAndConstructionBusiness` node:
+The profile is verified. Place ID `ChIJPQJ1OqW3VyIRKWMs3o_qEcg`, so every
+`HomeAndConstructionBusiness` node (all 12 pages) now carries:
 
 ```json
 "sameAs": [
-  "https://www.google.com/maps/place/?q=place_id:YOUR_PLACE_ID",
-  "https://www.facebook.com/YOURPAGE",
-  "https://www.yelp.com/biz/YOUR-BUSINESS"
+  "https://www.google.com/maps/place/?q=place_id:ChIJPQJ1OqW3VyIRKWMs3o_qEcg"
 ],
-"hasMap": "https://www.google.com/maps/place/?q=place_id:YOUR_PLACE_ID"
+"hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJPQJ1OqW3VyIRKWMs3o_qEcg"
 ```
 
-Then create `/leave-a-review/` at `site/leave-a-review/index.html` with a `noindex`
-meta tag and a single prominent button pointing at the Google review URL. Do **not**
-add it to `sitemap.xml` — it is a conversion page, not a ranking page.
+Add Facebook, Yelp, and the other citation profiles to `sameAs` as they go live.
+
+`/leave-a-review/` is live at `site/leave-a-review/index.html`: `noindex, follow`,
+no canonical, one button to the Google review form
+(<https://g.page/r/CSljLN6P6hHIEAI/review>), and deliberately absent from
+`sitemap.xml`. It is a conversion page, not a ranking page.
 
 ### 7.3 Once there are at least 10 real reviews
 

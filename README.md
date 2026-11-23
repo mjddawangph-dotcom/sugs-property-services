@@ -72,8 +72,10 @@ approved.
 
 - Approved starting prices: $50 lawn mowing, $150 property cleanup, $85
   irrigation repair.
-- The former placeholder review cards have been removed. Real Google Reviews
-  will be used after the Google Business Profile is active.
+- The former placeholder review cards have been removed. The Google Business
+  Profile is verified (2026-11-24) and a `noindex` `/leave-a-review/` page links
+  to the Google review form; the on-site reviews section stays out until 10+
+  real reviews exist.
 - Do not publish invented testimonials, ratings, or review counts.
 - A basic privacy policy is published at `site/privacy.html` (served at
   `/privacy`).

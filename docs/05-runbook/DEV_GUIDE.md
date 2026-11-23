@@ -402,7 +402,7 @@ exceptions; do not add temporary dates to the schema.
 [x] Approve all starting prices and remove the price preview notices.
 [x] Confirm permission for the owner portrait and project photos.
 [x] Verify ZIP list and service-area wording.
-[ ] Confirm the Google Business Profile is active before adding Google Reviews.
+[x] Google Business Profile verified and active (2026-11-24); `/leave-a-review/` links to the review form.
 [x] Keep the reviews section out until real Google reviews are available.
 [x] Verify the Formspree recipient and test delivery.
 [x] Remove the `noindex` launch gate and placeholder notices.
