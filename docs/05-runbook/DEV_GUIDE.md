@@ -254,6 +254,15 @@ The checker opens only when a visitor clicks "Check your area". Nothing
 auto-opens on page load. The address or ZIP is never stored — the only browser
 storage on the site is the visitor's light/dark theme choice (localStorage).
 
+## Google Business Profile API
+
+`automations/gbp/` contains a dependency-free CLI for editing the profile
+(description, phone, website), creating local posts, and adding photos through
+Google's official APIs. Google requires the profile to be verified for 60+ days
+before API access is approved, so live calls can start after 2027-01-23. See
+`automations/gbp/README.md` for the Cloud project, OAuth client, and access
+request steps. `--dry-run` previews requests without credentials.
+
 ## Formspree configuration
 
 Find "EDIT: Formspree Endpoint" in index.html. The form is already configured
