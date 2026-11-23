@@ -109,7 +109,6 @@
     const resultTitle = document.querySelector("#area-result-title");
     const resultDescription = document.querySelector("#area-result-description");
     const resultContinue = document.querySelector("#area-result-continue");
-    const storageKey = "sugs-area-dismissed";
 
     if (!modal || !form || !input || !result) {
       return;
@@ -131,22 +130,6 @@
         typeof resultDialog.showModal === "function"
     );
 
-    function readDismissalFlag() {
-      try {
-        return sessionStorage.getItem(storageKey) === "1";
-      } catch {
-        return false;
-      }
-    }
-
-    function saveDismissalFlag() {
-      try {
-        sessionStorage.setItem(storageKey, "1");
-      } catch {
-        // Private/restricted storage must not break browsing.
-      }
-    }
-
     function openModal() {
       if (modal.open) {
         return;
@@ -160,8 +143,8 @@
       modal.showModal();
       document.body.classList.add("modal-open");
 
-      // Avoid immediately raising a mobile keyboard on first arrival.
-      skipButton.focus();
+      // The visitor opened the checker on purpose; put the cursor in the field.
+      input.focus({ preventScroll: true });
     }
 
     function closeModal() {
@@ -244,8 +227,6 @@
 
     // Let Escape trigger the browser's native dialog cancellation.
     modal.addEventListener("close", () => {
-      saveDismissalFlag();
-
       // While the result dialog is opening, keep the page locked and let
       // that dialog manage focus.
       if (resultPending) {
@@ -276,10 +257,6 @@
           openButton.focus({ preventScroll: true });
         }
       });
-    }
-
-    if (!readDismissalFlag()) {
-      openModal();
     }
   }
 

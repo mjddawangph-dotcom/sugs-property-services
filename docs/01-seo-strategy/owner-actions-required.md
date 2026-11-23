@@ -51,15 +51,19 @@ While the verification is pending, get these ready:
 | Service areas | Victorville, Hesperia, Apple Valley |
 | Services | Lawn mowing, yard cleanup, irrigation repair, weed control, sod installation |
 
-**Suggested description (paste-ready, 603 characters):**
+**Description (paste-ready, 720 characters — no prices, links, or offers, which
+Google's guidelines discourage in this field):**
 
-> Owner-operated lawn care and property maintenance in Victorville, Hesperia, and
-> Apple Valley. We handle routine mowing and edging, weed treatment in gravel and
-> beds, one-time and seasonal property cleanups, sprinkler and irrigation repair,
-> shrub and tree trimming, fertilization, and sod installation. Starting prices are
-> published on our site: mowing from $50 per cut, cleanups from $150, and irrigation
-> repair from $85. Open seven days a week, 7 AM to 7 PM. Call or text for a
-> straightforward quote before any work starts.
+> Lawn care and landscaping across Victorville, Hesperia, Apple Valley, and the
+> High Desert for homeowners who want a yard that looks cared for, without chasing
+> a crew that never shows. Weekly and biweekly mowing, edging, trimming, weed
+> control, and seasonal cleanups. Sprinkler and irrigation repair when the water
+> stops reaching the lawn. Shrub and tree trimming, fertilization, sod installation,
+> and landscaping for bigger projects. Owner-operated by Gustavo, who learned the
+> trade running crews for a larger company and brings that standard to every
+> property: show up on time, sweat the edges, leave the yard clean. Open seven days
+> a week, 7 AM to 7 PM. Call or text for a straightforward quote before any work
+> starts.
 
 After it goes live:
 
@@ -231,12 +235,11 @@ cleanup, irrigation, and contact pages, with `hreflang` pairs. Needs a translato
 | # | Item | Why deferred | Action |
 |---|---|---|---|
 | 1 | **404 body still empty on unknown paths** | Cloudflare platform setting, not the repo. The branded `404.html` exists but does not serve. | In the Pages project, confirm `not_found_handling` is set to serve `/404.html`. The old checklist item 9 covers this. |
-| 2 | **First-load service-area modal** | Existing behaviour, outside the approved scope. On mobile it covers the hero immediately, which is the pattern Google calls an intrusive interstitial. | Consider showing it only when "Check your area" is clicked, or after a delay/scroll. |
-| 3 | **Hero image weight** | `front-yard-cactus-960.webp` is ~140 KB, `-1600` is ~423 KB. Fine, but the LCP image could be ~60–70 KB. | Re-encode the 960 and 1600 variants at quality ~72. |
-| 4 | **HSTS** | Safe only once every subdomain is HTTPS. | Enable in Cloudflare once confirmed. |
-| 5 | **Content-Security-Policy** | The site uses inline theme scripts and Formspree. A CSP needs testing or it will break the form. | Add and test separately. |
-| 6 | **`Google-Extended` remains blocked** | Deliberate AI policy already in `robots.txt`. Worth knowing it also limits how Google's AI features can use the content. | Leave as-is unless the policy changes. |
-| 7 | **Repo is public** | No secrets are committed, but the old home address is still in Git history. | Rewrite history or make the repo private. |
+| 2 | **Hero image weight** | `front-yard-cactus-960.webp` is ~140 KB, `-1600` is ~423 KB. Fine, but the LCP image could be ~60–70 KB. | Re-encode the 960 and 1600 variants at quality ~72. |
+| 3 | **HSTS** | Safe only once every subdomain is HTTPS. | Enable in Cloudflare once confirmed. |
+| 4 | **Content-Security-Policy** | The site uses inline theme scripts and Formspree. A CSP needs testing or it will break the form. | Add and test separately. |
+| 5 | **`Google-Extended` remains blocked** | Deliberate AI policy already in `robots.txt`. Worth knowing it also limits how Google's AI features can use the content. | Leave as-is unless the policy changes. |
+| 6 | **Repo is public** | No secrets are committed, but the old home address is still in Git history. | Rewrite history or make the repo private. |
 
 ---
 
@@ -318,7 +321,7 @@ Never round up, never estimate, never include reviews that are not visible on th
 
 ---
 
-## 8. What is already done (2026-11-15)
+## 8. What is already done (updated 2026-11-24)
 
 Site work completed and verified locally:
 
@@ -343,6 +346,9 @@ Site work completed and verified locally:
 - Interior-page CSS: breadcrumbs, prose column, photo grid, FAQ accordion,
   two-column footer, responsive grids.
 - Homepage now 855 visible words (was 760) with 27 crawlable internal links (was 1).
+- First-load service-area popup removed (2026-11-24). The checker now opens only
+  from the homepage "Check your area" button; no sessionStorage dismissal flag
+  remains, and the privacy policy no longer mentions session storage.
 
 **Deployed.** Commit `25c9ae8` was pushed to `main` and the Cloudflare Pages build
 completed on 2026-11-15. All 13 URLs return 200, the sitemap lists 13 URLs, and

@@ -250,13 +250,9 @@ The checker:
 
 A ZIP is only a screening tool. Gustavo must confirm actual availability.
 
-The modal appears once per browser tab/session using sessionStorage.
-Only a dismissal flag is stored; the address is not stored.
-If storage is unavailable, the site still works.
-
-To retest the first-load behavior:
-- Open a new browser session/tab without copied session storage, or
-- Remove "sugs-area-dismissed" from sessionStorage in developer tools.
+The checker opens only when a visitor clicks "Check your area". Nothing
+auto-opens on page load. The address or ZIP is never stored — the only browser
+storage on the site is the visitor's light/dark theme choice (localStorage).
 
 ## Formspree configuration
 
